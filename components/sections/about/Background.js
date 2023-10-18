@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 
 // Static Assets
-import StrokeL4 from "../../../public/background-strokes/stroke_l_4.svg";
-import StrokeR3 from "../../../public/background-strokes/stroke_r_3.svg";
-import StrokeMobile1 from "../../../public/background-strokes/stroke_mobile_1.svg";
+import StrokeL4 from "../../../public/background-strokes/MM completo lado1.png.svg";
+import StrokeR3 from "../../../public/background-strokes/MM cruz lado3.png.svg";
+import StrokeMobile1 from "../../../public/background-strokes/MM flecha lado5.png.svg";
 
 const Background = ({ children }) => {
   return (
