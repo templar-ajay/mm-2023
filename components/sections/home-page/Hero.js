@@ -49,6 +49,7 @@ const Hero = ({ data }) => {
                     alt={left_side_icon.alt}
                     width={left_side_icon.dimensions.width}
                     height={left_side_icon.dimensions.height}
+                    style={{ maxWidth: "40px" }}
                   />
                   <Heading
                     component="featured"
@@ -105,7 +106,6 @@ const Hero = ({ data }) => {
                       alt="Insight Dashboard"
                       style={{
                         cursor: "pointer",
-                        maxHeight: 250,
                         objectFit: "cover",
                         width: "100%"
                       }}

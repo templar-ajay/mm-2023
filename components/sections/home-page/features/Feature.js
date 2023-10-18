@@ -53,6 +53,7 @@ const Feature = ({ feature, className }) => {
                     className="absolute -left-[56px] largeTablet:-left-[77px] -top-[8px] largeTablet:-top-[4px]"
                     src={smallImageUrl}
                     alt={smallImageAlt}
+                    style={{ maxWidth: "56px" }}
                   />
                 )}
                 {title[0]?.text && (

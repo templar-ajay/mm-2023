@@ -18,8 +18,12 @@ const DesktopNavigation = ({ navigationItems, logo }) => {
   // };
 
   return (
-    <div className="items-center w-full justify-between flex largeTablet:mr-5 mb-5 largeTablet:mb-0">
-      <div className=" hidden largeTablet:block h-[26px] w-[150px] cursor-pointer">
+    <div
+      style={{ alignItems: "center" }}
+      className="items-center w-full justify-between flex largeTablet:mr-5 mb-5 largeTablet:mb-0"
+    >
+      <div className=" hidden largeTablet:block w-[150px] cursor-pointer">
+        {/*h-[26px]*/}
         <Link href="/" passHref>
           <img src={logo} alt="Brand Logo" />
         </Link>
@@ -38,8 +42,14 @@ const DesktopNavigation = ({ navigationItems, logo }) => {
         contactNumber={"tel:+34678647490"}
         href="https://medicalmarketing.es/"
         gitHub
+        minWidth="120px"
       >
-        Call Us
+        <span className="items-center justify-evenly w-full font-bold text-sm leading-[1] text-[#FEF8F4] flex transition-all ease-in-out duration-400">
+          <svg style={{ width: "16px", height: "28px", fill: "#fff" }}>
+            <path d="M13.68 0H2.32A1.965 1.965 0 00.355 1.967v23.068C.355 26.12 1.233 27 2.32 27h11.36c1.085 0 1.965-.88 1.965-1.965V1.967C15.645.882 14.765 0 13.68 0zM8 25.059a1.254 1.254 0 110-2.509 1.254 1.254 0 010 2.509zm6.173-4.299H1.828V3.32h12.345V20.76z"></path>
+          </svg>
+          Call Us
+        </span>
       </Button>
     </div>
   );

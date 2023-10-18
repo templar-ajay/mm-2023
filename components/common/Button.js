@@ -11,9 +11,10 @@ const Button = ({
   borderVariant = "neon",
   backgroundVariant = "dark",
   fullWidth,
-  gitHub
+  gitHub,
+  minWidth
 }) => {
-  const commonStyle = `h-fit min-h-[38px] min-w-[180px] rounded-md p-[1px] cursor-pointer`;
+  const commonStyle = `h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer`;
   const widthStyle = fullWidth ? `w-full largeTablet:w-fit` : `w-fit`;
   const borderVariantStyle =
     borderVariant === "neon"
@@ -32,9 +33,7 @@ const Button = ({
             <div
               className={`h-full w-full min-h-[38px] rounded-md flex justify-center items-center px-3 py-[6px] ${backgroundVariantStyle} transition-all ease-in-out duration-400`}
             >
-              <span className="font-bold text-sm leading-[1] text-[#FEF8F4] flex transition-all ease-in-out duration-400">
-                Call Us
-              </span>
+              {children}
             </div>
           </a>
         </div>

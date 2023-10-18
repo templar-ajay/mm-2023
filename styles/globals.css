@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+  ---primary-color: "#a428bc";
+  ---secondary-color: "#ffc400";
+}
+
+
 html,
 body {
   padding: 0;
@@ -18,7 +25,7 @@ body {
   color: "#FFF9ED" !important;
 }
 
-body > div {
+body>div {
   overflow-x: hidden;
 }
 
@@ -31,23 +38,25 @@ a {
   box-sizing: border-box;
 }
 
-.boldToGrad > p > strong {
+.boldToGrad>p>strong {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-mm_primary to-mm_secondary;
 }
 
-.featuredHeading p > strong {
-  --tw-gradient-text: #fcb60a, #a428bc;
+.featuredHeading p>strong {
+  --tw-gradient-text: #ffe580, #ffc400;
   background-image: linear-gradient(to right, var(--tw-gradient-text));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
 /* #ed5332, */
 .featuredText p {
   margin: 15px 0;
 }
-.featuredText p > strong {
-  --tw-gradient-text: #fcb60a, #a428bc;
+
+.featuredText p>strong {
+  --tw-gradient-text: var(--secondary), var(--primary);
   background-image: linear-gradient(to right, var(--tw-gradient-text));
   -webkit-background-clip: text;
   background-clip: text;
