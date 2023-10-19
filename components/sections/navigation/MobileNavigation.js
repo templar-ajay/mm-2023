@@ -6,11 +6,11 @@ import DropdownMenu from "./DropdownMenu";
 const MobileNavigation = ({ navigationItems, logo }) => {
   return (
     <div className="flex justify-between items-center w-full">
-      <div className="h-[26px] w-[150px] largeTablet:hidden  cursor-pointer">
+      {/* <div className="h-[26px] w-[150px] largeTablet:hidden  cursor-pointer">
         <Link href="/" passHref>
           <img src={logo} alt="Brand Logo" />
         </Link>
-      </div>
+      </div> */}
 
       <DropdownMenu
         menuItems={navigationItems.map((navItem) => ({

@@ -27,7 +27,8 @@ const Button = ({
     <>
       {contactNumber ? (
         <div
-          className={`${commonStyle} ${widthStyle} ${borderVariantStyle} transition-all ease-in-out duration-400`}
+          style={{ scale: "0.8" }}
+          className={`${commonStyle} ${widthStyle} ${borderVariantStyle}  transition-all ease-in-out duration-400`}
         >
           <a href={contactNumber}>
             <div

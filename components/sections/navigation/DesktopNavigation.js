@@ -20,25 +20,16 @@ const DesktopNavigation = ({ navigationItems, logo }) => {
   return (
     <div
       style={{ alignItems: "center" }}
-      className="items-center w-full justify-between flex largeTablet:mr-5 mb-5 largeTablet:mb-0"
+      className="items-center w-full justify-between flex mr-5 mb-0 "
     >
-      <div className=" hidden largeTablet:block w-[150px] cursor-pointer">
-        {/*h-[26px]*/}
+      <div className="block w-[110px] cursor-pointer">
         <Link href="/" passHref>
-          <img src={logo} alt="Brand Logo" />
+          <img className="sm:w-[110px]" src={logo} alt="Brand Logo" />
         </Link>
       </div>
-      {/* <div className="flex gap-8">
-        {navigationItems.map((link) => (
-          <div key={link.label} className="relative cursor-pointer top">
-            <Link key={link.label} href={link.url} passHref>
-              <p className={`${getProperStyle(link.url)}`}>{link.label}</p>
-            </Link>
-          </div>
-        ))}
-      </div> */}
+
       <Button
-        fullWidth
+        fullWidth={false}
         contactNumber={"tel:+34678647490"}
         href="https://medicalmarketing.es/"
         gitHub
