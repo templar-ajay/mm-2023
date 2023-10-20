@@ -56,8 +56,13 @@ const Feature = ({ feature, className }) => {
       >
         <div className="pb-2 largeTablet:mb-2 mb-[100px]">
           <div className="flex gap-y-0 py-0 flex-col-reverse largeTablet:flex-col">
-            <div ref={refIcon} className=" flex flex-col px-6 gap-y-8">
-              {does_it_have_date_ && adjustCurrentDate(-7).toDateString()}
+            <div ref={refIcon} className=" flex flex-col px-6 ">
+              {/* gap-y-8 */}
+              {does_it_have_date_ &&
+                new Date(adjustCurrentDate(-7).toDateString()).toLocaleString(
+                  "es-ES",
+                  { month: "long", day: "numeric" }
+                )}
               {(smallImageUrl || title[0]?.text) && (
                 <div className="relative largeTablet:max-w-[500px]">
                   {/* {smallImageUrl && (

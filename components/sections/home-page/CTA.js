@@ -18,7 +18,7 @@ const CTA = ({
   pbs
 }) => {
   return (
-    <>
+    <div style={{ marginBottom: "60px" }}>
       <SectionWrapper pb={pb ? pb : 150} pbs={pbs ? pbs : 105}>
         <div className="w-full items-center flex flex-col">
           <Button href={destination_link_of_cta.url}>
@@ -41,7 +41,11 @@ const CTA = ({
         </div>
         {below_text[0]?.text && (
           <div className="w-full largeTablet:w-2/3 pt-4 pb-16 largeTablet:pt-10 largeTablet:pb-20 ">
-            <Typography alignSmall="center" variant="subheading">
+            <Typography
+              alignSmall="center"
+              variant="subheading"
+              fontSize="12px"
+            >
               {RichText.render(below_text)}
             </Typography>
           </div>
@@ -52,7 +56,7 @@ const CTA = ({
           {RichText.render(after_cta)}
         </Typography>
       )}
-    </>
+    </div>
   );
 };
 
