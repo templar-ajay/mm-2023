@@ -12,7 +12,8 @@ const Button = ({
   backgroundVariant = "dark",
   fullWidth,
   gitHub,
-  minWidth
+  minWidth,
+  minHeight = "38px"
 }) => {
   const commonStyle = `h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer`;
   const widthStyle = fullWidth ? `w-full largeTablet:w-fit` : `w-fit`;
@@ -32,6 +33,7 @@ const Button = ({
         >
           <a href={contactNumber}>
             <div
+              // style={{ minHeight: "130px" }}
               className={`h-full w-full min-h-[38px] rounded-md flex justify-center items-center px-3 py-[6px] ${backgroundVariantStyle} transition-all ease-in-out duration-400`}
             >
               {children}

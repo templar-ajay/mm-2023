@@ -63,6 +63,9 @@ a {
   color: transparent;
 }
 
+
+
+
 @layer components {
   .styledDocument a {
     @apply font-semibold text-darkBlue;
@@ -90,5 +93,13 @@ a {
 
   .styledDocument h6 {
     @apply text-xs font-semibold py-1 leading-5;
+  }
+}
+
+
+
+@media only screen and (max-width: 839px) {
+  .first-line-icon {
+    left: -25px;
   }
 }

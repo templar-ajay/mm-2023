@@ -30,7 +30,7 @@ const DropdownMenu = ({ menuItems, className, label }) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute z-50 h-fit min-h-[470px] right-6 left-6 mt-6 bg-gradient-to-r from-[#ED5432] to-[#EDA232] py-9 px-7 rounded-lg">
+            <Menu.Items className="absolute z-50 h-fit min-h-[470px] right-6 left-6 mt-6 bg-gradient-to-r from-[#000] to-[#4d1a6d] py-9 px-7 rounded-lg">
               <p className="font-bold text-textPrimary text-xs opacity-70 tracking-[0.2em] pb-8">
                 MENU
               </p>

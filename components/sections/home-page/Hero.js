@@ -30,6 +30,17 @@ const Hero = ({ data }) => {
     <>
       <SectionWrapper pt={115} pts={60} pbs={0}>
         <ContainerWithLine>
+          <div style={{ position: "relative" }}>
+            <Image
+              className="absolute -top-[20px] -left-[45px] first-line-icon"
+              src={left_side_icon.url}
+              alt={left_side_icon.alt}
+              width={left_side_icon.dimensions.width}
+              height={left_side_icon.dimensions.height}
+              style={{ maxWidth: "40px" }}
+            />
+          </div>
+
           <main id={data.id}>
             <div className="flex largeTablet:items-center h-full flex-col gap-x-6 gap-y-10 largeTablet:flex-row mx-6">
               <div className="flex-1 ">
@@ -43,14 +54,14 @@ const Hero = ({ data }) => {
                 </Typography>
 
                 <div className="relative">
-                  <Image
+                  {/* <Image
                     className="absolute -left-[49px] -top-[75px] largeTablet:-left-[68px] largeTablet:-top-[64px]"
                     src={left_side_icon.url}
                     alt={left_side_icon.alt}
                     width={left_side_icon.dimensions.width}
                     height={left_side_icon.dimensions.height}
                     style={{ maxWidth: "40px" }}
-                  />
+                  /> */}
                   <Heading
                     component="featured"
                     alignSmall="left"

@@ -40,9 +40,12 @@ const Features = ({ data }) => {
         ) : i == data.length - 1 ? (
           <span key={i}></span>
         ) : (
-          <ContainerWithLine key={feature.id}>
+          // <ContainerWithLine key={feature.id}>
+          <>
+            <EndingLine key={feature.id} />
             <CTA data={feature.primary} pb={50} pbs={10} />
-          </ContainerWithLine>
+          </>
+          // </ContainerWithLine>
         );
       })}
 

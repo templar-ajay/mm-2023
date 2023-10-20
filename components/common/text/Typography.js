@@ -6,7 +6,8 @@ const Typography = ({
   children,
   alignLarge = "center",
   alignSmall = "left",
-  isFeatured
+  isFeatured,
+  fontSize
 }) => {
   const isLargeTablet = useMediaQuery();
   const commonStyle = `w-full text-textPrimary`;
@@ -46,6 +47,7 @@ const Typography = ({
   return (
     <span
       style={{
+        fontSize: fontSize,
         textAlign: isLargeTablet ? alignLarge : alignSmall,
         display: "block"
       }}
