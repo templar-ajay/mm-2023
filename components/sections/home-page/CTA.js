@@ -40,7 +40,7 @@ const CTA = ({
           </Button>
         </div>
         {below_text[0]?.text && (
-          <div className="w-full largeTablet:w-2/3 pt-4 pb-16 largeTablet:pt-10 largeTablet:pb-20 ">
+          <div className="w-full largeTablet:w-2/3 pb-16 largeTablet:pt-10 largeTablet:pb-20 ">
             <Typography
               alignSmall="center"
               variant="subheading"
@@ -51,11 +51,13 @@ const CTA = ({
           </div>
         )}
       </SectionWrapper>
-      {after_cta[0]?.text && (
-        <Typography alignSmall="center" variant="preHeading">
-          {RichText.render(after_cta)}
-        </Typography>
-      )}
+      <div>
+        {after_cta[0]?.text && (
+          <Typography alignSmall="center" variant="body1">
+            {RichText.render(after_cta)}
+          </Typography>
+        )}
+      </div>
     </div>
   );
 };
