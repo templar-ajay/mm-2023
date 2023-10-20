@@ -96,10 +96,21 @@ a {
   }
 }
 
-
+.mm-logo-div {
+  width: 170px;
+}
 
 @media only screen and (max-width: 839px) {
   .first-line-icon {
     left: -25px;
+  }
+
+}
+
+@media only screen and (max-width: 420px) {
+
+
+  .mm-logo-div {
+    width: 110px;
   }
 }

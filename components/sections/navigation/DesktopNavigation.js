@@ -22,9 +22,9 @@ const DesktopNavigation = ({ navigationItems, logo }) => {
       style={{ alignItems: "center" }}
       className="items-center w-full justify-between flex mr-5 mb-0 "
     >
-      <div className="block w-[110px] cursor-pointer">
+      <div className="block mm-logo-div cursor-pointer">
         <Link href="/" passHref>
-          <img className="sm:w-[110px]" src={logo} alt="Brand Logo" />
+          <img className="mm-logo-img" src={logo} alt="Brand Logo" />
         </Link>
       </div>
 

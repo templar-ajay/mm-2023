@@ -28,7 +28,7 @@ const Hero = ({ data }) => {
 
   return (
     <>
-      <SectionWrapper pt={115} pts={60} pbs={0}>
+      <SectionWrapper pt={115} pts={60} pbs={0} pb={0}>
         <ContainerWithLine>
           <div style={{ position: "relative" }}>
             <Image
@@ -42,7 +42,7 @@ const Hero = ({ data }) => {
           </div>
 
           <main id={data.id}>
-            <div className="flex largeTablet:items-center h-full flex-col gap-x-6 gap-y-10 largeTablet:flex-row mx-6">
+            <div className="flex largeTablet:items-center h-full flex-col gap-x-6 gap-y-10 largeTablet:flex-row mx-6 pb-[80px]">
               <div className="flex-1 ">
                 <Typography
                   alignSmall="left"
