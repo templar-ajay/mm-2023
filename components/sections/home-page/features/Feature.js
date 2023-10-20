@@ -59,7 +59,7 @@ const Feature = ({ feature, className }) => {
             <div ref={refIcon} className=" flex flex-col px-6 ">
               {/* gap-y-8 */}
               <div
-                style={{ fontSize: "12px", opacity: 0.7, marginBottom: "8px" }}
+                style={{ fontSize: "14px", opacity: 0.7, marginBottom: "8px" }}
               >
                 {does_it_have_date_ &&
                   "Actualizado: " +
