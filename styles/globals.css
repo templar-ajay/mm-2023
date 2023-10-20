@@ -110,8 +110,8 @@ a {
 @media only screen and (max-width: 640px) {
   .hero-arrow {
     display: block;
-    top: -90vh;
-    left: -40vh;
+    top: -39rem;
+    left: -12rem;
     scale: 0.6;
   }
 
@@ -119,8 +119,6 @@ a {
 
 
 @media only screen and (max-width: 420px) {
-
-
   .mm-logo-div {
     width: 110px;
   }

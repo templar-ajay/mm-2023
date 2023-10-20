@@ -41,6 +41,19 @@ const Background = ({ children }) => {
         <Image alt="Doodles" width={500} src={right_3_stroke} />
       </div>
 
+      <div className="absolute hidden largeTablet:block top-[250rem] -left-[5rem]">
+        <Image
+          alt="Doodles"
+          style={{ marginLeft: 50 }}
+          width={500}
+          src={left_2_stroke}
+        />
+      </div>
+
+      <div className="absolute top-[300rem] -right-[35rem] largeTablet:-right-[4rem]">
+        <Image alt="Doodles" width={500} src={right_3_stroke} />
+      </div>
+
       <div className="relative">{children}</div>
     </div>
   );
