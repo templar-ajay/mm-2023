@@ -40,7 +40,7 @@ const CTA = ({
           </Button>
         </div>
         {below_text[0]?.text && (
-          <div className="w-full largeTablet:w-2/3 pb-16 largeTablet:pt-10 largeTablet:pb-20 ">
+          <div className="w-full largeTablet:w-2/3 pb-16 largeTablet:pb-20 ">
             <Typography
               alignSmall="center"
               variant="subheading"
