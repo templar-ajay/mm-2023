@@ -11,7 +11,7 @@ import right_3_stroke from "../../../public/background-strokes/MM completo lado3
 const Background = ({ children }) => {
   return (
     <div className="bg-darkBG text-white h-fit overflow-hidden relative">
-      <div className="absolute hero-arrow hidden tablet:block tablet:-top-[120vh] tablet:-left-[30vw] largeTablet:block largeTablet:top-[-40rem] largeTablet:left-[-23rem] desktop:-left-[0rem]">
+      <div className="absolute hero-arrow hidden tablet:block tablet:-top-[42rem] tablet:-left-[15rem] largeTablet:block largeTablet:top-[-42rem] largeTablet:left-[-15rem] desktop:-left-[0rem]">
         <Image
           alt="Doodles"
           width={500}
