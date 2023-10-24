@@ -46,9 +46,9 @@ const Button = ({
             className={`${commonStyle} ${widthStyle} ${borderVariantStyle} transition-all ease-in-out duration-400`}
           >
             <div
-              className={`h-full w-full min-h-[38px] rounded-md flex justify-center items-center px-3 py-[6px] ${backgroundVariantStyle} transition-all ease-in-out duration-400`}
+              className={`h-full w-full min-h-[38px] rounded-md flex justify-center items-center px-3 py-[6px] ${backgroundVariantStyle} `}
             >
-              <span className="font-bold text-sm leading-[1] text-[#FEF8F4] flex transition-all ease-in-out duration-400">
+              <span className="font-bold text-sm leading-[1] text-[#FEF8F4] flex ">
                 {gitHub && (
                   <span className="mr-2">
                     <AiFillGithub />

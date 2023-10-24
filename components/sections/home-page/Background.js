@@ -20,21 +20,21 @@ const Background = ({ children }) => {
         />
       </div>
 
-      <div className="absolute top-[30rem] right-[-15rem] tablet:-right-[8rem] largeTablet:top-[6rem] largeTablet:laptop:-right-[6rem] laptop:-right-[4rem] desktop:-right-[3rem]">
+      <div className="background-stroke-left absolute top-[30rem] right-[-15rem] tablet:-right-[8rem] largeTablet:top-[6rem] largeTablet:laptop:-right-[6rem] laptop:-right-[4rem] desktop:-right-[3rem]">
         <Image alt="Doodles" width={500} src={upperStrokeInv} />
       </div>
 
-      <div className="absolute hidden largeTablet:block top-[95rem] -left-[5rem]">
+      <div className="background-stroke-right absolute hidden largeTablet:block top-[95rem] -left-[5rem] ">
+        <Image alt="Doodles" width={500} src={right_2_stroke} />
+      </div>
+
+      <div className="absolute hidden largeTablet:block top-[125rem] right-[4rem] ">
         <Image
           alt="Doodles"
           style={{ marginLeft: 50 }}
           width={500}
           src={left_2_stroke}
         />
-      </div>
-
-      <div className="absolute hidden largeTablet:block top-[125rem] right-[4rem]">
-        <Image alt="Doodles" width={500} src={right_2_stroke} />
       </div>
 
       <div className="absolute top-[190rem] -right-[35rem] largeTablet:-right-[4rem]">
@@ -53,6 +53,57 @@ const Background = ({ children }) => {
       <div className="absolute top-[300rem] -right-[35rem] largeTablet:-right-[4rem]">
         <Image alt="Doodles" width={500} src={right_3_stroke} />
       </div>
+
+      <div className="absolute hidden largeTablet:block top-[350rem] -left-[5rem]">
+        <Image
+          alt="Doodles"
+          style={{ marginLeft: 50 }}
+          width={500}
+          src={left_2_stroke}
+        />
+      </div>
+
+      <div className="absolute top-[400rem] -right-[35rem] largeTablet:-right-[4rem]">
+        <Image alt="Doodles" width={500} src={right_3_stroke} />
+      </div>
+
+      <div className="absolute hidden largeTablet:block top-[350rem] -left-[5rem]">
+        <Image
+          alt="Doodles"
+          style={{ marginLeft: 50 }}
+          width={500}
+          src={left_2_stroke}
+        />
+      </div>
+
+      <div className="absolute top-[450rem] -right-[35rem] largeTablet:-right-[4rem]">
+        <Image alt="Doodles" width={500} src={right_3_stroke} />
+      </div>
+
+      <div className="absolute hidden largeTablet:block top-[500rem] -left-[5rem]">
+        <Image
+          alt="Doodles"
+          style={{ marginLeft: 50 }}
+          width={500}
+          src={left_2_stroke}
+        />
+      </div>
+
+      <div className="absolute top-[550rem] -right-[35rem] largeTablet:-right-[4rem]">
+        <Image alt="Doodles" width={500} src={right_3_stroke} />
+      </div>
+
+      {/* <div
+        style={{ zIndex: -1 }}
+        className="absolute hidden largeTablet:block top-[600rem] -left-[5rem]"
+      >
+        <Image
+          alt="Doodles"
+          style={{ marginLeft: 50 }}
+          width={500}
+          src={left_2_stroke}
+        />
+      </div> */}
 
       <div className="relative">{children}</div>
     </div>

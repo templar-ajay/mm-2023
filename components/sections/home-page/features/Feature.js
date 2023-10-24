@@ -8,6 +8,8 @@ import { RichText } from "prismic-reactjs";
 import { adjustCurrentDate } from "@/utils/dateUtils";
 
 const Feature = ({ feature, className }) => {
+  const _delay = 1;
+
   const hide = feature.primary.small_image ? "hidden" : "";
 
   const [refIcon, iconInView] = useInView();
@@ -43,7 +45,7 @@ const Feature = ({ feature, className }) => {
               }}
               transition={{
                 duration: 0.5,
-                delay: 0.1,
+                delay: _delay,
                 ease: "easeInOut"
               }}
               className="absolute -left-[28px] -top-[20px]"
@@ -66,9 +68,12 @@ const Feature = ({ feature, className }) => {
                     new Date(
                       adjustCurrentDate(-7).toDateString()
                     ).toLocaleString("es-ES", {
+                      // year: "numeric",
                       month: "long",
                       day: "numeric"
-                    })}
+                    }) +
+                    ", " +
+                    new Date(adjustCurrentDate(-7)).getFullYear()}
               </div>
               {(smallImageUrl || title[0]?.text) && (
                 <div className="relative largeTablet:max-w-[500px]">
@@ -100,7 +105,7 @@ const Feature = ({ feature, className }) => {
                       }}
                       transition={{
                         duration: 0.7,
-                        delay: 0.2,
+                        delay: _delay + 0.2,
                         ease: "easeInOut"
                       }}
                     >
@@ -120,7 +125,11 @@ const Feature = ({ feature, className }) => {
                     y: posY,
                     x: iconInView ? 0 : 10
                   }}
-                  transition={{ duration: 0.7, delay: 0.2, ease: "easeInOut" }}
+                  transition={{
+                    duration: 0.7,
+                    delay: _delay + 0.2,
+                    ease: "easeInOut"
+                  }}
                 >
                   <Typography
                     variant="body1"
@@ -140,7 +149,11 @@ const Feature = ({ feature, className }) => {
                 opacity: imageInView ? 1 : 0,
                 x: imageInView ? 0 : -10
               }}
-              transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+              transition={{
+                duration: 0.5,
+                delay: _delay + 0.2,
+                ease: "easeInOut"
+              }}
             >
               {!!images.length && (
                 <div

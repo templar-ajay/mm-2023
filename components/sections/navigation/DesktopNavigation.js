@@ -5,18 +5,6 @@ import Link from "next/link";
 import Button from "../../common/Button";
 
 const DesktopNavigation = ({ navigationItems, logo }) => {
-  // const { pathname } = useRouter();
-  // const defaultStyle = "font-bold text-textPrimary text-sm";
-  // const activeLinkStyle =
-  //   "after:absolute after:bg-gradient-to-r from-[#ED5432] to-[#EDA232] after:w-full after:h-[3px] after:bottom-[-8px] after:left-0";
-
-  // const getProperStyle = (link) => {
-  //   if (pathname.includes(link)) {
-  //     return `${defaultStyle} ${activeLinkStyle}`;
-  //   }
-  //   return defaultStyle;
-  // };
-
   return (
     <div
       style={{ alignItems: "center" }}

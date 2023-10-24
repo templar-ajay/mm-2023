@@ -9,7 +9,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="selection:bg-brandOrange selection:text-darkBG">
+      <body className="selection:bg-mm_primary selection:text-bgWhite">
         <Main />
         <NextScript />
       </body>
