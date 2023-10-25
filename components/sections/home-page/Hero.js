@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Components
 import SectionWrapper from "../../common/layout/SectionWrapper";
@@ -7,6 +7,7 @@ import { Heading, Typography } from "../../common/text";
 import Logos from "./Logos";
 import Image from "next/image";
 import { RichText } from "prismic-reactjs";
+import Video from "@/components/common/Video";
 // import Button from "../../common/Button";
 // import DecoratedText from "../../common/text/utils/DecoratedText";
 // import Image from "next/image";
@@ -25,6 +26,7 @@ const Hero = ({ data }) => {
       long_version_of_video
     }
   } = data;
+  const [videoClicked, setVideoClick] = useState(false);
 
   return (
     <>
@@ -108,8 +110,9 @@ const Hero = ({ data }) => {
 
               <div className="flex-1">
                 <div>
-                  <a href={long_version_of_video?.embed_url} target="_blank">
+                  {!videoClicked ? (
                     <img
+                      onClick={() => setVideoClick(true)}
                       loading="eager"
                       className="relative  scl -right-4"
                       // scale-125 largeTablet:scale-125
@@ -121,7 +124,9 @@ const Hero = ({ data }) => {
                         width: "100%"
                       }}
                     />
-                  </a>
+                  ) : (
+                    <Video link={long_version_of_video.embed_url} />
+                  )}
                 </div>
               </div>
             </div>
