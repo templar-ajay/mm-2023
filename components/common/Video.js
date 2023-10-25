@@ -8,7 +8,13 @@ export default function Video({ link }) {
 
   return (
     <>
-      <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+      <div
+        style={{
+          padding: "56.25% 0 0 0",
+          position: "relative",
+          marginTop: "6.3rem"
+        }}
+      >
         <iframe
           src={getEmbedUrl(link) + "?autoplay=1"}
           frameborder="0"
