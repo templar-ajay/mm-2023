@@ -6,8 +6,9 @@ import {
   FeaturedProductStyles
 } from "./FeaturesStyles";
 import Button from "../../../common/Button";
+import { RichText } from "prismic-reactjs";
 
-export default function FeatureSlides() {
+export default function FeatureSlides({ videoReviews }) {
   const [show, setShow] = useState(false);
   const [link, setLink] = useState("");
   const handleClose = () => setShow(false);
@@ -21,30 +22,44 @@ export default function FeatureSlides() {
   return (
     <FeaturedProductsStyles className="section">
       <div className="container container__tight">
-        <h3 className="h1">{"feature_product.feature_title"}</h3>
+        <h3 className="h1 text-center">{"LA PRUEBA:"}</h3>
         <div className="theCopyP"></div>
       </div>
 
       <div className="container container__tight container__scroll">
-        <FeaturedProductStyles
-          onClick={() =>
-            ___openModal(
-              "https://player.vimeo.com/video/780826530?h=4d1108cf0c"
-            )
-          }
-        >
-          <img
-            className="features__item--img"
-            src="../../public/orange_right_arrow.png"
-            alt="Doctor David Molina Obesis"
-          />
-          <div className="features__item--content">
-            <h4>{"feature_product.feature_text_1.title"}</h4>
-            <p>{"feature_product.feature_text_1.text"}</p>
-            <Button text="Ver Video" as="span" arrow={true} />
-          </div>
-        </FeaturedProductStyles>
+        {videoReviews.map(
+          ({
+            image_of_review,
+            name_of_reviewer,
+            description_of_review,
+            cta_to_watch_video
+          }) => (
+            <FeaturedProductStyles
+              onClick={() =>
+                ___openModal(
+                  "https://player.vimeo.com/video/780826530?h=4d1108cf0c"
+                )
+              }
+            >
+              <img
+                className="features__item--img"
+                src={image_of_review.url}
+                alt={image_of_review.alt}
+              />
+              <div className="features__item--content">
+                <h4>{name_of_reviewer}</h4>
+                <p>{RichText.render(description_of_review)}</p>
+                <Button
+                  text={RichText.render(cta_to_watch_video)}
+                  as="span"
+                  arrow={true}
+                />
+              </div>
+            </FeaturedProductStyles>
+          )
+        )}
 
+        {/* 
         <FeaturedProductStyles
           onClick={() =>
             ___openModal("https://player.vimeo.com/video/841623575")
@@ -191,7 +206,7 @@ export default function FeatureSlides() {
             <p>{"feature_product.feature_text_7.text"}</p>
             <Button text="Ver Video" as="span" arrow={true} />
           </div>
-        </FeaturedProductStyles>
+        </FeaturedProductStyles> */}
 
         {/* <Modal
           show={show}
