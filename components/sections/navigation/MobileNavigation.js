@@ -13,11 +13,8 @@ const MobileNavigation = ({ navigationItems, logo }) => {
       </div> */}
 
       <DropdownMenu
-        menuItems={navigationItems.map((navItem) => ({
-          label: navItem.label,
-          href: navItem.url
-        }))}
-        label="Navigation"
+        menuItems={navigationItems.menu_items}
+        label={navigationItems.logo_header?.alt}
       />
     </div>
   );

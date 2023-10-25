@@ -4,6 +4,7 @@ import React from "react";
 import Header from "../../sections/navigation/Header";
 import Footer from "../../sections/Footer";
 import SeoBlock from "./SEO/SEO";
+import { commonData } from "@/services/dummyData";
 
 const PageLayout = ({
   children,
@@ -20,7 +21,10 @@ const PageLayout = ({
       <BackgroundWrapper>
         {!pressPage && <Header navigationItems={navigationURLs} />}
         <div>{children}</div>
-        <Footer pressPage={pressPage} navigationItems={navigationURLs} />
+        <Footer
+          pressPage={pressPage}
+          navigationItems={commonData.navigationLinks}
+        />
       </BackgroundWrapper>
     </div>
   );

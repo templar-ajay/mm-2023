@@ -7,10 +7,9 @@ import Hero from "@/components/sections/home-page/Hero";
 import Features from "@/components/sections/home-page/features/Features";
 // import Testimonials from "@/components/sections/home-page/testimonials/Testimonials";
 import PrismicClient from "@/services/prismic";
-import { commonData } from "@/services/dummyData";
 
-export default function Home({ landingPageData, commonData }) {
-  console.log(landingPageData);
+export default function Home({ landingPageData, navLinks }) {
+  console.log(landingPageData, navLinks);
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData[0].data;
@@ -22,7 +21,7 @@ export default function Home({ landingPageData, commonData }) {
   return (
     <PageLayout
       seoData={{ seo_title, seo_description, seo_icon, seo_url }}
-      navigationURLs={commonData.navigationLinks}
+      navigationURLs={navLinks[0].data}
       BackgroundWrapper={Background}
     >
       <Hero data={heroData} />
@@ -36,11 +35,12 @@ export default function Home({ landingPageData, commonData }) {
 }
 
 export async function getServerSideProps() {
-  const landingPageData = await PrismicClient.query(
-    Prismic.Predicates.at("document.type", "landing_page")
-  );
+  const [landingPageData, { results: navLinks }] = await Promise.all([
+    PrismicClient.query(Prismic.Predicates.at("document.type", "landing_page")),
+    PrismicClient.query(Prismic.Predicates.at("document.type", "navigation"))
+  ]);
 
   return {
-    props: { landingPageData: landingPageData.results, commonData }
+    props: { landingPageData: landingPageData.results, navLinks }
   };
 }

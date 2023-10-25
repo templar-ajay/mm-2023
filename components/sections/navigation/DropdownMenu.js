@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
+import { RichText } from "prismic-reactjs";
 
 import SocialLinks from "../../common/SocialLinks";
 import MobileMenu from "../../../public/mobile_menu.svg";
@@ -35,11 +36,11 @@ const DropdownMenu = ({ menuItems, className, label }) => {
                 MENU
               </p>
               <div className="flex flex-col gap-y-8 pb-14">
-                {menuItems.map(({ label, href }) => (
-                  <Menu.Item key={label}>
-                    <Link href={href} passHref>
+                {menuItems.map(({ label, the_link }) => (
+                  <Menu.Item key={label[0].text}>
+                    <Link href={new URL(the_link.url).pathname} passHref>
                       <span className="font-bold text-textPrimary text-lg">
-                        {label}
+                        {RichText.render(label)}
                       </span>
                     </Link>
                   </Menu.Item>
