@@ -30,7 +30,7 @@ export default function FeatureSlides({ videoReviews }) {
         {videoReviews.map(
           ({
             image_of_review,
-            name_of_reviewer,
+            name_of_reviwer,
             description_of_review,
             cta_to_watch_video
           }) => (
@@ -47,8 +47,8 @@ export default function FeatureSlides({ videoReviews }) {
                 alt={image_of_review.alt}
               />
               <div className="features__item--content">
-                <h4>{name_of_reviewer}</h4>
-                <p>{RichText.render(description_of_review)}</p>
+                <div className="h4">{RichText.render(name_of_reviwer)}</div>
+                <div>{RichText.render(description_of_review)}</div>
                 <Button
                   text={RichText.render(cta_to_watch_video)}
                   as="span"
