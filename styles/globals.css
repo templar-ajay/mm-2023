@@ -2,14 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  ---primary-color: "#a428bc";
-  ---secondary-color: "#ffc400";
+  --primary-color: "#a428bc";
+  --secondary-color: "#ffc400";
+
+  --gap: 40px;
+  --grisTercero: #333333;
+  --borderSpacing: 30px;
+  --textShadow: #164c84;
+  --bodyColor: white;
+  --boxShadow: #000;
+  --sectionMargin: 60px;
 }
 
+.section {
+  margin-top: var(--sectionMargin);
+  margin-bottom: var(--sectionMargin);
+  padding: 0 var(--borderSpacing);
+}
+.section.section__padding {
+  padding-top: var(--sectionMargin);
+  padding-bottom: var(--sectionMargin);
+}
 
-html,
+.container html,
 body {
   padding: 0;
   margin: 0;
@@ -25,7 +41,7 @@ body {
   color: "#FFF9ED" !important;
 }
 
-body>div {
+body > div {
   overflow-x: hidden;
 }
 
@@ -38,11 +54,11 @@ a {
   box-sizing: border-box;
 }
 
-.boldToGrad>p>strong {
+.boldToGrad > p > strong {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-mm_primary to-mm_secondary;
 }
 
-.featuredHeading p>strong {
+.featuredHeading p > strong {
   --tw-gradient-text: #ffe580, #ffc400;
   background-image: linear-gradient(to right, var(--tw-gradient-text));
   -webkit-background-clip: text;
@@ -55,16 +71,13 @@ a {
   margin: 15px 0;
 }
 
-.featuredText p>strong {
+.featuredText p > strong {
   --tw-gradient-text: #ffe580, #ffc400;
   background-image: linear-gradient(to right, var(--tw-gradient-text));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-
-
-
 
 @layer components {
   .styledDocument a {
@@ -104,7 +117,6 @@ a {
   .first-line-icon {
     left: -25px;
   }
-
 }
 
 @media only screen and (max-width: 640px) {
@@ -114,9 +126,7 @@ a {
     left: -12rem;
     scale: 0.6;
   }
-
 }
-
 
 @media only screen and (max-width: 420px) {
   .mm-logo-div {
