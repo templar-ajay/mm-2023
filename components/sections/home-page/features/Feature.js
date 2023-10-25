@@ -8,7 +8,7 @@ import { RichText } from "prismic-reactjs";
 import { adjustCurrentDate } from "@/utils/dateUtils";
 
 const Feature = ({ feature, className }) => {
-  const _delay = 1;
+  const _delay = 0.5;
 
   const hide = feature.primary.small_image ? "hidden" : "";
 
