@@ -10,7 +10,7 @@ export default function Video({ link }) {
     <>
       <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
         <iframe
-          src={getEmbedUrl(link)}
+          src={getEmbedUrl(link) + "?autoplay=1"}
           frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
