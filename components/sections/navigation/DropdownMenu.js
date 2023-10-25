@@ -35,12 +35,19 @@ const DropdownMenu = ({ menuItems, className, label }) => {
               <p className="font-bold text-textPrimary text-xs opacity-70 tracking-[0.2em] pb-8">
                 MENU
               </p>
-              <div className="flex flex-col gap-y-8 pb-14">
-                {menuItems.map(({ label, the_link }) => (
+              <div className="flex flex-col gap-y-2 pb-14 ">
+                {menuItems.map(({ label, small_label, the_link }) => (
                   <Menu.Item key={label[0].text}>
-                    <Link href={new URL(the_link.url).pathname} passHref>
-                      <span className="font-bold text-textPrimary text-lg">
+                    <Link
+                      href={new URL(the_link.url).pathname}
+                      className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
+                      passHref
+                    >
+                      <span className="font-bold text-3xl ">
                         {RichText.render(label)}
+                      </span>
+                      <span className="text-md">
+                        {RichText.render(small_label)}
                       </span>
                     </Link>
                   </Menu.Item>
