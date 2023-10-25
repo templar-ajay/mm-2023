@@ -24,7 +24,7 @@ const AboutPage = ({ commonData, aboutPageData }) => {
 
 export default AboutPage;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   return {
     props: { commonData, aboutPageData },
     revalidate: 30
