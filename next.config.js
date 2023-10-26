@@ -5,6 +5,9 @@ const nextConfig = {
     domains: ["gads.cdn.prismic.io"],
     formats: ["image/avif", "image/webp"],
     loader: "default"
+  },
+  experimental: {
+    forceSwcTransforms: true
   }
 };
 

@@ -8,6 +8,7 @@ import Logos from "./Logos";
 import Image from "next/image";
 import { RichText } from "prismic-reactjs";
 import Video from "@/components/common/Video";
+import Modal from "@/components/common/Modal";
 // import Button from "../../common/Button";
 // import DecoratedText from "../../common/text/utils/DecoratedText";
 // import Image from "next/image";
@@ -125,7 +126,12 @@ const Hero = ({ data }) => {
                       }}
                     />
                   ) : (
-                    <Video link={long_version_of_video.embed_url} />
+                    <Modal
+                      setShowModal={setVideoClick}
+                      showModal={videoClicked}
+                    >
+                      <Video link={long_version_of_video.embed_url} />
+                    </Modal>
                   )}
                 </div>
               </div>

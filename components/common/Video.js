@@ -1,25 +1,19 @@
+import styled from "styled-components";
+
 export default function Video({ link }) {
   const getEmbedUrl = (url) => {
     if (url.includes("embed")) return url;
-
     const urlObject = new URL(url);
     return urlObject.origin + "/embed/" + urlObject.searchParams.get("v");
   };
 
   return (
     <>
-      <div
-        style={{
-          padding: "56.25% 0 0 0",
-          position: "relative",
-          marginTop: "6.3rem"
-        }}
-      >
+      <VideoContainer>
         <iframe
           src={getEmbedUrl(link) + "?autoplay=1"}
-          frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
           style={{
             position: "absolute",
             top: "0",
@@ -29,8 +23,14 @@ export default function Video({ link }) {
           }}
           title="PISANO (Medical Marketing)V2.mp4"
         ></iframe>
-      </div>
+      </VideoContainer>
       <script src="https://player.vimeo.com/api/player.js"></script>
     </>
   );
 }
+
+const VideoContainer = styled.div`
+  position: relative;
+  height: 432px;
+  width: 768px;
+`;
