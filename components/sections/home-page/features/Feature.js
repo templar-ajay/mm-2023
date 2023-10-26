@@ -48,7 +48,7 @@ const Feature = ({ feature, className }) => {
                 delay: _delay,
                 ease: "easeInOut"
               }}
-              className="absolute -left-[28px] -top-[2px] z-10"
+              className="absolute -left-[28px] -top-[12px] z-10"
               src={smallImageUrl}
               alt={smallImageAlt}
               style={{ maxWidth: "56px" }}
