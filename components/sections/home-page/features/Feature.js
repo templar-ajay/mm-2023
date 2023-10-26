@@ -48,7 +48,7 @@ const Feature = ({ feature, className }) => {
                 delay: _delay,
                 ease: "easeInOut"
               }}
-              className="absolute -left-[28px] -top-[20px]"
+              className="absolute -left-[28px] -top-[20px] z-10"
               src={smallImageUrl}
               alt={smallImageAlt}
               style={{ maxWidth: "56px" }}
@@ -116,7 +116,6 @@ const Feature = ({ feature, className }) => {
                   )}
                 </div>
               )}
-
               <div className="largeTablet:max-w-[500px]">
                 <motion.div
                   initial={{ opacity: 0, y: initPosY, x: 10 }}
