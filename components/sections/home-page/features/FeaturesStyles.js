@@ -25,7 +25,6 @@ export const FeaturedProductsStyles = styled.section`
       }
       &::-webkit-scrollbar-track {
         background: #000;
-        cursor: pointer;
         border-radius: 10px;
       }
 

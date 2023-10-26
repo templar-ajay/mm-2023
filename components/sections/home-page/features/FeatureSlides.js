@@ -32,11 +32,14 @@ export default function FeatureSlides({ videoReviews }) {
             className="absolute -left-1"
           />
         </div>
-        <div className="absolute h-[4rem] w-[4rem] top-[50%] -right-2 transform-y-[-50%] bg-[#fff] rounded-full cursor-pointer z-50" onClick={}>
+        <div className="absolute h-[4rem] w-[4rem] top-[50%] -right-2 transform-y-[-50%] bg-[#fff] rounded-full cursor-pointer z-50">
           <AiOutlineRight
             fill="black"
             size="4rem"
             className="absolute left-1"
+            onClick={(event) => {
+              event.currentTarget.parentElement.scrollBy();
+            }}
           />
         </div> */}
       </div>
