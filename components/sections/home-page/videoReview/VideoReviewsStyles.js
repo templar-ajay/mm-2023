@@ -45,6 +45,9 @@ export const VideoReviewsStyles = styled.section`
     color: white !important;
     font-size: 4rem;
     font-weight: bold;
+    @media (max-width: 640px) {
+      font-size: 2rem;
+    }
   }
 
   > div {
