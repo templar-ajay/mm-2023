@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FaqStyles = styled.section`
-  --p: 0.75em;
   strong {
     font-weight: inherit !important;
   }

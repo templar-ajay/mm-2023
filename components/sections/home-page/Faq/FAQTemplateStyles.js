@@ -4,7 +4,7 @@ export const FAQTemplateStyles = styled.section`
   padding-left: 0px !important;
   padding-right: 0px !important;
 
-  background-color: #ccc;
+  background-color: var(--fondoGris);
 
   position: relative;
   height: auto;
@@ -51,9 +51,6 @@ export const FAQTemplateStyles = styled.section`
     }
   }
 
-  .container > div {
-  }
-
   > .container {
     position: relative;
     display: flex;
@@ -83,7 +80,6 @@ export const FAQTemplateStyles = styled.section`
   }
 
   .menu {
-    --menuWidth: 100vw;
     background-color: #000;
     width: var(--menuWidth);
     transform: translateX(calc(var(--menuWidth) * -1));

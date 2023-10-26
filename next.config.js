@@ -6,6 +6,9 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     loader: "default"
   },
+  compiler: {
+    styledComponents: true
+  },
   experimental: {
     forceSwcTransforms: true
   }

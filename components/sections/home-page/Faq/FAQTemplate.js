@@ -8,7 +8,7 @@ const FAQTemplate = ({ faqs }) => {
   return (
     <FAQTemplateStyles className="section section__padding">
       <div className="container container__tight">
-        <h3 className="h1">{faqs.id}</h3>
+        <h3 className="h1 text-sky-400/100">{faqs.id}</h3>
         <div className="theCopyP">
           <div className="column">
             {faqs.items.map((item, index) => (

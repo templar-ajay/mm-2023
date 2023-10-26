@@ -6,6 +6,7 @@
   --primary-color: "#a428bc";
   --secondary-color: "#ffc400";
 
+  /* video reviews */
   --gap: 40px;
   --grisTercero: #333333;
   --borderSpacing: 30px;
@@ -13,8 +14,21 @@
   --bodyColor: white;
   --boxShadow: #000;
   --sectionMargin: 60px;
+
+  /* faqs */
+  --p: 0.75em;
+
+  /* faqsTemplate */
+  --menuWidth: 100vw;
+
+  /* BannerEbook */
+  --fondoGris: #f3f3f3;
+  --bannerTitle: 35px;
+  --h5: 17px;
+  --subHeaderColor: #000;
 }
 
+/* used in video-reviews */
 .section {
   margin-top: var(--sectionMargin);
   margin-bottom: var(--sectionMargin);
@@ -23,6 +37,13 @@
 .section.section__padding {
   padding-top: var(--sectionMargin);
   padding-bottom: var(--sectionMargin);
+}
+
+/* used in bannerEbook */
+.subHeader {
+  font-size: 25px;
+  color: var(--subHeaderColor);
+  text-align: center;
 }
 
 .container html,
