@@ -5,9 +5,8 @@ import Hero from "@/components/sections/home-page/Hero";
 // import Logos from "@/components/sections/home-page/Logos";
 // import Newsletter from "@/components/sections/home-page/Newsletter";
 import Features from "@/components/sections/home-page/features/Features";
-// import Testimonials from "@/components/sections/home-page/testimonials/Testimonials";
 import PrismicClient from "@/services/prismic";
-import FeatureSlides from "@/components/sections/home-page/features/FeatureSlides";
+import VideoReviews from "@/components/sections/home-page/videoReview/VideoReviews";
 
 export default function Home({ landingPageData, navLinks }) {
   console.log(landingPageData, navLinks);
@@ -29,8 +28,7 @@ export default function Home({ landingPageData, navLinks }) {
       <Hero data={heroData} />
       {/* <Logos data={homePageData.hero.users} /> */}
       <Features data={featuresData} />
-      {/* <Testimonials data={homePageData.testimonialsSection} /> */}
-      <FeatureSlides videoReviews={videoReviewsData.items} />
+      <VideoReviews videoReviews={videoReviewsData.items} />
       {/* <Newsletter /> */}
     </PageLayout>
   );

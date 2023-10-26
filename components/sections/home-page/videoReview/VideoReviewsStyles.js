@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FeaturedProductsStyles = styled.section`
+export const VideoReviewsStyles = styled.section`
   margin: 0px !important;
   padding-top: 150px !important;
   padding-bottom: 150px !important;
@@ -69,7 +69,7 @@ export const FeaturedProductsStyles = styled.section`
   }
 `;
 
-export const FeaturedProductStyles = styled.aside`
+export const VideoReviewStyles = styled.aside`
   cursor: pointer !important;
   min-height: 408px;
   max-width: 230px;
