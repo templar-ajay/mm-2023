@@ -51,7 +51,7 @@ const Feature = ({ feature, className }) => {
               className="absolute -left-[28px] -top-[20px]"
               src={smallImageUrl}
               alt={smallImageAlt}
-              style={{ maxWidth: "56px", zIndex: 777 }}
+              style={{ maxWidth: "56px" }}
             />
           )
         }
