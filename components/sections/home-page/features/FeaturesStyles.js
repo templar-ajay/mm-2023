@@ -4,7 +4,7 @@ export const FeaturedProductsStyles = styled.section`
   margin: 0px !important;
   padding-top: 150px !important;
   padding-bottom: 150px !important;
-  background-color: var(--grisTercero);
+  background-color: var(--darkBG);
 
   .container {
     margin-left: auto;
@@ -21,18 +21,22 @@ export const FeaturedProductsStyles = styled.section`
 
       &::-webkit-scrollbar {
         width: 14px;
-        height: 4px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: var(--secondary-color);
-        border-radius: 0px;
-      }
-      &::-webkit-scrollbar-thumb:hover {
-        background: var(--secondary-color);
+        height: 6px;
       }
       &::-webkit-scrollbar-track {
         background: #000;
-        border-radius: 0px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #f8f9fa;
+        cursor: pointer;
+
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ffe588;
       }
     }
   }
@@ -40,6 +44,8 @@ export const FeaturedProductsStyles = styled.section`
   .h1 {
     -webkit-text-fill-color: white;
     color: white !important;
+    font-size: 4rem;
+    font-weight: bold;
   }
 
   > div {
@@ -68,7 +74,10 @@ export const FeaturedProductStyles = styled.aside`
   cursor: pointer !important;
   min-height: 408px;
   max-width: 230px;
-  background-color: #000;
+  /*
+  background-color: #a428bc;
+  */
+  background-image: linear-gradient(to bottom right, #a428bc, #fff8c9, #a428bc);
   flex: 0 0 80%;
   overflow: hidden;
   scroll-snap-align: center;
@@ -141,6 +150,7 @@ export const FeaturedProductStyles = styled.aside`
 
     h4 {
       color: #fff;
+      font-size: 1.8rem;
     }
 
     p {
@@ -150,8 +160,8 @@ export const FeaturedProductStyles = styled.aside`
 
   &:hover {
     cursor: pointer;
-    border-color: var(--primary-color);
-    box-shadow: var(--boxShadow);
+    border-color: #fff;
+    box-shadow: 0px 0px 0.5rem #fff;
 
     .features__item--img {
       transform: scale(1.1);
