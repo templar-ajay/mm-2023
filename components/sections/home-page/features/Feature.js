@@ -5,7 +5,7 @@ import ContainerWithLine from "../../../common/ContainerWithLine";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { RichText } from "prismic-reactjs";
-import { adjustCurrentDate } from "@/utils/dateUtils";
+import { adjustCurrentDate } from "@/utils/dateTimeUtils";
 
 const Feature = ({ feature, className }) => {
   const _delay = 0.5;

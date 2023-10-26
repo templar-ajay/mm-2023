@@ -1,10 +1,10 @@
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/blog/Background";
-import Blogs from "@/components/sections/blog/Blogs";
+// import Blogs from "@/components/sections/blog/Blogs";
 import { commonData } from "../../services/dummyData";
 import PrismicClient from "@/services/prismic";
 import Prismic from "prismic-javascript";
-import { validPaginationParams } from "@/utils/validQueryParams";
+import { validPaginationParams } from "@/utils/queryParamUtils";
 
 const BlogsPage = ({ commonData, blogs, totalPageCount }) => {
   console.log("blogs:", blogs, "\n\ntotalPageCount:", totalPageCount);
