@@ -1,38 +1,3 @@
-export const commonData = {
-  navigationLinks: [
-    { _type: "navigation", url: "/#features", label: "Features" },
-    { _type: "navigation", url: "/pricing", label: "Pricing" },
-    { _type: "navigation", url: "/about", label: "About" },
-    { _type: "navigation", url: "/blog", label: "Blog" }
-  ],
-  footer: [
-    {
-      type: "seo",
-      title: "string",
-      description: "string",
-      url: "/",
-      image: {
-        type: "/vercel.svg",
-        asset: "",
-        crop: "",
-        hotspot: ""
-      }
-    },
-    {
-      type: "seo2",
-      title: "string",
-      description: "string",
-      url: "/",
-      image: {
-        type: "/vercel.svg",
-        asset: "",
-        crop: "",
-        hotspot: ""
-      }
-    }
-  ]
-};
-
 export const aboutPageData = {
   _type: "aboutPage",
   introduction: {

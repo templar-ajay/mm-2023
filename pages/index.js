@@ -25,7 +25,7 @@ export default function Home({ landingPageData, navigation }) {
   return (
     <PageLayout
       seoData={{ seo_title, seo_description, seo_icon, seo_url }}
-      navigationURLs={navigation.results[0].data}
+      navigation={navigation}
       BackgroundWrapper={Background}
     >
       <Hero data={heroData} />

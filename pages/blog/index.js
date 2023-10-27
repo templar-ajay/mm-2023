@@ -11,7 +11,7 @@ const BlogsPage = ({ blogs, totalPageCount, navigation }) => {
   return (
     <PageLayout
       seoData={{}}
-      navigationURLs={navigation.results[0].data}
+      navigation={navigation}
       BackgroundWrapper={Background}
     >
       {/* <Blogs data={blogs} /> */}

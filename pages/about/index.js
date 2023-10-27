@@ -11,7 +11,7 @@ const AboutPage = ({ navigation }) => {
   return (
     <PageLayout
       seoData={{}}
-      navigationURLs={navigation.results[0].data}
+      navigation={navigation}
       BackgroundWrapper={Background}
     >
       <About

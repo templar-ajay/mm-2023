@@ -8,12 +8,12 @@ import SocialLinks from "../../common/SocialLinks";
 import MobileMenu from "../../../public/mobile_menu.svg";
 import MobileCloseMenu from "../../../public/close_btn.svg";
 
-const DropdownMenu = ({ menuItems, className, label }) => {
+const DropdownMenu = ({ menuItems = [] }) => {
   return (
-    <Menu as="div" className={`inline-block text-left ${className}`}>
+    <Menu as="div" className="inline-block text-left">
       {({ open }) => (
         <>
-          <Menu.Button className="text-white" aria-label={label}>
+          <Menu.Button className="text-white" aria-label="menu button">
             <Image
               width="auto"
               src={open ? MobileCloseMenu : MobileMenu}

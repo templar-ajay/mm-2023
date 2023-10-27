@@ -4,26 +4,26 @@ import React from "react";
 import Header from "../../sections/navigation/Header";
 import Footer from "../../sections/Footer";
 import SeoBlock from "./SEO/SEO";
-import { commonData } from "@/services/dummyData";
 
 const PageLayout = ({
   children,
   seoData,
-  navigationURLs,
+  navigation,
   BackgroundWrapper,
-  pressPage,
   blogPage = false
 }) => {
+  const navigationData = navigation.results[0] || [];
+
   return (
     <div>
       {!blogPage && <SeoBlock {...seoData} />}
 
       <BackgroundWrapper>
-        {!pressPage && <Header navigationItems={navigationURLs} />}
+        <Header navigationData={navigationData} />
         <div>{children}</div>
         <Footer
-          pressPage={pressPage}
-          navigationItems={commonData.navigationLinks}
+          navigationData={navigationData}
+          licenseText={navigation.license}
         />
       </BackgroundWrapper>
     </div>
