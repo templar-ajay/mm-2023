@@ -31,6 +31,7 @@ const BannerEbook = ({ ebookData: { primary } }) => {
             <iframe
               src="https://msgsndr.com/widget/form/SOWZvPFIueOfyo3C5dkG"
               title="Descargar ebook gratuito"
+              style={{ height: "400px", marginBottom: "-100px" }}
             />
 
             <Helmet>
