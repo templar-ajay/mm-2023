@@ -102,8 +102,11 @@ export const FAQTemplateStyles = styled.section`
     // color: white !important;
     font-size: 4rem;
     font-weight: bold;
+    @media (max-width: 840px) {
+      font-size: 2.8rem;
+    }
     @media (max-width: 640px) {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
   }
 `;
