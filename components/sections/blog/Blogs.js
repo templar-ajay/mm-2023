@@ -3,7 +3,7 @@ import React from "react";
 // Components
 import SectionWrapper from "../../common/layout/SectionWrapper";
 import { Heading, Typography } from "../../common/text";
-import Post from "./components/Post";
+// import Post from "./components/Post";
 import FeaturedPost from "./FeaturedPost";
 
 const Blogs = ({ data }) => {

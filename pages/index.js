@@ -9,8 +9,8 @@ import VideoReviews from "@/components/sections/home-page/videoReview/VideoRevie
 import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
 import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook";
 
-export default function Home({ landingPageData, navLinks }) {
-  console.log(landingPageData, navLinks);
+export default function Home({ landingPageData, navigation }) {
+  console.log(landingPageData, navigation);
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.at(-1).data;
@@ -25,11 +25,10 @@ export default function Home({ landingPageData, navLinks }) {
   return (
     <PageLayout
       seoData={{ seo_title, seo_description, seo_icon, seo_url }}
-      navigationURLs={navLinks[0].data}
+      navigationURLs={navigation.results[0].data}
       BackgroundWrapper={Background}
     >
       <Hero data={heroData} />
-      {/* <Logos data={homePageData.hero.users} /> */}
       <Features data={featuresData} />
       <VideoReviews videoReviews={videoReviewsData.items} />
       <BannerEbook ebookData={ebookData} />
@@ -39,12 +38,9 @@ export default function Home({ landingPageData, navLinks }) {
 }
 
 export async function getServerSideProps() {
-  const [landingPageData, { results: navLinks }] = await Promise.all([
-    PrismicClient.query(Prismic.Predicates.at("document.type", "landing_page")),
-    PrismicClient.query(Prismic.Predicates.at("document.type", "navigation"))
-  ]);
+  const landingPageData = await PrismicClient.query(
+    Prismic.Predicates.at("document.type", "landing_page")
+  );
 
-  return {
-    props: { landingPageData: landingPageData.results, navLinks }
-  };
+  return { props: { landingPageData: landingPageData.results } };
 }

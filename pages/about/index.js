@@ -1,15 +1,17 @@
+import { aboutPageData } from "@/services/dummyData";
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/about/Background";
 import FollowUs from "@/components/sections/about/FollowUs";
 import Links from "@/components/sections/about/Links";
 import About from "@/components/sections/about/about/About";
-import { commonData, aboutPageData } from "@/services/dummyData";
 
-const AboutPage = ({ commonData, aboutPageData }) => {
+const AboutPage = ({ navigation }) => {
+  console.log(aboutPageData, navigation);
+
   return (
     <PageLayout
-      seoData={commonData.seoData}
-      navigationURLs={commonData.navigationLinks}
+      seoData={{}}
+      navigationURLs={navigation.results[0].data}
       BackgroundWrapper={Background}
     >
       <About
@@ -23,10 +25,3 @@ const AboutPage = ({ commonData, aboutPageData }) => {
 };
 
 export default AboutPage;
-
-export async function getServerSideProps() {
-  return {
-    props: { commonData, aboutPageData },
-    revalidate: 30
-  };
-}

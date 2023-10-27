@@ -1,18 +1,17 @@
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/blog/Background";
 // import Blogs from "@/components/sections/blog/Blogs";
-import { commonData } from "../../services/dummyData";
 import PrismicClient from "@/services/prismic";
 import Prismic from "prismic-javascript";
 import { validPaginationParams } from "@/utils/queryParamUtils";
 
-const BlogsPage = ({ commonData, blogs, totalPageCount }) => {
-  console.log("blogs:", blogs, "\n\ntotalPageCount:", totalPageCount);
+const BlogsPage = ({ blogs, totalPageCount, navigation }) => {
+  console.log(blogs, ":blogs,", totalPageCount, ":totalPageCount,", navigation);
 
   return (
     <PageLayout
-      seoData={commonData.seoData}
-      navigationURLs={commonData.navigationLinks}
+      seoData={{}}
+      navigationURLs={navigation.results[0].data}
       BackgroundWrapper={Background}
     >
       {/* <Blogs data={blogs} /> */}
@@ -45,5 +44,5 @@ export async function getServerSideProps(serverRes) {
     options
   );
 
-  return { props: { commonData, totalPageCount, blogs: blogs.results } };
+  return { props: { totalPageCount, blogs: blogs.results } };
 }
