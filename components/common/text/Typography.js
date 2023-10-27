@@ -20,7 +20,7 @@ const Typography = ({
   const title2Style =
     "font-bold tracking-[-0.03em] text-lg largeTablet:text-xl ";
   const title3Style = "font-bold text-2xl largeTablet:text-4xl";
-  const body1Style = "text-lg opacity-70 largeTablet:text-xl";
+  const body1Style = "text-lg text-opacity-70 largeTablet:text-xl";
   const body2Style = "text-base opacity-70 largeTablet:text-lg";
   const body3Style = "text-sm opacity-70 largeTablet:text-base";
   const body4Style = "text-sm opacity-70";

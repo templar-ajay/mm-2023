@@ -4,7 +4,9 @@ import ContainerWithLine from "../../../common/ContainerWithLine";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { RichText } from "prismic-reactjs";
+// import { RichText } from "prismic-reactjs";
+import RichText from "@/utils/RichText";
+
 import { adjustCurrentDate } from "@/utils/dateTimeUtils";
 
 const Feature = ({ feature, className }) => {
@@ -26,8 +28,11 @@ const Feature = ({ feature, className }) => {
       does_it_have_date_
     }
   } = feature;
+
+  console.log(feature.primary.title[0].text, feature);
   const images = [];
   const text = feature.primary.text.filter((ele) => {
+    return ele;
     if (ele.type === "image") images.push(ele);
     else return ele;
   });
@@ -110,7 +115,8 @@ const Feature = ({ feature, className }) => {
                       }}
                     >
                       <Heading component="featured" alignLarge="left">
-                        {RichText.render(title)}
+                        {/* {RichText.render(title)} */}
+                        <RichText render={title} />
                       </Heading>
                     </motion.div>
                   )}
@@ -135,7 +141,8 @@ const Feature = ({ feature, className }) => {
                     isFeatured={true}
                     alignLarge="left"
                   >
-                    {RichText.render(text)}
+                    {/* {RichText.render(text)} */}
+                    <RichText render={text} />
                   </Typography>
                 </motion.div>
               </div>

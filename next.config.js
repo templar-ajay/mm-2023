@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["gads.cdn.prismic.io"],
+    domains: [
+      "gads.cdn.prismic.io",
+      "images.prismic.io",
+      "prismic-io.s3.amazonaws.com"
+    ],
     formats: ["image/avif", "image/webp"],
     loader: "default"
   },

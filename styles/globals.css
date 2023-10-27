@@ -32,6 +32,13 @@ em {
   display: inline-block;
 }
 
+li::before {
+  content: "•";
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
+}
+
 /* used in video-reviews */
 .section {
   margin-top: var(--sectionMargin);
