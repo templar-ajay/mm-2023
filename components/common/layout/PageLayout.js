@@ -9,10 +9,12 @@ const PageLayout = ({
   children,
   seoData,
   navigation,
+  footer,
   BackgroundWrapper,
   blogPage = false
 }) => {
   const navigationData = navigation.results[0] || [];
+  const footerData = footer.results[0] || [];
 
   return (
     <div>
@@ -21,10 +23,7 @@ const PageLayout = ({
       <BackgroundWrapper>
         <Header navigationData={navigationData} />
         <div>{children}</div>
-        <Footer
-          navigationData={navigationData}
-          licenseText={navigation.license}
-        />
+        <Footer footerData={footerData} />
       </BackgroundWrapper>
     </div>
   );

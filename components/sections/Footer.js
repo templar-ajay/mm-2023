@@ -6,19 +6,8 @@ import { RichText } from "prismic-reactjs";
 import SectionWrapper from "../common/layout/SectionWrapper";
 import SocialLinks from "../common/SocialLinks";
 
-const footerPages = [
-  {
-    url: "https://app.termly.io/document/privacy-policy/5e303854-d262-468a-80ec-54b645d01c2e",
-    label: "Privacy"
-  },
-  {
-    url: "https://app.termly.io/document/terms-of-use-for-saas/03e4e1c1-53ad-4fc4-b415-5c3f0e8c25ef",
-    label: "Terms"
-  }
-];
-
-const Footer = ({ pressPage, navigationData, licenseText }) => {
-  const navigationItems = navigationData.data || {};
+const Footer = ({ pressPage, footerData }) => {
+  const footerItems = footerData.data || {};
   const bgColor = pressPage ? "bg-[#221e1c]" : "bg-footerBG";
 
   return (
@@ -27,38 +16,52 @@ const Footer = ({ pressPage, navigationData, licenseText }) => {
         <div className="w-full pt-10 pb-16 largeTablet:pt-12">
           <div className="w-[140px] h-6 relative">
             <img
-              alt={navigationItems.logo_header?.alt}
-              src={navigationItems.logo_header?.url}
+              alt={footerItems.logo_header?.alt}
+              src={footerItems.logo_header?.url}
             />
           </div>
         </div>
         <div className="w-full flex flex-col largeTablet:flex-row">
-          <div className="w-full largeTablet:w-[45%]">
+          {/* <div className="w-full largeTablet:w-[45%]">
             <LocalTypography variant="title">SOCIALS</LocalTypography>
             <SocialLinks />
-          </div>
+          </div> */}
           <div className="w-full flex flex-wrap">
-            <div className="w-[35%] sm:w-1/2 my-10 largeTablet:w-[35%] largeTablet:my-0">
-              <LocalTypography variant="title">MENU</LocalTypography>
-              <div className="w-full flex flex-col">
-                {navigationItems.menu_items.map(({ label, the_link }, i) => (
-                  <div key={i} className="cursor-pointer">
-                    <Link
-                      href={new URL(the_link.url).pathname || "/#"}
-                      passHref
-                    >
-                      <LocalTypography variant="item1">
-                        {RichText.render(label)}
+            {footerItems.body.map(({ primary, items, slice_type }, i) => {
+              const { title_of_this_block } = primary;
+              return (
+                <>
+                  {slice_type === "call_to_action" ? (
+                    <div></div>
+                  ) : (
+                    <div className="w-[20%] sm:w-1/2 my-10 largeTablet:w-[20%] largeTablet:my-0">
+                      <LocalTypography variant="title">
+                        {RichText.render(title_of_this_block)}
                       </LocalTypography>
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="w-1/2 my-10 largeTablet:w-[35%] largeTablet:my-0">
+                      <div className="w-full flex flex-col">
+                        {items.map(({ link, name_of_this_block }) => (
+                          <div key={i} className="cursor-pointer">
+                            {!name_of_this_block?.length ? (
+                              <></>
+                            ) : (
+                              <Link href={link.url || "/#"} passHref>
+                                <LocalTypography variant="item1">
+                                  {RichText.render(name_of_this_block)}
+                                </LocalTypography>
+                              </Link>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              );
+            })}
+            {/* <div className="w-1/2 my-10 largeTablet:w-[35%] largeTablet:my-0">
               <LocalTypography variant="title">More Sauce</LocalTypography>
-              <div className="w-full flex flex-col">
-                {/* {navigationItems.socials_networks.map(
+              <div className="w-full flex flex-col"> */}
+            {/* {navigationItems.socials_networks.map(
                   ({ icon_social, link_to_social }) => (
                     <a
                       key={link_to_social}
@@ -72,35 +75,39 @@ const Footer = ({ pressPage, navigationData, licenseText }) => {
                     </a>
                   )
                 )} */}
-              </div>
-            </div>
-            <div className="w-1/2 mb-10 largeTablet:w-[30%] largeTablet:mb-0">
+            {/* </div>
+            </div> */}
+            {/* <div className="w-1/2 mb-10 largeTablet:w-[30%] largeTablet:mb-0">
               <LocalTypography variant="title">Contact Us</LocalTypography>
-              <div className="w-full flex flex-col">
-                {/* <LocalTypography variant="item1">
+              <div className="w-full flex flex-col"> */}
+            {/* <LocalTypography variant="item1">
                   +1 (123) 456-7890
                 </LocalTypography> */}
-                <LocalTypography variant="item1">
+            {/* <LocalTypography variant="item1">
                   <a href="mailto:manuguerrerof@gmail.com">
                     manuguerrerof@gmail.com
                   </a>
                 </LocalTypography>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
         <div className="w-full pt-9 mt-7 flex flex-col-reverse border-t-[0.5px] border-gray-700 largeTablet:flex-row largeTablet:mt-12">
           <div className="flex-grow">
-            <LocalTypography variant="item2">{licenseText}</LocalTypography>
+            <LocalTypography variant="item2">
+              {RichText.render(footerItems.disclaimer)}
+            </LocalTypography>
           </div>
           <div className="flex mb-5 largeTablet:mb-0 ">
-            {footerPages.map(({ url, label }, i) => (
-              <div key={label} className="flex">
-                <a href={url} target="_blank" rel="noreferrer">
-                  <LocalTypography variant="item2">{label}</LocalTypography>
+            {footerItems.legal.map(({ link, text_for_legal_link }, i) => (
+              <div key={i} className="flex">
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  <LocalTypography variant="item2">
+                    {RichText.render(text_for_legal_link)}
+                  </LocalTypography>
                 </a>
-                {i < footerPages.length - 1 && (
+                {i < footerItems.length - 1 && (
                   <div className=" mx-2">
                     <LocalTypography variant="item2">•</LocalTypography>
                   </div>

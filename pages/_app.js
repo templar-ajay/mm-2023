@@ -7,15 +7,24 @@ import Prismic from "prismic-javascript";
 export default class CustomApp extends App {
   // { Component, router, ctx } can be as props of getInitialProps
   static async getInitialProps() {
-    const navigationResponse = await PrismicClient.query(
-      Prismic.Predicates.at("document.type", "navigation")
-    );
-    return { data: navigationResponse, pageProps: {} };
+    const [navigationResponse, footerResponse] = await Promise.all([
+      PrismicClient.query(Prismic.Predicates.at("document.type", "navigation")),
+      PrismicClient.query(Prismic.Predicates.at("document.type", "footer"))
+    ]);
+
+    return { navigationResponse, footerResponse, pageProps: {} };
   }
 
   render() {
-    const { Component, pageProps, data } = this.props;
+    const { Component, pageProps, navigationResponse, footerResponse } =
+      this.props;
 
-    return <Component {...pageProps} navigation={data} />;
+    return (
+      <Component
+        {...pageProps}
+        navigation={navigationResponse}
+        footer={footerResponse}
+      />
+    );
   }
 }

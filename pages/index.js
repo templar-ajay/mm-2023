@@ -9,8 +9,8 @@ import VideoReviews from "@/components/sections/home-page/videoReview/VideoRevie
 import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
 import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook";
 
-export default function Home({ landingPageData, navigation }) {
-  console.log(landingPageData, navigation);
+export default function Home({ landingPageData, navigation, footer }) {
+  console.log(landingPageData, navigation, footer);
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.at(-1).data;
@@ -27,6 +27,7 @@ export default function Home({ landingPageData, navigation }) {
       seoData={{ seo_title, seo_description, seo_icon, seo_url }}
       navigation={navigation}
       BackgroundWrapper={Background}
+      footer={footer}
     >
       <Hero data={heroData} />
       <Features data={featuresData} />
