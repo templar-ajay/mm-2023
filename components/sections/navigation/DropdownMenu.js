@@ -43,10 +43,10 @@ const DropdownMenu = ({ menuItems = [] }) => {
                       className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
                       passHref
                     >
-                      <span className="font-bold text-3xl ">
+                      <span className="font-bold text-2xl tablet:text-3xl ">
                         {RichText.render(label)}
                       </span>
-                      <span className="text-md">
+                      <span className="text-sm tablet:text-md">
                         {RichText.render(small_label)}
                       </span>
                     </Link>

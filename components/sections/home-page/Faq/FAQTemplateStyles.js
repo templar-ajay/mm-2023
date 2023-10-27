@@ -100,7 +100,7 @@ export const FAQTemplateStyles = styled.section`
   }
   .h1 {
     // color: white !important;
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: bold;
     @media (max-width: 840px) {
       font-size: 2.8rem;
