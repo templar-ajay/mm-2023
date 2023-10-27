@@ -4,7 +4,7 @@ import FaqPara from "./FaqPara";
 
 const FAQTemplate = ({ faqs }) => {
   console.log("faqs", faqs);
-  const title = faqs.primary.title[0].text;
+  const title = faqs.primary?.title[0]?.text;
 
   return (
     <FAQTemplateStyles className="section section__padding">
