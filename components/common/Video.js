@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function Video({ link }) {
+export default function Video({ link, className, aspectRatio = "16/9" }) {
   const getEmbedUrl = (url) => {
     if (url.includes("embed")) return url;
     const urlObject = new URL(url);
@@ -11,6 +11,7 @@ export default function Video({ link }) {
     <>
       <VideoContainer>
         <iframe
+          className={className}
           src={getEmbedUrl(link) + "?autoplay=1"}
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
@@ -19,7 +20,8 @@ export default function Video({ link }) {
             top: "0",
             left: "0",
             width: "100%",
-            height: "100%"
+            aspectRatio: aspectRatio
+            // height: "100%"
           }}
           title="PISANO (Medical Marketing)V2.mp4"
         ></iframe>
@@ -33,4 +35,5 @@ const VideoContainer = styled.div`
   position: relative;
   height: 432px;
   width: 768px;
+  max-width: 100%;
 `;

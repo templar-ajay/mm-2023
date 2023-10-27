@@ -30,7 +30,7 @@ export default function Modal({ children, setShowModal, showModal }) {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-75"
         >
-          <div className="max-w-5xl mx-auto h-full flex items-center">
+          <div className="max-w-[90vw] mx-auto h-full flex items-center">
             <Dialog.Panel className="w-full max-h-full rounded-3xl shadow-2xl aspect-video bg-black overflow-hidden">
               <div ref={childrenRef}>{children}</div>
             </Dialog.Panel>

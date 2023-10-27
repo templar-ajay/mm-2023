@@ -98,4 +98,12 @@ export const FAQTemplateStyles = styled.section`
     margin: 0 auto;
     max-width: 100px;
   }
+  .h1 {
+    // color: white !important;
+    font-size: 4rem;
+    font-weight: bold;
+    @media (max-width: 640px) {
+      font-size: 2rem;
+    }
+  }
 `;

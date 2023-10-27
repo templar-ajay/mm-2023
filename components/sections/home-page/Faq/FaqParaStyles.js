@@ -54,6 +54,7 @@ export const FaqStyles = styled.section`
   .answer {
     padding: calc(var(--gap) / 2);
     font-size: var(--p);
+    color: #000;
   }
   margin-bottom: calc(var(--gap) / 2);
 

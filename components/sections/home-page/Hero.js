@@ -130,7 +130,10 @@ const Hero = ({ data }) => {
                       setShowModal={setVideoClick}
                       showModal={videoClicked}
                     >
-                      <Video link={long_version_of_video.embed_url} />
+                      <Video
+                        width="90vw"
+                        link={long_version_of_video.embed_url}
+                      />
                     </Modal>
                   )}
                 </div>

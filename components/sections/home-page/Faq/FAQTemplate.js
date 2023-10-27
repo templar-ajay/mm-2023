@@ -3,12 +3,13 @@ import { FAQTemplateStyles } from "./FAQTemplateStyles";
 import FaqPara from "./FaqPara";
 
 const FAQTemplate = ({ faqs }) => {
-  console.log(faqs);
+  console.log("faqs", faqs);
+  const title = faqs.primary.title[0].text;
 
   return (
     <FAQTemplateStyles className="section section__padding">
       <div className="container container__tight">
-        <h3 className="h1 text-sky-400/100">{faqs.id}</h3>
+        <h2 className="h1 text-sky-400/100">{title}</h2>
         <div className="theCopyP">
           <div className="column">
             {faqs.items.map((item, index) => (

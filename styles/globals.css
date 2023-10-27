@@ -39,6 +39,13 @@ li::before {
   margin-left: -1rem;
 }
 
+/* remove padding inside iframe - not working */
+.hl_form-builder--main,
+#form-builder {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* used in video-reviews */
 .section {
   margin-top: var(--sectionMargin);
