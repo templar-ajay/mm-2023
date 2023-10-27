@@ -1,5 +1,6 @@
 // components/RichText.js
 
+import { ImageStyles } from "./RichTextStyles";
 import { RichText as PrismicRichText } from "prismic-reactjs";
 import Image from "next/image";
 
@@ -8,12 +9,14 @@ const RichText = ({ render }) => {
     if (type === "image") {
       console.log("element", element);
       return (
-        <Image
-          src={element.url}
-          alt={element.alt}
-          width={element.dimensions.width}
-          height={element.dimensions.height}
-        />
+        <ImageStyles>
+          <Image
+            src={element.url}
+            alt={element.alt}
+            width={element.dimensions.width}
+            height={element.dimensions.height}
+          />
+        </ImageStyles>
       );
     }
     // Add other custom link handling here if needed
