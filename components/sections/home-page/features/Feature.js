@@ -4,8 +4,7 @@ import ContainerWithLine from "../../../common/ContainerWithLine";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-// import { RichText } from "prismic-reactjs";
-import RichText from "@/utils/RichText";
+import CustomRichText from "@/components/common/CustomRichText/CustomRichText";
 
 import { adjustCurrentDate } from "@/utils/dateTimeUtils";
 
@@ -115,8 +114,7 @@ const Feature = ({ feature, className }) => {
                       }}
                     >
                       <Heading component="featured" alignLarge="left">
-                        {/* {RichText.render(title)} */}
-                        <RichText render={title} />
+                        <CustomRichText render={title} />
                       </Heading>
                     </motion.div>
                   )}
@@ -141,8 +139,7 @@ const Feature = ({ feature, className }) => {
                     isFeatured={true}
                     alignLarge="left"
                   >
-                    {/* {RichText.render(text)} */}
-                    <RichText render={text} />
+                    <CustomRichText render={text} />
                   </Typography>
                 </motion.div>
               </div>

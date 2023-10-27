@@ -1,11 +1,9 @@
-// components/RichText.js
-
-import { ImageStyles } from "./RichTextStyles";
-import { RichText as PrismicRichText } from "prismic-reactjs";
 import Image from "next/image";
+import { RichText } from "prismic-reactjs";
+import { ImageStyles } from "./CustomRichTextStyles";
 
-const RichText = ({ render }) => {
-  const customLink = (type, element, content, children, index) => {
+const CustomRichText = ({ render }) => {
+  const customLink = (type, element) => {
     if (type === "image") {
       console.log("element", element);
       return (
@@ -22,11 +20,7 @@ const RichText = ({ render }) => {
     // Add other custom link handling here if needed
   };
 
-  return (
-    <div>
-      {render ? PrismicRichText.render(render, null, customLink) : null}
-    </div>
-  );
+  return <div>{render ? RichText.render(render, null, customLink) : null}</div>;
 };
 
-export default RichText;
+export default CustomRichText;

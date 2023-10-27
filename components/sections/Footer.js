@@ -16,8 +16,8 @@ const Footer = ({ pressPage, footerData }) => {
         <div className="w-full pt-10 pb-16 largeTablet:pt-12">
           <div className="w-[140px] h-6 relative">
             <img
-              alt={footerItems.logo_header?.alt}
-              src={footerItems.logo_header?.url}
+              alt={"Brand logo"}
+              src={"/medicosLogo/medicos-logo-trans-wt.png"}
             />
           </div>
         </div>
