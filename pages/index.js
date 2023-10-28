@@ -17,7 +17,7 @@ export default function Home({
   console.log(landingPageData, navigation, footer, previewDoc);
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
-    landingPageData.at(-1).data;
+    landingPageData.find(({ uid }) => uid != "seo-medico").data;
   const heroData = body.find((x) => x.slice_type == "hero_landing");
   const videoReviewsData = body.find((x) => x.slice_type == "video_reviews");
   const faqsData = body.find((x) => x.slice_type == "faqs");
@@ -44,9 +44,8 @@ export default function Home({
 
 export async function getServerSideProps({ previewData, query }) {
   const client = PrismicClient({ previewData });
-  console.log("client", query);
+  console.log("query", query);
   const landingPageData = await client.getAllByType("landing_page");
-
   const previewDoc = query.type
     ? (await client.getAllByType(query.type))[0].data
     : null;
