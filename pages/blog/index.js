@@ -1,6 +1,6 @@
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/blog/Background";
-// import Blogs from "@/components/sections/blog/Blogs";
+import Blogs from "@/components/sections/blog/Blogs";
 import PrismicClient from "@/services/prismic";
 import { validPaginationParams } from "@/utils/queryParamUtils";
 
@@ -14,7 +14,7 @@ const BlogsPage = ({ blogs, totalPageCount, navigation, footer }) => {
       BackgroundWrapper={Background}
       footer={footer}
     >
-      {/* <Blogs data={blogs} /> */}
+      <Blogs data={blogs} />
     </PageLayout>
   );
 };
@@ -23,10 +23,10 @@ export default BlogsPage;
 
 export async function getServerSideProps({ query, previewData }) {
   const { page_number, blog_count } = query;
-  const client = PrismicClient({ previewData });
   const pageSize = validPaginationParams(blog_count, 20)
     ? parseInt(blog_count)
     : 15;
+  const client = PrismicClient({ previewData });
   const singleResponse = await client.getByType("page", { pageSize });
   const totalPageCount = singleResponse.total_pages;
   const blogs = await client.getByType("page", {
@@ -36,5 +36,5 @@ export async function getServerSideProps({ query, previewData }) {
       : 1
   });
 
-  return { props: { totalPageCount: totalPageCount, blogs: blogs } };
+  return { props: { totalPageCount: totalPageCount, blogs: blogs.results } };
 }

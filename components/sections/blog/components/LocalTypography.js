@@ -8,7 +8,7 @@ const LocalTypography = ({ variant = "content1", featured, children }) => {
 
   const appliedStyle = variant === "title" ? titleStyle : content1Style;
 
-  return <p className={appliedStyle}>{children}</p>;
+  return <span className={appliedStyle}>{children}</span>;
 };
 
 export default LocalTypography;

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import getReadTime from "../../../../utils/getReadTime";
+import { RichText } from "prismic-reactjs";
+// import getReadTime from "../../../../utils/getReadTime";
 
 // Components
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
@@ -11,10 +12,9 @@ import Button from "../../../common/Button";
 import LocalTypography from "./LocalTypography";
 
 const Post = ({ data, featured }) => {
-  const { title, topics, coverImage, author, summary, slug, blogContent } =
-    data;
+  const { title, topics, coverImage, author, summary, slug, content } = data;
   const src = coverImage || "";
-  const href = `/blog/${slug?.current}`;
+  const href = `/blog/${slug}`;
 
   const getDisplaySummary = () => {
     if (summary) {
@@ -25,6 +25,7 @@ const Post = ({ data, featured }) => {
     }
     return "";
   };
+
   return (
     <div className="w-full">
       {featured && (
@@ -55,7 +56,7 @@ const Post = ({ data, featured }) => {
       </div>
       <div className=" min-h-[55px] largeTablet:min-h-[90px]">
         <LocalTypography featured={featured} variant="title">
-          {title}
+          {RichText.render(title)}
         </LocalTypography>
       </div>
       <div className="flex items-center pb-6 largeTablet:pb-10 ">
@@ -63,14 +64,14 @@ const Post = ({ data, featured }) => {
           <Image width="auto" src={OrangeAuthor} alt="Author" />
         </div>
 
-        <LocalTypography>{author}</LocalTypography>
+        {/* <LocalTypography>{author}</LocalTypography> */}
         <div className="flex-shrink-0 mr-2 ml-4">
           <Image width="auto" src={OrangeClock} alt="Time" />
         </div>
 
-        <LocalTypography>{`${getReadTime(blogContent || "")} ${
-          getReadTime(blogContent || "") === 1 ? "min" : "mins"
-        } read`}</LocalTypography>
+        {/* <LocalTypography>{`${getReadTime(content || "")} ${
+          getReadTime(content || "") === 1 ? "min" : "mins"
+        } read`}</LocalTypography> */}
       </div>
       <Typography variant="body1" alignLarge="left">
         {getDisplaySummary()}
