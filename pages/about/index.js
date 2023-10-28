@@ -6,7 +6,7 @@ import Links from "@/components/sections/about/Links";
 import About from "@/components/sections/about/about/About";
 
 const AboutPage = ({ navigation }) => {
-  console.log(aboutPageData, navigation);
+  // console.log(aboutPageData, navigation);
 
   return (
     <PageLayout

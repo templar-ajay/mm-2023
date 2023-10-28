@@ -5,7 +5,7 @@ import { ImageStyles } from "./CustomRichTextStyles";
 const CustomRichText = ({ render }) => {
   const customLink = (type, element) => {
     if (type === "image") {
-      console.log("element", element);
+      // console.log("element", element);
       return (
         <ImageStyles>
           <Image

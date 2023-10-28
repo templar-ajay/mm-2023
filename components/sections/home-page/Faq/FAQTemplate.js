@@ -3,7 +3,6 @@ import { FAQTemplateStyles } from "./FAQTemplateStyles";
 import FaqPara from "./FaqPara";
 
 const FAQTemplate = ({ faqs }) => {
-  console.log("faqs", faqs);
   const title = faqs.primary?.title[0]?.text;
 
   return (

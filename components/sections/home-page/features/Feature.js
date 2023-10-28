@@ -28,7 +28,7 @@ const Feature = ({ feature, className }) => {
     }
   } = feature;
 
-  console.log(feature.primary.title[0].text, feature);
+  // console.log(feature.primary.title[0].text, feature);
   const images = [];
   const text = feature.primary.text.filter((ele) => {
     return ele;

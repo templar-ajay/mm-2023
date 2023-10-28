@@ -6,7 +6,7 @@ import ContainerWithLine from "../../common/ContainerWithLine";
 import { Typography } from "../../common/text";
 
 const Logos = ({ data }) => {
-  console.log("logos", data);
+  // console.log("logos", data);
 
   return (
     <SectionWrapper pbs={0}>

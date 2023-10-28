@@ -6,7 +6,7 @@ import Prismic from "prismic-javascript";
 import { validPaginationParams } from "@/utils/queryParamUtils";
 
 const BlogsPage = ({ blogs, totalPageCount, navigation }) => {
-  console.log(blogs, ":blogs,", totalPageCount, ":totalPageCount,", navigation);
+  // console.log(blogs, ":blogs,", totalPageCount, ":totalPageCount,", navigation);
 
   return (
     <PageLayout

@@ -14,7 +14,7 @@ import Modal from "@/components/common/Modal";
 // import Image from "next/image";
 
 const Hero = ({ data }) => {
-  console.log("hero data", data);
+  // console.log("hero data", data);
   const {
     primary: {
       featured_in,

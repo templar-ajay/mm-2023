@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { RichText } from "prismic-reactjs";
 
 const BannerEbook = ({ ebookData: { primary } }) => {
-  console.log(primary, "ebook");
+  // console.log(primary, "ebook");
   const { lead_magnet_image, title, intro, cta } = primary;
 
   return (
