@@ -2,14 +2,15 @@ import "@/styles/globals.css";
 import "../styles/blog_text_content_wrapper.css";
 import App from "next/app";
 import PrismicClient from "@/services/prismic";
-import Prismic from "prismic-javascript";
+import { PrismicPreview } from "@prismicio/next";
 
 export default class CustomApp extends App {
   // { Component, router, ctx } can be as props of getInitialProps
-  static async getInitialProps() {
+  static async getInitialProps({ previewData }) {
+    const client = PrismicClient({ previewData });
     const [navigationResponse, footerResponse] = await Promise.all([
-      PrismicClient.query(Prismic.Predicates.at("document.type", "navigation")),
-      PrismicClient.query(Prismic.Predicates.at("document.type", "footer"))
+      client.getAllByType("navigation"),
+      client.getAllByType("footer")
     ]);
 
     return { navigationResponse, footerResponse, pageProps: {} };
@@ -20,11 +21,14 @@ export default class CustomApp extends App {
       this.props;
 
     return (
-      <Component
-        {...pageProps}
-        navigation={navigationResponse}
-        footer={footerResponse}
-      />
+      <>
+        <PrismicPreview repositoryName="gads" />
+        <Component
+          {...pageProps}
+          navigation={navigationResponse}
+          footer={footerResponse}
+        />
+      </>
     );
   }
 }

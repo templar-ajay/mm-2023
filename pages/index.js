@@ -1,4 +1,3 @@
-import Prismic from "prismic-javascript";
 import PrismicClient from "@/services/prismic";
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
@@ -9,8 +8,13 @@ import VideoReviews from "@/components/sections/home-page/videoReview/VideoRevie
 import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
 import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook";
 
-export default function Home({ landingPageData, navigation, footer }) {
-  // console.log(landingPageData, navigation, footer);
+export default function Home({
+  landingPageData,
+  navigation,
+  footer,
+  previewDoc
+}) {
+  console.log(landingPageData, navigation, footer, previewDoc);
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.at(-1).data;
@@ -38,10 +42,14 @@ export default function Home({ landingPageData, navigation, footer }) {
   );
 }
 
-export async function getServerSideProps() {
-  const landingPageData = await PrismicClient.query(
-    Prismic.Predicates.at("document.type", "landing_page")
-  );
+export async function getServerSideProps({ previewData, query }) {
+  const client = PrismicClient({ previewData });
+  console.log("client", query);
+  const landingPageData = await client.getAllByType("landing_page");
 
-  return { props: { landingPageData: landingPageData.results } };
+  const previewDoc = query.type
+    ? (await client.getAllByType(query.type))[0].data
+    : null;
+
+  return { props: { landingPageData: landingPageData, previewDoc } };
 }

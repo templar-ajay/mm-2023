@@ -13,8 +13,8 @@ const PageLayout = ({
   BackgroundWrapper,
   blogPage = false
 }) => {
-  const navigationData = navigation.results[0] || [];
-  const footerData = footer.results[0] || [];
+  const navigationData = navigation[0] || [];
+  const footerData = footer[0] || [];
 
   return (
     <div>

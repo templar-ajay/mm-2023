@@ -5,14 +5,15 @@ import FollowUs from "@/components/sections/about/FollowUs";
 import Links from "@/components/sections/about/Links";
 import About from "@/components/sections/about/about/About";
 
-const AboutPage = ({ navigation }) => {
-  // console.log(aboutPageData, navigation);
+const AboutPage = ({ navigation, footer }) => {
+  // console.log(aboutPageData, navigation, footer);
 
   return (
     <PageLayout
       seoData={{}}
       navigation={navigation}
       BackgroundWrapper={Background}
+      footer={footer}
     >
       <About
         intro={aboutPageData.introduction}
