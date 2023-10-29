@@ -35,7 +35,7 @@ const Footer = ({ pressPage, footerData }) => {
                   {slice_type === "call_to_action" ? (
                     <div></div>
                   ) : (
-                    <div className="w-[20%] sm:w-1/2 my-3 tablet:my-10 largeTablet:w-[20%] largeTablet:my-0">
+                    <div className="sm:w-1/2 my-3 tablet:my-10 largeTablet:w-[20%] tablet:w-[20%] w-full largeTablet:my-0">
                       <LocalTypography className="!pb-4" variant="title">
                         {RichText.render(title_of_this_block)}
                       </LocalTypography>
