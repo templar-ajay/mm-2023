@@ -12,10 +12,10 @@ export default function RootPages({ landingPageData, navigation, footer }) {
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
-  const heroData = body.find((x) => x.slice_type == "hero_landing");
+  //   const heroData = body.find((x) => x.slice_type == "hero_landing");
   const videoReviewsData = body.find((x) => x.slice_type == "video_reviews");
   const faqsData = body.find((x) => x.slice_type == "faqs");
-  const ebookData = body.find((x) => x.slice_type == "lead_magnet_book");
+  //   const ebookData = body.find((x) => x.slice_type == "lead_magnet_book");
   const featuresData = body.filter((x) =>
     ["content_with_image", "call_to_action"].includes(x.slice_type)
   );
@@ -27,10 +27,12 @@ export default function RootPages({ landingPageData, navigation, footer }) {
       BackgroundWrapper={Background}
       footer={footer}
     >
-      <Hero data={heroData} />
+      {/* <Hero data={heroData} /> */}
       <Features data={featuresData} />
-      <VideoReviews videoReviews={videoReviewsData.items} />
-      <BannerEbook ebookData={ebookData} />
+      {videoReviewsData ? (
+        <VideoReviews videoReviews={videoReviewsData.items} />
+      ) : null}
+      {/* <BannerEbook ebookData={ebookData} /> */}
       <FaqTemplate faqs={faqsData || { items: [] }} />
     </PageLayout>
   );
@@ -38,21 +40,7 @@ export default function RootPages({ landingPageData, navigation, footer }) {
 
 export async function getStaticPaths(params, ano) {
   console.log(params, ano, "ano");
-  return {
-    paths: [
-      "/marketing-medico-para-doctores-y-clinicas.",
-      "/google-ads-ppc-medicos",
-      "/seo-medico",
-      "/google-ads-ppc-medicos",
-      "/marketing-anuncios-redes-sociales",
-      "/diseno-landing-page-sector-medico-pagina-aterrizaje",
-      "/sobre-medical-marketing",
-      "/testimonios",
-      "/contacta-con-nosotros",
-      "/consultoria-doctores-clinicas-gratis-30-minutos"
-    ],
-    fallback: true
-  };
+  return { paths: ["/es/medical-seo"], fallback: false };
 }
 
 export async function getStaticProps(context, anotherBro) {

@@ -14,7 +14,7 @@ export default function Home({ landingPageData, navigation, footer }) {
     landingPageData.data;
   //   const heroData = body.find((x) => x.slice_type == "hero_landing");
   const videoReviewsData = body.find((x) => x.slice_type == "video_reviews");
-  //   const faqsData = body.find((x) => x.slice_type == "faqs");
+  const faqsData = body.find((x) => x.slice_type == "faqs");
   //   const ebookData = body.find((x) => x.slice_type == "lead_magnet_book");
   const featuresData = body.filter((x) =>
     ["content_with_image", "call_to_action"].includes(x.slice_type)
@@ -33,7 +33,7 @@ export default function Home({ landingPageData, navigation, footer }) {
         <VideoReviews videoReviews={videoReviewsData.items} />
       ) : null}
       {/* <BannerEbook ebookData={ebookData} /> */}
-      {/* <FaqTemplate faqs={faqsData || { items: [] }} /> */}
+      <FaqTemplate faqs={faqsData || { items: [] }} />
     </PageLayout>
   );
 }
