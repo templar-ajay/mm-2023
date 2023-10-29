@@ -79,7 +79,7 @@ export default function FeatureSlides({ videoReviews }) {
                 {RichText.render(name_of_reviwer)}
                 <div>{RichText.render(description_of_review)}</div>
                 <div className="block">
-                  <Button as="span" arrow={true}>
+                  <Button as="span" href="javascript:void(0)" arrow={true}>
                     {RichText.render(cta_to_watch_video)}
                   </Button>
                 </div>
