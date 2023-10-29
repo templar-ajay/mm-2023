@@ -43,9 +43,8 @@ export default function Home({
   );
 }
 
-export async function getServerSideProps({ previewData, query, resolvedUrl }) {
+export async function getServerSideProps({ previewData }) {
   const client = PrismicClient({ previewData });
-  console.log("query", query, resolvedUrl);
   const landingPageData = await client.getByUID(
     "landing_page",
     "marketing-medico-para-doctores-y-clinicas."

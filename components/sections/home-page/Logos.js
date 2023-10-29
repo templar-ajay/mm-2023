@@ -1,13 +1,9 @@
 import React from "react";
-
-// Components
 import SectionWrapper from "../../common/layout/SectionWrapper";
 import ContainerWithLine from "../../common/ContainerWithLine";
 import { Typography } from "../../common/text";
 
 const Logos = ({ data }) => {
-  // console.log("logos", data);
-
   return (
     <SectionWrapper pbs={0}>
       <ContainerWithLine>
@@ -24,19 +20,7 @@ const Logos = ({ data }) => {
         )}
         {!!data?.url && (
           <div className="w-full px-0 pb-20 ">
-            {
-              // "px-6 pb-40 grid grid-cols-3 gap-x-10 gap-y-8 justify-center items-center content-center largeTablet:mt-0 largeTablet:grid-cols-6"
-            }
-            {/* {data?.map((item) => { */}
-            {/* const href = item.website || ""; const src = item.logo.asset || ""; */}
-            {/* return ( */}
-            <span
-              // key={item.name}
-              // href={href}
-              // target="_blank"
-              // rel="noreferrer"
-              className="relative h-[18px] largeTablet:h-6 mx-auto"
-            >
+            <span className="relative h-[18px] largeTablet:h-6 mx-auto">
               <img
                 className="h-full"
                 src={data.url}
@@ -44,8 +28,6 @@ const Logos = ({ data }) => {
                 loading="lazy"
               />
             </span>
-            {/* ); */}
-            {/* })} */}
           </div>
         )}
       </ContainerWithLine>
