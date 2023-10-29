@@ -10,6 +10,7 @@ import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook
 
 export default function RootPages({ landingPageData, navigation, footer }) {
   console.log(landingPageData, navigation, footer);
+  if (!landingPageData) return <>Error</>;
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
@@ -42,7 +43,15 @@ export async function getStaticPaths(params, ano) {
   return {
     paths: [
       "/marketing-medico-para-doctores-y-clinicas.",
-      "/google-ads-ppc-medicos"
+      "/google-ads-ppc-medicos",
+      "/seo-medico",
+      "/google-ads-ppc-medicos",
+      "/marketing-anuncios-redes-sociales",
+      "/diseno-landing-page-sector-medico-pagina-aterrizaje",
+      "/sobre-medical-marketing",
+      "/testimonios",
+      "/contacta-con-nosotros",
+      "/consultoria-doctores-clinicas-gratis-30-minutos"
     ],
     fallback: true
   };
