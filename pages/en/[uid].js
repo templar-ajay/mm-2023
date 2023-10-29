@@ -7,7 +7,7 @@ import VideoReviews from "@/components/sections/home-page/videoReview/VideoRevie
 import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
 import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook";
 
-export default function RootPages({ landingPageData, navigation, footer }) {
+export default function EnRootPages({ landingPageData, navigation, footer }) {
   console.log(landingPageData, navigation, footer);
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
@@ -40,7 +40,7 @@ export default function RootPages({ landingPageData, navigation, footer }) {
 
 export async function getStaticPaths(params, ano) {
   console.log(params, ano, "ano");
-  return { paths: ["/es/medical-seo"], fallback: false };
+  return { paths: ["/en/medical-seo"], fallback: false };
 }
 
 export async function getStaticProps(context, anotherBro) {

@@ -7,7 +7,7 @@ import VideoReviews from "@/components/sections/home-page/videoReview/VideoRevie
 import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
 import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook";
 
-export default function Home({ landingPageData, navigation, footer }) {
+export default function EnHome({ landingPageData, navigation, footer }) {
   console.log(landingPageData, navigation, footer);
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
