@@ -8,7 +8,7 @@ const TopBar = ({ navigationItems }) => {
   return (
     <div
       style={{ alignItems: "center" }}
-      className="items-center w-full justify-between flex mr-5 mb-0 "
+      className="items-center w-full justify-between flex mr-1 mb-0 "
     >
       <div className="block mm-logo-div cursor-pointer">
         <Link href="/" passHref>
