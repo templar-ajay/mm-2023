@@ -39,7 +39,9 @@ const DropdownMenu = ({ menuItems = [] }) => {
                 {menuItems.map(({ label, small_label, the_link }) => (
                   <Menu.Item key={label[0].text}>
                     <Link
-                      href={new URL(the_link.url).pathname}
+                      href={
+                        new URL(the_link.url).pathname.split("/es/")[1] || "/"
+                      }
                       className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
                       passHref
                     >

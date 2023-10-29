@@ -8,15 +8,8 @@ import VideoReviews from "@/components/sections/home-page/videoReview/VideoRevie
 import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
 import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook";
 
-export default function Home({
-  landingPageData,
-  navigation,
-  footer,
-  previewDoc,
-  allLandingPages
-}) {
-  console.log(landingPageData, navigation, footer, previewDoc);
-  console.log("allLandingPages", allLandingPages);
+export default function RootPages({ landingPageData, navigation, footer }) {
+  console.log(landingPageData, navigation, footer);
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
@@ -44,19 +37,25 @@ export default function Home({
   );
 }
 
-export async function getServerSideProps({ previewData, query, resolvedUrl }) {
+export async function getStaticPaths(params, ano) {
+  console.log(params, ano, "ano");
+  return {
+    paths: [
+      "/marketing-medico-para-doctores-y-clinicas.",
+      "/google-ads-ppc-medicos"
+    ],
+    fallback: true
+  };
+}
+
+export async function getStaticProps(context, anotherBro) {
+  const { previewData, query } = context;
+  console.log("context", query, context, anotherBro);
   const client = PrismicClient({ previewData });
-  console.log("query", query, resolvedUrl);
   const landingPageData = await client.getByUID(
     "landing_page",
     "marketing-medico-para-doctores-y-clinicas."
   );
-  const allLandingPages = await client.getAllByType("landing_page");
-  const previewDoc = query.type
-    ? (await client.getAllByType(query.type))[0].data
-    : null;
 
-  return {
-    props: { landingPageData: landingPageData, allLandingPages, previewDoc }
-  };
+  return { props: { landingPageData } };
 }
