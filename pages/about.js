@@ -4,9 +4,10 @@ import Background from "@/components/sections/about/Background";
 import FollowUs from "@/components/sections/about/FollowUs";
 import Links from "@/components/sections/about/Links";
 import About from "@/components/sections/about/about/About";
+import PrismicClient from "@/services/prismic";
 
 const AboutPage = ({ navigation, footer }) => {
-  // console.log(aboutPageData, navigation, footer);
+  console.log({ aboutPageData, navigation, footer });
 
   return (
     <PageLayout
@@ -26,3 +27,13 @@ const AboutPage = ({ navigation, footer }) => {
 };
 
 export default AboutPage;
+
+export async function getStaticProps({ previewData }) {
+  const client = PrismicClient({ previewData });
+  const [navigation, footer] = await Promise.all([
+    client.getByType("navigation"),
+    client.getByType("footer")
+  ]);
+
+  return { props: { navigation, footer } };
+}

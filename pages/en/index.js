@@ -8,7 +8,7 @@ import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
 import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook";
 
 export default function EnHome({ landingPageData, navigation, footer }) {
-  console.log(landingPageData, navigation, footer);
+  console.log({ landingPageData, navigation, footer });
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
@@ -40,12 +40,15 @@ export default function EnHome({ landingPageData, navigation, footer }) {
   );
 }
 
-export async function getServerSideProps({ previewData, query, resolvedUrl }) {
+export async function getServerSideProps({ previewData }) {
   const client = PrismicClient({ previewData });
-  console.log("query", query, resolvedUrl);
-  const landingPageData = await client.getByUID("landing_page", "home", {
-    lang: "en-us"
-  });
+  const [landingPageData, navigation, footer] = await Promise.all([
+    client.getByUID("landing_page", "home", {
+      lang: "en-us"
+    }),
+    client.getByType("navigation"),
+    client.getByType("footer")
+  ]);
 
-  return { props: { landingPageData: landingPageData } };
+  return { props: { landingPageData, navigation, footer } };
 }

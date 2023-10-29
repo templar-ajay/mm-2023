@@ -9,8 +9,7 @@ import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
 import BannerEbook from "@/components/sections/home-page/BannerEbook/BannerEbook";
 
 export default function RootPages({ landingPageData, navigation, footer }) {
-  console.log(landingPageData, navigation, footer);
-  if (!landingPageData) return <>Error</>;
+  console.log({ landingPageData, navigation, footer });
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
@@ -31,15 +30,19 @@ export default function RootPages({ landingPageData, navigation, footer }) {
     >
       <Hero data={heroData} />
       <Features data={featuresData} />
-      <VideoReviews videoReviews={videoReviewsData.items} />
-      <BannerEbook ebookData={ebookData} />
+      {videoReviewsData ? (
+        <VideoReviews videoReviews={videoReviewsData.items} />
+      ) : (
+        <></>
+      )}
+      {ebookData ? <BannerEbook ebookData={ebookData} /> : <></>}
       <FaqTemplate faqs={faqsData || { items: [] }} />
     </PageLayout>
   );
 }
 
-export async function getStaticPaths(params, ano) {
-  console.log(params, ano, "ano");
+export async function getStaticPaths(params) {
+  console.log({ params });
   return {
     paths: [
       "/marketing-medico-para-doctores-y-clinicas.",
@@ -48,23 +51,22 @@ export async function getStaticPaths(params, ano) {
       "/google-ads-ppc-medicos",
       "/marketing-anuncios-redes-sociales",
       "/diseno-landing-page-sector-medico-pagina-aterrizaje",
-      "/sobre-medical-marketing",
+      // "/sobre-medical-marketing",
       "/testimonios",
-      "/contacta-con-nosotros",
-      "/consultoria-doctores-clinicas-gratis-30-minutos"
+      "/contacta-con-nosotros"
+      // "/consultoria-doctores-clinicas-gratis-30-minutos"
     ],
-    fallback: true
+    fallback: false
   };
 }
 
-export async function getStaticProps(context, anotherBro) {
-  const { previewData, query } = context;
-  console.log("context", query, context, anotherBro);
+export async function getStaticProps({ params, previewData }) {
   const client = PrismicClient({ previewData });
-  const landingPageData = await client.getByUID(
-    "landing_page",
-    "marketing-medico-para-doctores-y-clinicas."
-  );
+  const [landingPageData, navigation, footer] = await Promise.all([
+    client.getByUID("landing_page", params.uid),
+    client.getByType("navigation"),
+    client.getByType("footer")
+  ]);
 
-  return { props: { landingPageData } };
+  return { props: { landingPageData, navigation, footer } };
 }

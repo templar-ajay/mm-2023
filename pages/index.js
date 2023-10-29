@@ -14,8 +14,7 @@ export default function Home({
   footer,
   allLandingPages
 }) {
-  console.log(landingPageData, navigation, footer);
-  console.log("allLandingPages", allLandingPages);
+  console.log({ landingPageData, navigation, footer, allLandingPages });
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
@@ -36,8 +35,12 @@ export default function Home({
     >
       <Hero data={heroData} />
       <Features data={featuresData} />
-      <VideoReviews videoReviews={videoReviewsData.items} />
-      <BannerEbook ebookData={ebookData} />
+      {videoReviewsData ? (
+        <VideoReviews videoReviews={videoReviewsData.items} />
+      ) : (
+        <></>
+      )}
+      {ebookData ? <BannerEbook ebookData={ebookData} /> : <></>}
       <FaqTemplate faqs={faqsData || { items: [] }} />
     </PageLayout>
   );
@@ -45,11 +48,16 @@ export default function Home({
 
 export async function getServerSideProps({ previewData }) {
   const client = PrismicClient({ previewData });
-  const landingPageData = await client.getByUID(
-    "landing_page",
-    "marketing-medico-para-doctores-y-clinicas."
-  );
-  const allLandingPages = await client.getAllByType("landing_page");
+  const [landingPageData, navigation, footer, allLandingPages] =
+    await Promise.all([
+      client.getByUID(
+        "landing_page",
+        "marketing-medico-para-doctores-y-clinicas."
+      ),
+      client.getByType("navigation"),
+      client.getByType("footer"),
+      client.getAllByType("landing_page")
+    ]);
 
-  return { props: { landingPageData: landingPageData, allLandingPages } };
+  return { props: { landingPageData, navigation, footer, allLandingPages } };
 }
