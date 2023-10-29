@@ -5,6 +5,7 @@ import { RichText } from "prismic-reactjs";
 // Components
 import SectionWrapper from "../common/layout/SectionWrapper";
 import SocialLinks from "../common/SocialLinks";
+import clsx from "clsx";
 
 const Footer = ({ pressPage, footerData }) => {
   const footerItems = footerData.data || {};
@@ -13,20 +14,20 @@ const Footer = ({ pressPage, footerData }) => {
   return (
     <footer className={`w-full min-h-[200px] ${bgColor} pb-10`}>
       <SectionWrapper pbs={0}>
-        <div className="w-full pt-10 pb-16 largeTablet:pt-12">
-          <div className="w-[140px] h-6 relative">
+        <div className="w-full pt-10 pb-16 largeTablet:pt-12 ">
+          <div className="w-[140px] h-6 relative mx-auto tablet:ml-0">
             <img
               alt={"Brand logo"}
               src={"/medicosLogo/medicos-logo-trans-wt.png"}
             />
           </div>
         </div>
-        <div className="w-full flex flex-col largeTablet:flex-row">
+        <div className="w-full flex ">
           {/* <div className="w-full largeTablet:w-[45%]">
             <LocalTypography variant="title">SOCIALS</LocalTypography>
             <SocialLinks />
           </div> */}
-          <div className="w-full flex flex-wrap">
+          <div className="w-full flex flex-wrap items-center tablet:items-start flex-col tablet:flex-row tablet:text-left text-center">
             {footerItems.body.map(({ primary, items, slice_type }, i) => {
               const { title_of_this_block } = primary;
               return (
@@ -34,8 +35,8 @@ const Footer = ({ pressPage, footerData }) => {
                   {slice_type === "call_to_action" ? (
                     <div></div>
                   ) : (
-                    <div className="w-[20%] sm:w-1/2 my-10 largeTablet:w-[20%] largeTablet:my-0">
-                      <LocalTypography variant="title">
+                    <div className="w-[20%] sm:w-1/2 my-3 tablet:my-10 largeTablet:w-[20%] largeTablet:my-0">
+                      <LocalTypography className="!pb-4" variant="title">
                         {RichText.render(title_of_this_block)}
                       </LocalTypography>
                       <div className="w-full flex flex-col">
@@ -121,7 +122,7 @@ const Footer = ({ pressPage, footerData }) => {
   );
 };
 
-const LocalTypography = ({ variant = "item1", children }) => {
+const LocalTypography = ({ variant = "item1", children, className }) => {
   const titleStyle =
     "font-bold text-textPrimary opacity-[0.35] text-xs uppercase tracking-[0.2em] pb-8";
   const item1Style =
@@ -135,7 +136,7 @@ const LocalTypography = ({ variant = "item1", children }) => {
       : variant === "item1"
       ? item1Style
       : item2Style;
-  return <div className={appliedStyle}>{children}</div>;
+  return <div className={clsx(appliedStyle, className)}>{children}</div>;
 };
 
 export default Footer;
