@@ -1,6 +1,4 @@
 import React from "react";
-
-// Components
 import Header from "../../sections/navigation/Header";
 import Footer from "../../sections/Footer";
 import SeoBlock from "./SEO/SEO";
@@ -13,17 +11,14 @@ const PageLayout = ({
   BackgroundWrapper,
   blogPage = false
 }) => {
-  const navigationData = navigation[0] || [];
-  const footerData = footer[0] || [];
-
   return (
     <div>
       {!blogPage && <SeoBlock {...seoData} />}
 
       <BackgroundWrapper>
-        <Header navigationData={navigationData} />
+        <Header navigationData={navigation?.results[0] || {}} />
         <div>{children}</div>
-        <Footer footerData={footerData} />
+        <Footer footerData={footer?.results[0] || {}} />
       </BackgroundWrapper>
     </div>
   );

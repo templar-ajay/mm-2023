@@ -9,8 +9,8 @@ export default class CustomApp extends App {
   static async getInitialProps({ previewData }) {
     const client = PrismicClient({ previewData });
     const [navigationResponse, footerResponse] = await Promise.all([
-      client.getAllByType("navigation"),
-      client.getAllByType("footer")
+      client.getByType("navigation"),
+      client.getByType("footer")
     ]);
 
     return { navigationResponse, footerResponse, pageProps: {} };
