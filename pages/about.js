@@ -11,7 +11,7 @@ const AboutPage = ({ navigation, footer }) => {
 
   return (
     <PageLayout
-      seoData={{}}
+      seoData={aboutPageData.seo}
       navigation={navigation}
       BackgroundWrapper={Background}
       footer={footer}

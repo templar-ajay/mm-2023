@@ -1,4 +1,22 @@
 export const aboutPageData = {
+  seo: {
+    seo_title: [
+      {
+        type: "heading1",
+        text: "▷ SEO Médico ⭐  SEO para Doctores y Clínicas",
+        spans: []
+      }
+    ],
+    seo_description: [
+      {
+        type: "heading1",
+        text: "Agencia de SEO Médico - Alcanza la cima en Google y atrae a miles de pacientes con nuestro SEO médico 【Multiplica tus pacientes ▷ Entra Aquí】- Medical Marketing",
+        spans: []
+      }
+    ],
+    seo_icon: undefined,
+    seo_url: undefined
+  },
   _type: "aboutPage",
   introduction: {
     _type: "introduction",
