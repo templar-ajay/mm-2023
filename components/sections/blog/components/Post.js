@@ -1,26 +1,30 @@
 import Image from "next/image";
-import React from "react";
+import React, { createElement } from "react";
 import { RichText } from "prismic-reactjs";
 // import getReadTime from "../../../../utils/getReadTime";
-
-// Components
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
 import { Typography } from "../../../common/text";
-import OrangeClock from "../../../../public/next.svg";
-import OrangeAuthor from "../../../../public/favicon.ico";
+import OrangeClock from "../../../../public/mobile_menu.svg";
+import OrangeAuthor from "../../../../public/close_btn.svg";
 import Button from "../../../common/Button";
 import LocalTypography from "./LocalTypography";
+import { getReadTime } from "@/utils/dateTimeUtils";
 
 const Post = ({ data, featured }) => {
-  const { title, topics, coverImage, author, summary, slug, content } = data;
-  const src = coverImage || "";
+  console.log(data);
+  const title = data.data?.h1_de_la_pagina || "";
+  const topics = data?.tags || [];
+  const content = data.data?.content;
+  const summary = data?.href || [];
+  const slug = data?.uid || "";
+  const coverImage = data.data?.imagen_del_post;
+  const id = data?.id || "";
+  const stringifyContent = content?.map((obj) => obj.text) + "";
   const href = `/blog/${slug}`;
 
   const getDisplaySummary = () => {
     if (summary) {
-      if (summary.length > 150) {
-        return `${summary?.slice(0, 150)}...`;
-      }
+      if (summary.length > 150) return `${summary?.slice(0, 150)}...`;
       return summary;
     }
     return "";
@@ -42,7 +46,7 @@ const Post = ({ data, featured }) => {
       <div className={`${featured && "largeTablet:hidden"}`}>
         <GradientBorderWrapper style={{ width: "100%", borderRadius: "5px" }}>
           <div className="w-full h-[304px] relative rounded-[5px] overflow-hidden ">
-            <Image width="580" height={304} src={src} alt="Cover" />
+            <Image width="580" height={304} src={coverImage?.url} alt="Cover" />
           </div>
         </GradientBorderWrapper>
       </div>
@@ -69,9 +73,9 @@ const Post = ({ data, featured }) => {
           <Image width="auto" src={OrangeClock} alt="Time" />
         </div>
 
-        {/* <LocalTypography>{`${getReadTime(content || "")} ${
-          getReadTime(content || "") === 1 ? "min" : "mins"
-        } read`}</LocalTypography> */}
+        <LocalTypography>{`${getReadTime(stringifyContent || "")} ${
+          getReadTime(stringifyContent || "") === 1 ? "min" : "mins"
+        } read`}</LocalTypography>
       </div>
       <Typography variant="body1" alignLarge="left">
         {getDisplaySummary()}

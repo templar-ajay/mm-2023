@@ -3,13 +3,14 @@ import Background from "@/components/sections/blog/Background";
 import Blogs from "@/components/sections/blog/Blogs";
 import PrismicClient from "@/services/prismic";
 import { validPaginationParams } from "@/utils/queryParamUtils";
+import { aboutPageData } from "@/services/dummyData";
 
 const BlogsPage = ({ blogs, totalPageCount, navigation, footer }) => {
   console.log({ blogs, totalPageCount, navigation, footer });
 
   return (
     <PageLayout
-      seoData={{}}
+      seoData={aboutPageData.seo}
       navigation={navigation}
       BackgroundWrapper={Background}
       footer={footer}
@@ -35,6 +36,17 @@ export async function getServerSideProps({ query, previewData }) {
       ? parseInt(page_number)
       : 1
   });
+  const [navigation, footer] = await Promise.all([
+    client.getByType("navigation", { lang: "en-us" }),
+    client.getByType("footer")
+  ]);
 
-  return { props: { totalPageCount: totalPageCount, blogs: blogs.results } };
+  return {
+    props: {
+      totalPageCount: totalPageCount,
+      blogs: blogs.results,
+      navigation: navigation.results[0].data,
+      footer: footer.results[0].data
+    }
+  };
 }
