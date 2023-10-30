@@ -36,7 +36,7 @@ export default function EnRootPages({ landingPageData, navigation, footer }) {
         <VideoReviews videoReviews={videoReviewsData.items} />
       ) : null}
       {ebookData ? <BannerEbook ebookData={ebookData} /> : <></>}
-      <FaqTemplate faqs={faqsData || { items: [] }} />
+      {faqsData ? <FaqTemplate faqs={faqsData} /> : <></>}
     </PageLayout>
   );
 }

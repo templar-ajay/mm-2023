@@ -38,13 +38,12 @@ export default function RootPages({ landingPageData, navigation, footer }) {
         <></>
       )}
       {ebookData ? <BannerEbook ebookData={ebookData} /> : <></>}
-      <FaqTemplate faqs={faqsData || { items: [] }} />
+      {faqsData ? <FaqTemplate faqs={faqsData} /> : <></>}
     </PageLayout>
   );
 }
 
-export async function getStaticPaths(params) {
-  console.log({ params });
+export async function getStaticPaths() {
   return {
     paths: [
       "/medical-seo"

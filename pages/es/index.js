@@ -35,7 +35,7 @@ export default function EnHome({ landingPageData, navigation, footer }) {
         <></>
       )}
       {ebookData ? <BannerEbook ebookData={ebookData} /> : <></>}
-      <FaqTemplate faqs={faqsData || { items: [] }} />
+      {faqsData ? <FaqTemplate faqs={faqsData} /> : <></>}
     </PageLayout>
   );
 }
