@@ -1,17 +1,27 @@
 import Link from "next/link";
 import { RichText } from "prismic-reactjs";
+import { usePathname } from "next/navigation";
 
 // Components
 import Button from "../../common/Button";
 
 const TopBar = ({ navigationItems }) => {
+  const currentPath = usePathname();
+
   return (
     <div
       style={{ alignItems: "center" }}
       className="items-center w-full justify-between flex mr-1 mb-0 "
     >
       <div className="block mm-logo-div cursor-pointer">
-        <Link href="/" passHref>
+        <Link
+          href={
+            currentPath.startsWith("/es/") || currentPath === "/es"
+              ? "/es"
+              : "/"
+          }
+          passHref
+        >
           <img
             className="mm-logo-img"
             src={navigationItems.logo_header?.url}
