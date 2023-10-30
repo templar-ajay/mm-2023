@@ -8,12 +8,11 @@ const PageLayout = ({
   seoData,
   navigation,
   footer,
-  BackgroundWrapper,
-  blogPage = false
+  BackgroundWrapper
 }) => {
   return (
     <div>
-      {!blogPage && <SeoBlock {...seoData} />}
+      <SeoBlock {...seoData} />
 
       <BackgroundWrapper>
         <Header navigationData={navigation || {}} />
