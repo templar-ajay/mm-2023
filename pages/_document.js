@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
-  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-P3D87XN";
 
   return (
     <Html lang="en">
