@@ -1,9 +1,9 @@
 import { Fragment } from "react";
-import Image from "next/image";
-import { Menu, Transition } from "@headlessui/react";
-import Link from "next/link";
+import { arrangeLinks } from "@/utils/queryParamUtils";
 import { RichText } from "prismic-reactjs";
-
+import { Menu, Transition } from "@headlessui/react";
+import Image from "next/image";
+import Link from "next/link";
 import SocialLinks from "../../common/SocialLinks";
 import MobileMenu from "../../../public/mobile_menu.svg";
 import MobileCloseMenu from "../../../public/close_btn.svg";
@@ -39,9 +39,7 @@ const DropdownMenu = ({ menuItems = [] }) => {
                 {menuItems.map(({ label, small_label, the_link }) => (
                   <Menu.Item key={label[0].text}>
                     <Link
-                      href={
-                        new URL(the_link.url).pathname.split("/es/")[1] || "/"
-                      }
+                      href={arrangeLinks(the_link.url)}
                       className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
                       passHref
                     >

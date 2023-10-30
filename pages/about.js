@@ -35,5 +35,5 @@ export async function getStaticProps({ previewData }) {
     client.getByType("footer")
   ]);
 
-  return { props: { navigation, footer } };
+  return { props: { navigation, footer }, revalidate: 5 };
 }

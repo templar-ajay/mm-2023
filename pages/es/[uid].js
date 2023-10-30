@@ -40,15 +40,27 @@ export default function EnRootPages({ landingPageData, navigation, footer }) {
 
 export async function getStaticPaths(params) {
   console.log({ params });
-  return { paths: ["/en/medical-seo"], fallback: false };
+  return {
+    paths: [
+      "/es/marketing-medico-para-doctores-y-clinicas.",
+      "/es/google-ads-ppc-medicos",
+      "/es/seo-medico",
+      "/es/google-ads-ppc-medicos",
+      "/es/marketing-anuncios-redes-sociales",
+      "/es/diseno-landing-page-sector-medico-pagina-aterrizaje",
+      // "/es/sobre-medical-marketing",
+      "/es/testimonios",
+      "/es/contacta-con-nosotros"
+      // "/es/consultoria-doctores-clinicas-gratis-30-minutos"
+    ],
+    fallback: false
+  };
 }
 
 export async function getStaticProps({ params, previewData }) {
   const client = PrismicClient({ previewData });
   const [landingPageData, navigation, footer] = await Promise.all([
-    client.getByUID("landing_page", params.uid, {
-      lang: "en-us"
-    }),
+    client.getByUID("landing_page", params.uid),
     client.getByType("navigation"),
     client.getByType("footer")
   ]);

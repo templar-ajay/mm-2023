@@ -43,9 +43,10 @@ export default function EnHome({ landingPageData, navigation, footer }) {
 export async function getServerSideProps({ previewData }) {
   const client = PrismicClient({ previewData });
   const [landingPageData, navigation, footer] = await Promise.all([
-    client.getByUID("landing_page", "home", {
-      lang: "en-us"
-    }),
+    client.getByUID(
+      "landing_page",
+      "marketing-medico-para-doctores-y-clinicas."
+    ),
     client.getByType("navigation"),
     client.getByType("footer")
   ]);

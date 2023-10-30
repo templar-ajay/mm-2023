@@ -1,39 +1,19 @@
+import { useState } from "react";
 import { RichText } from "prismic-reactjs";
-// import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
-
-// components
 import { VideoReviewsStyles, VideoReviewStyles } from "./VideoReviewsStyles";
 import Button from "../../../common/Button";
-import { useState } from "react";
 import Modal from "@/components/common/Modal";
 import Video from "@/components/common/Video";
 
 export default function FeatureSlides({ videoReviews }) {
   const [VideoClicked, setVideoClicked] = useState(false);
   const [currentVideoIframe, setCurrentVideoIframe] = useState("");
-  console.log("videoReviews", videoReviews);
+
   return (
     <VideoReviewsStyles className="section relative">
       <div className="container container__tight">
         <h3 className="h1 text-center">{"LA PRUEBA:"}</h3>
         <div className="theCopyP"></div>
-        {/* <div className="absolute h-[4rem] w-[4rem] top-[50%] left-2 transform-y-[-50%] bg-[#fff] rounded-full cursor-pointer z-50">
-          <AiOutlineLeft
-            fill="black"
-            size="4rem"
-            className="absolute -left-1"
-          />
-        </div>
-        <div className="absolute h-[4rem] w-[4rem] top-[50%] -right-2 transform-y-[-50%] bg-[#fff] rounded-full cursor-pointer z-50">
-          <AiOutlineRight
-            fill="black"
-            size="4rem"
-            className="absolute left-1"
-            onClick={(event) => {
-              event.currentTarget.parentElement.scrollBy();
-            }}
-          />
-        </div> */}
       </div>
       <div className="container container__tight container__scroll relative">
         {videoReviews.map(
@@ -65,9 +45,6 @@ export default function FeatureSlides({ videoReviews }) {
 
                   return htmlString;
                 });
-                // ___openModal(
-                //   "https://player.vimeo.com/video/780826530?h=4d1108cf0c"
-                // )
               }}
             >
               <img

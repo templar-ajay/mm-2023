@@ -45,15 +45,13 @@ export async function getStaticPaths(params) {
   console.log({ params });
   return {
     paths: [
-      "/marketing-medico-para-doctores-y-clinicas.",
-      "/google-ads-ppc-medicos",
-      "/seo-medico",
-      "/google-ads-ppc-medicos",
-      "/marketing-anuncios-redes-sociales",
-      "/diseno-landing-page-sector-medico-pagina-aterrizaje",
+      "/medical-seo"
+      // "/google-ads-ppc-medicos",
+      // "/marketing-anuncios-redes-sociales",
+      // "/diseno-landing-page-sector-medico-pagina-aterrizaje",
       // "/sobre-medical-marketing",
-      "/testimonios",
-      "/contacta-con-nosotros"
+      // "/testimonios",
+      // "/contacta-con-nosotros",
       // "/consultoria-doctores-clinicas-gratis-30-minutos"
     ],
     fallback: false
@@ -63,10 +61,10 @@ export async function getStaticPaths(params) {
 export async function getStaticProps({ params, previewData }) {
   const client = PrismicClient({ previewData });
   const [landingPageData, navigation, footer] = await Promise.all([
-    client.getByUID("landing_page", params.uid),
-    client.getByType("navigation"),
+    client.getByUID("landing_page", params.uid, { lang: "en-us" }),
+    client.getByType("navigation", { lang: "en-us" }),
     client.getByType("footer")
   ]);
 
-  return { props: { landingPageData, navigation, footer } };
+  return { props: { landingPageData, navigation, footer }, revalidate: 5 };
 }

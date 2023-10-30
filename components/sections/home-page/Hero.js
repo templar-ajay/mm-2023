@@ -82,35 +82,39 @@ const Hero = ({ data }) => {
                 )}
               </div>
 
-              <div className="flex-1">
-                <div>
-                  {!videoClicked ? (
-                    <img
-                      onClick={() => setVideoClick(true)}
-                      loading="eager"
-                      className="relative  scl -right-4"
-                      // scale-125 largeTablet:scale-125
-                      src={video_light_weight?.url}
-                      alt="Insight Dashboard"
-                      style={{
-                        cursor: "pointer",
-                        objectFit: "cover",
-                        width: "100%"
-                      }}
-                    />
-                  ) : (
-                    <Modal
-                      setShowModal={setVideoClick}
-                      showModal={videoClicked}
-                    >
-                      <Video
-                        width="90vw"
-                        link={long_version_of_video?.embed_url}
+              {video_light_weight?.url ? (
+                <div className="flex-1">
+                  <div>
+                    {!videoClicked ? (
+                      <img
+                        onClick={() => setVideoClick(true)}
+                        loading="eager"
+                        className="relative  scl -right-4"
+                        // scale-125 largeTablet:scale-125
+                        src={video_light_weight?.url}
+                        alt="Insight Dashboard"
+                        style={{
+                          cursor: "pointer",
+                          objectFit: "cover",
+                          width: "100%"
+                        }}
                       />
-                    </Modal>
-                  )}
+                    ) : (
+                      <Modal
+                        setShowModal={setVideoClick}
+                        showModal={videoClicked}
+                      >
+                        <Video
+                          width="90vw"
+                          link={long_version_of_video?.embed_url}
+                        />
+                      </Modal>
+                    )}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <></>
+              )}
             </div>
           </main>
         </ContainerWithLine>
