@@ -16,9 +16,9 @@ const PageLayout = ({
       {!blogPage && <SeoBlock {...seoData} />}
 
       <BackgroundWrapper>
-        <Header navigationData={navigation?.results[0] || {}} />
+        <Header navigationData={navigation || {}} />
         <div>{children}</div>
-        <Footer footerData={footer?.results[0] || {}} />
+        <Footer footerData={footer || {}} />
       </BackgroundWrapper>
     </div>
   );

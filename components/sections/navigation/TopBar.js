@@ -22,7 +22,7 @@ const TopBar = ({ navigationItems }) => {
 
       <Button
         fullWidth={false}
-        contactNumber={"tel:" + navigationItems.call_us_now_phone[0].text}
+        contactNumber={"tel:" + navigationItems.call_us_now_phone[0]?.text}
         href="https://medicalmarketing.es/"
         minWidth="120px"
       >

@@ -7,8 +7,11 @@ import Link from "next/link";
 import SocialLinks from "../../common/SocialLinks";
 import MobileMenu from "../../../public/mobile_menu.svg";
 import MobileCloseMenu from "../../../public/close_btn.svg";
+import { usePathname } from "next/navigation";
 
 const DropdownMenu = ({ menuItems = [] }) => {
+  const currentPath = usePathname();
+
   return (
     <Menu as="div" className="inline-block text-left">
       {({ open }) => (
@@ -39,7 +42,7 @@ const DropdownMenu = ({ menuItems = [] }) => {
                 {menuItems.map(({ label, small_label, the_link }) => (
                   <Menu.Item key={label[0].text}>
                     <Link
-                      href={arrangeLinks(the_link.url)}
+                      href={arrangeLinks(the_link.url, currentPath)}
                       className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
                       passHref
                     >

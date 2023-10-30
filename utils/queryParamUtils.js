@@ -4,17 +4,15 @@ export function validPaginationParams(count, upto) {
   return !!count && count > 0 && count <= upto;
 }
 
-export function arrangeLinks(link) {
+export function arrangeLinks(link, matcher) {
   let pathname;
-
   try {
     pathname = new URL(link).pathname;
-    !location?.pathname.includes("/es") &&
-      (pathname = pathname.split("/es/")[1] || pathname);
+    !matcher.includes("/es") &&
+      (pathname = pathname.split("/es")[1] || pathname);
   } catch (error) {
     console.log({ error });
     link && link.startsWith("/") && (pathname = link);
   }
-
-  return pathname || "/";
+  return pathname.startsWith("/") ? pathname : "/" + pathname || "/";
 }

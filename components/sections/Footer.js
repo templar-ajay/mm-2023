@@ -4,11 +4,11 @@ import { RichText } from "prismic-reactjs";
 
 // Components
 import SectionWrapper from "../common/layout/SectionWrapper";
-import SocialLinks from "../common/SocialLinks";
+// import SocialLinks from "../common/SocialLinks";
 import clsx from "clsx";
 
 const Footer = ({ pressPage, footerData }) => {
-  const footerItems = footerData.data || {};
+  const footerItems = footerData || {};
   const bgColor = pressPage ? "bg-[#221e1c]" : "bg-footerBG";
 
   return (
@@ -28,7 +28,7 @@ const Footer = ({ pressPage, footerData }) => {
             <SocialLinks />
           </div> */}
           <div className="w-full flex flex-wrap items-center tablet:items-start flex-col tablet:flex-row tablet:text-left text-center">
-            {footerItems.body.map(({ primary, items, slice_type }, i) => {
+            {footerItems.body?.map(({ primary, items, slice_type }, i) => {
               const { title_of_this_block } = primary;
               return (
                 <>
@@ -101,7 +101,7 @@ const Footer = ({ pressPage, footerData }) => {
             </LocalTypography>
           </div>
           <div className="flex mb-5 largeTablet:mb-0 ">
-            {footerItems.legal.map(({ link, text_for_legal_link }, i) => (
+            {footerItems.legal?.map(({ link, text_for_legal_link }, i) => (
               <div key={i} className="flex">
                 <a href={link.url} target="_blank" rel="noreferrer">
                   <LocalTypography variant="item2">

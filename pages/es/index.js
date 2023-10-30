@@ -51,5 +51,11 @@ export async function getServerSideProps({ previewData }) {
     client.getByType("footer")
   ]);
 
-  return { props: { landingPageData, navigation, footer } };
+  return {
+    props: {
+      landingPageData,
+      navigation: navigation.results[0].data,
+      footer: footer.results[0].data
+    }
+  };
 }

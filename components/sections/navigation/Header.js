@@ -6,7 +6,7 @@ import TopBar from "./TopBar";
 import DropdownMenu from "./DropdownMenu";
 
 const Header = ({ navigationData }) => {
-  const navigationItems = navigationData.data;
+  const navigationItems = navigationData || {};
 
   return (
     <SectionWrapper direction="row" pbs={0}>

@@ -2,7 +2,6 @@ import PrismicClient from "@/services/prismic";
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
 import Hero from "@/components/sections/home-page/Hero";
-// import Logos from "@/components/sections/home-page/Logos";
 import Features from "@/components/sections/home-page/features/Features";
 import VideoReviews from "@/components/sections/home-page/videoReview/VideoReviews";
 import FaqTemplate from "@/components/sections/home-page/Faq/FAQTemplate";
@@ -56,5 +55,12 @@ export async function getServerSideProps({ previewData }) {
       client.getAllByType("landing_page", { lang: "en-us" })
     ]);
 
-  return { props: { landingPageData, navigation, footer, allLandingPages } };
+  return {
+    props: {
+      landingPageData,
+      navigation: navigation.results[0].data,
+      footer: footer.results[0].data,
+      allLandingPages
+    }
+  };
 }
