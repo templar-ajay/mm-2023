@@ -12,6 +12,11 @@ export default function Document() {
           rel="alternate"
         />
         <link
+          href="https://medicalmarketing.digital/"
+          hreflang="en-us"
+          rel="alternate"
+        />
+        <link
           href="https://medicalmarketing.digital/es/"
           hreflang="es-es"
           rel="alternate"
