@@ -4,6 +4,7 @@ import Blogs from "@/components/sections/blog/Blogs";
 import PrismicClient from "@/services/prismic";
 import { validPaginationParams } from "@/utils/queryParamUtils";
 import { aboutPageData } from "@/services/dummyData";
+import PaginationBar from "@/components/common/PaginationBar";
 
 const BlogsPage = ({ blogs, totalPageCount, navigation, footer }) => {
   console.log({ blogs, totalPageCount, navigation, footer });
@@ -16,6 +17,9 @@ const BlogsPage = ({ blogs, totalPageCount, navigation, footer }) => {
       footer={footer}
     >
       <Blogs data={blogs} />
+      <div className="w-100 flex justify-center pb-12">
+        <PaginationBar totalPage={totalPageCount} activePage={1} />
+      </div>
     </PageLayout>
   );
 };

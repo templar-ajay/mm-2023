@@ -6,7 +6,7 @@ import FeaturedPost from "./FeaturedPost";
 
 const Blogs = ({ data }) => {
   return (
-    <SectionWrapper pt={205} pts={60} pb={265} pbs={135}>
+    <SectionWrapper pt={180} pts={60} pb={120} pbs={140}>
       <Typography variant="preHeading">Blog</Typography>
       <div className="w-full max-w-[750px]">
         <Heading>
