@@ -4,7 +4,7 @@ export const FAQTemplateStyles = styled.section`
   padding-left: 0px !important;
   padding-right: 0px !important;
 
-  background-color: var(--fondoGris);
+  background-color: var(--darkBG);
 
   position: relative;
   height: auto;
@@ -99,14 +99,13 @@ export const FAQTemplateStyles = styled.section`
     max-width: 100px;
   }
   .h1 {
-    // color: white !important;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: bold;
     @media (max-width: 840px) {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
     }
     @media (max-width: 640px) {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
   }
 `;

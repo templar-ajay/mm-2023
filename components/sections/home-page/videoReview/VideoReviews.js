@@ -12,7 +12,7 @@ export default function FeatureSlides({ videoReviews }) {
   return (
     <VideoReviewsStyles className="section relative">
       <div className="container container__tight">
-        <h3 className="h1 text-center">{"LA PRUEBA:"}</h3>
+        <h3 className="h1 text-center text-textPrimary">{"LA PRUEBA:"}</h3>
         <div className="theCopyP"></div>
       </div>
       <div className="container container__tight container__scroll relative">

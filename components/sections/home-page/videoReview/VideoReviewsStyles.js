@@ -41,8 +41,6 @@ export const VideoReviewsStyles = styled.section`
   }
 
   .h1 {
-    -webkit-text-fill-color: white;
-    color: white !important;
     font-size: 4rem;
     font-weight: bold;
     @media (max-width: 840px) {

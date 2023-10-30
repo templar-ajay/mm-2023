@@ -8,10 +8,11 @@ export const FaqStyles = styled.section`
   .question {
     min-height: calc(var(--gap) * 2);
     border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
     width: 100%;
     background-color: transparent;
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    color: #000;
+    color: #fff;
+    opacity: 0.9 !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,7 +55,8 @@ export const FaqStyles = styled.section`
   .answer {
     padding: calc(var(--gap) / 2);
     font-size: var(--p);
-    color: #000;
+    color: #fff;
+    opacity: 0.7 !important;
   }
   margin-bottom: calc(var(--gap) / 2);
 
