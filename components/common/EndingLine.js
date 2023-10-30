@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const EndingLine = () => {
+const EndingLine = ({ ImageData }) => {
   const { ref, inView } = useInView();
 
   return (
@@ -17,8 +17,8 @@ const EndingLine = () => {
           animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.5 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
           className="absolute -right-[28px] -top-[28px]"
-          src="/icons/quote.svg"
-          alt="Ending line"
+          src={ImageData?.url || "/icons/quote.svg"}
+          alt={ImageData?.alt || "Ending line Image"}
         />
       </div>
       <div className="flex-1"></div>

@@ -42,7 +42,10 @@ const Features = ({ data }) => {
         ) : (
           // <ContainerWithLine key={feature.id}>
           <>
-            <EndingLine key={feature.id} />
+            <EndingLine
+              key={feature.id}
+              ImageData={feature.primary.small_image_cta}
+            />
             <CTA data={feature.primary} pb={50} pbs={10} />
           </>
           // </ContainerWithLine>
