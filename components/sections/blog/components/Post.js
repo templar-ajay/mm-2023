@@ -3,30 +3,19 @@ import { RichText } from "prismic-reactjs";
 import { getReadTime } from "@/utils/dateTimeUtils";
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
 import { Typography } from "../../../common/text";
-import OrangeClock from "../../../../public/icons/mobile_menu.svg";
-import OrangeAuthor from "../../../../public/icons/close_btn.svg";
 import Button from "../../../common/Button";
 import LocalTypography from "./LocalTypography";
+import { usePathname } from "next/navigation";
 
 const Post = ({ data, featured }) => {
-  console.log(data);
+  const path = usePathname();
   const title = data.data?.h1_de_la_pagina || "";
   const topics = data?.tags || [];
   const content = data.data?.content;
-  const summary = data?.href || [];
   const slug = data?.uid || "";
   const coverImage = data.data?.imagen_del_post;
-  const id = data?.id || "";
   const stringifyContent = content?.map((obj) => obj.text) + "";
-  const href = `/blog/${slug}`;
-
-  const getDisplaySummary = () => {
-    if (summary) {
-      if (summary.length > 150) return `${summary?.slice(0, 150)}...`;
-      return summary;
-    }
-    return "";
-  };
+  const href = `${path.includes("/es/") ? "/es/" : "/"}blog/${slug}`;
 
   return (
     <div className="w-full">
@@ -65,22 +54,10 @@ const Post = ({ data, featured }) => {
         </LocalTypography>
       </div>
       <div className="flex items-center pb-6 largeTablet:pb-10 ">
-        <div className="flex-shrink-0 mr-2">
-          <Image width="auto" src={OrangeAuthor} alt="Author" />
-        </div>
-
-        {/* <LocalTypography>{author}</LocalTypography> */}
-        <div className="flex-shrink-0 mr-2 ml-4">
-          <Image width="auto" src={OrangeClock} alt="Time" />
-        </div>
-
         <LocalTypography>{`${getReadTime(stringifyContent || "")} ${
           getReadTime(stringifyContent || "") === 1 ? "min" : "mins"
         } read`}</LocalTypography>
       </div>
-      <Typography variant="body1" alignLarge="left">
-        {getDisplaySummary()}
-      </Typography>
       <div className="pt-10">
         <Button href={href}>Read More</Button>
       </div>

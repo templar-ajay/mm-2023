@@ -21,7 +21,7 @@ const FeaturedPost = ({ data }) => {
         </div>
 
         <div className="flex-1 overflow-hidden largeTablet:flex largeTablet:items-center largeTablet:pl-8">
-          <Post featured {...data} />
+          <Post featured data={data} />
         </div>
       </div>
     </div>

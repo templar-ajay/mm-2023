@@ -1,7 +1,5 @@
 import Link from "next/link";
 import React from "react";
-
-// Icons
 import { AiFillGithub } from "react-icons/ai";
 
 const Button = ({
