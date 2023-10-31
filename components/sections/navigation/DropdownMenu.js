@@ -4,7 +4,6 @@ import { RichText } from "prismic-reactjs";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
-import SocialLinks from "../../common/SocialLinks";
 import MobileMenu from "../../../public/mobile_menu.svg";
 import MobileCloseMenu from "../../../public/close_btn.svg";
 import { usePathname } from "next/navigation";
@@ -55,12 +54,6 @@ const DropdownMenu = ({ menuItems = [] }) => {
                     </Link>
                   </Menu.Item>
                 ))}
-              </div>
-              <div>
-                <p className="font-bold text-textPrimary text-xs opacity-70 tracking-[0.2em] pb-10">
-                  SOCIALS
-                </p>
-                <SocialLinks />
               </div>
             </Menu.Items>
           </Transition>

@@ -2,7 +2,6 @@ import Head from "next/head";
 import React from "react";
 
 const SeoBlock = ({ seo_title, seo_description, seo_icon, seo_url }) => {
-  console.log({ seo_title, seo_description, seo_icon, seo_url });
   return (
     <Head>
       <title>{seo_title[0]?.text || "Medical Marketing"}</title>
