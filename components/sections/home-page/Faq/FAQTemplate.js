@@ -11,9 +11,9 @@ const FAQTemplate = ({ data }) => {
         <h2 className="h1 text-textPrimary">{title}</h2>
         <div className="theCopyP">
           <div className="column">
-            {data.items.map((item, index) => (
+            {data.items.map((item, i) => (
               <FaqPara
-                key={index}
+                key={i + Math.random().toString()}
                 title={item.question_in_h2}
                 description={item.answer_rich_text}
               />

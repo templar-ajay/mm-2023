@@ -19,7 +19,7 @@ export default function RootPages({ landingPageData, navigation, footer }) {
       BackgroundWrapper={Background}
       footer={footer}
     >
-      {body.map((x) => useComponentResolver({ data: x }))}
+      {body.map((x, i) => useComponentResolver({ data: x, index: i }))}
     </PageLayout>
   );
 }

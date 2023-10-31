@@ -6,14 +6,15 @@ import BannerEbook from "../sections/home-page/BannerEbook/BannerEbook";
 import CTATemplate from "../sections/home-page/CTA/CTATemplate";
 import Features from "../sections/home-page/features/Features";
 
-export default function useComponentResolver({ data }) {
+export default function useComponentResolver({ data, index }) {
+  const key = index + data?.slice_type;
   const junk = {
-    hero_landing: <Hero data={data} />,
-    content_with_image: <Features data={data} />,
-    call_to_action: <CTATemplate data={data} />,
-    video_reviews: <VideoReviews data={data} />,
-    faqs: <FaqTemplate data={data} />,
-    lead_magnet_book: <BannerEbook data={data} />
+    hero_landing: <Hero data={data} key={key} />,
+    content_with_image: <Features data={data} key={key} />,
+    call_to_action: <CTATemplate data={data} key={key} />,
+    video_reviews: <VideoReviews data={data} key={key} />,
+    faqs: <FaqTemplate data={data} key={key} />,
+    lead_magnet_book: <BannerEbook data={data} key={key} />
   };
 
   return junk[data.slice_type] || <></>;

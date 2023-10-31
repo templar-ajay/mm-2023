@@ -42,9 +42,9 @@ const Testimonials = ({ data }) => {
       </Heading>
 
       <div className="w-full mt-[46px] grid-cols-1 largeTablet:grid-cols-2 laptop:grid-cols-3 laptop:grid gap-9 largeTablet:mt-24 hidden largeTablet:grid ">
-        {testimonials.map((testimonial) => (
+        {testimonials.map((testimonial, i) => (
           <Testimonial
-            key={testimonial.twitterUsername}
+            key={testimonial.twitterUsername + i}
             testimonial={testimonial}
           />
         ))}
@@ -55,9 +55,9 @@ const Testimonials = ({ data }) => {
           {...slideOptions}
           onChange={(x, y) => handleSlideChange(y)}
         >
-          {testimonials.map((testimonial) => (
+          {testimonials.map((testimonial, i) => (
             <div
-              key={testimonial.twitterUsername}
+              key={testimonial.twitterUsername + i + "2"}
               style={{
                 padding: "0px 5px",
                 boxSizing: "border-box"

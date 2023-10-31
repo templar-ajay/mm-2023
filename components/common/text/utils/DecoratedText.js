@@ -43,7 +43,7 @@ const DecoratedText = ({ content }) => {
               return text;
             }
             return (
-              <span key={text} className={style}>
+              <span key={text + i} className={style}>
                 {text}
               </span>
             );

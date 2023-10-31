@@ -24,19 +24,29 @@ const Footer = ({ pressPage, footerData }) => {
             return (
               <>
                 {slice_type === "call_to_action" ? (
-                  <div></div>
+                  <div key={slice_type + i + Math.random().toString()}></div>
                 ) : (
-                  <div className="sm:w-1/2 my-3 tablet:my-10 largeTablet:w-[20%] tablet:w-[20%] w-full largeTablet:my-0">
+                  <div
+                    key={slice_type + i + Math.random().toString()}
+                    className="sm:w-1/2 my-3 tablet:my-10 largeTablet:w-[20%] tablet:w-[20%] w-full largeTablet:my-0"
+                  >
                     <LocalTypography className="!pb-4" variant="title">
                       {RichText.render(title_of_this_block)}
                     </LocalTypography>
                     <div className="w-full flex flex-col">
-                      {items.map(({ link, name_of_this_block }) => (
-                        <div key={i} className="cursor-pointer">
+                      {items.map(({ link, name_of_this_block }, i) => (
+                        <div
+                          key={i + Math.random().toString()}
+                          className="cursor-pointer"
+                        >
                           {!name_of_this_block?.length ? (
                             <></>
                           ) : (
-                            <Link href={link.url || "/#"} passHref>
+                            <Link
+                              key={i + Math.random().toString()}
+                              href={link.url || "/#"}
+                              passHref
+                            >
                               <LocalTypography variant="item1">
                                 {RichText.render(name_of_this_block)}
                               </LocalTypography>
@@ -60,7 +70,7 @@ const Footer = ({ pressPage, footerData }) => {
           </div>
           <div className="flex mb-5 largeTablet:mb-0 ">
             {footerItems.legal?.map(({ link, text_for_legal_link }, i) => (
-              <div key={i} className="flex">
+              <div key={i + Math.random().toString()} className="flex">
                 <a href={link.url} target="_blank" rel="noreferrer">
                   <LocalTypography variant="item2">
                     {RichText.render(text_for_legal_link)}

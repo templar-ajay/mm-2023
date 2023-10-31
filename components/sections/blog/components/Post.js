@@ -1,14 +1,12 @@
 import Image from "next/image";
-import React, { createElement } from "react";
 import { RichText } from "prismic-reactjs";
-// import getReadTime from "../../../../utils/getReadTime";
+import { getReadTime } from "@/utils/dateTimeUtils";
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
 import { Typography } from "../../../common/text";
 import OrangeClock from "../../../../public/mobile_menu.svg";
 import OrangeAuthor from "../../../../public/close_btn.svg";
 import Button from "../../../common/Button";
 import LocalTypography from "./LocalTypography";
-import { getReadTime } from "@/utils/dateTimeUtils";
 
 const Post = ({ data, featured }) => {
   console.log(data);
@@ -52,9 +50,12 @@ const Post = ({ data, featured }) => {
       </div>
 
       <div className="flex justify-start pt-6 pb-2 largeTablet:pt-10">
-        {topics?.map((item) => (
-          <div key={item} className="mr-5">
-            <Typography key={item} variant="body4">{`#${item}`}</Typography>
+        {topics?.map((item, i) => (
+          <div key={item + i} className="mr-5">
+            <Typography
+              key={item + i + "2"}
+              variant="body4"
+            >{`#${item}`}</Typography>
           </div>
         ))}
       </div>

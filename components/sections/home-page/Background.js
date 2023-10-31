@@ -1,7 +1,5 @@
 import React from "react";
 import Image from "next/image";
-
-// Static assets
 import upperStroke from "../../../public/background-strokes/MM flecha lado5.png";
 import upperStrokeInv from "../../../public/background-strokes/MM completo lado1.png";
 import left_2_stroke from "../../../public/background-strokes/MM completo lado2.png";
@@ -92,18 +90,6 @@ const Background = ({ children }) => {
       <div className="absolute top-[550rem] -right-[35rem] largeTablet:-right-[4rem]">
         <Image alt="Doodles" width={500} src={right_3_stroke} />
       </div>
-
-      {/* <div
-        style={{ zIndex: -1 }}
-        className="absolute hidden largeTablet:block top-[600rem] -left-[5rem]"
-      >
-        <Image
-          alt="Doodles"
-          style={{ marginLeft: 50 }}
-          width={500}
-          src={left_2_stroke}
-        />
-      </div> */}
 
       <div className="relative">{children}</div>
     </div>

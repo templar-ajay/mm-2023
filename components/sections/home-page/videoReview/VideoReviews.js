@@ -9,6 +9,22 @@ export default function FeatureSlides({ data }) {
   const [VideoClicked, setVideoClicked] = useState(false);
   const [currentVideoIframe, setCurrentVideoIframe] = useState("");
 
+  const adjustVideoFrame = (video_popup) => {
+    let htmlString = video_popup.html;
+    // Replace the width attribute
+    htmlString = htmlString.replace(/width="(\d+)"/g, 'width=""');
+
+    htmlString = htmlString.replace(/height="(\d+)"/g, 'height=""');
+
+    // Add &autoplay=1 to the src attribute
+    htmlString = htmlString.replace(
+      /src="(https:\/\/player\.vimeo\.com\/video\/\d+\?app_id=\d+)"/g,
+      'src="$1&autoplay=1" style="position:absolute; top:0;left:0;width:100%;aspect-ratio:16/9;"'
+    );
+
+    return htmlString;
+  };
+
   return (
     <VideoReviewsStyles className="section relative">
       <div className="container container__tight">
@@ -17,34 +33,21 @@ export default function FeatureSlides({ data }) {
       </div>
       <div className="container container__tight container__scroll relative">
         {data.items.map(
-          ({
-            image_of_review,
-            name_of_reviwer,
-            description_of_review,
-            cta_to_watch_video,
-            video_popup
-          }) => (
+          (
+            {
+              image_of_review,
+              name_of_reviwer,
+              description_of_review,
+              cta_to_watch_video,
+              video_popup
+            },
+            i
+          ) => (
             <VideoReviewStyles
+              key={i + Math.random().toString()}
               onClick={() => {
                 setVideoClicked(() => true);
-                setCurrentVideoIframe(() => {
-                  let htmlString = video_popup.html;
-                  // Replace the width attribute
-                  htmlString = htmlString.replace(/width="(\d+)"/g, 'width=""');
-
-                  htmlString = htmlString.replace(
-                    /height="(\d+)"/g,
-                    'height=""'
-                  );
-
-                  // Add &autoplay=1 to the src attribute
-                  htmlString = htmlString.replace(
-                    /src="(https:\/\/player\.vimeo\.com\/video\/\d+\?app_id=\d+)"/g,
-                    'src="$1&autoplay=1" style="position:absolute; top:0;left:0;width:100%;aspect-ratio:16/9;"'
-                  );
-
-                  return htmlString;
-                });
+                setCurrentVideoIframe(() => adjustVideoFrame(video_popup));
               }}
             >
               <img

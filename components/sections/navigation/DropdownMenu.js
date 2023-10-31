@@ -38,8 +38,8 @@ const DropdownMenu = ({ menuItems = [] }) => {
                 MENU
               </p>
               <div className="flex flex-col gap-y-2 pb-14 ">
-                {menuItems.map(({ label, small_label, the_link }) => (
-                  <Menu.Item key={label[0].text}>
+                {menuItems.map(({ label, small_label, the_link }, i) => (
+                  <Menu.Item key={label[0]?.text + i}>
                     <Link
                       href={arrangeLinks(the_link.url, currentPath)}
                       className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"

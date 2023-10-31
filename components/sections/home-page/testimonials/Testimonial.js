@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
-// Components
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
 
 const Testimonial = ({
@@ -23,7 +21,7 @@ const Testimonial = ({
       if (saveTwitterUsername) {
         return (
           <a
-            key={index}
+            key={index + Math.random().toString()}
             className="text-brandOrange"
             href={"https://twitter.com/" + saveTwitterUsername.substring(1)}
             target="_blank"
