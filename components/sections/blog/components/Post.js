@@ -3,8 +3,8 @@ import { RichText } from "prismic-reactjs";
 import { getReadTime } from "@/utils/dateTimeUtils";
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
 import { Typography } from "../../../common/text";
-import OrangeClock from "../../../../public/mobile_menu.svg";
-import OrangeAuthor from "../../../../public/close_btn.svg";
+import OrangeClock from "../../../../public/icons/mobile_menu.svg";
+import OrangeAuthor from "../../../../public/icons/close_btn.svg";
 import Button from "../../../common/Button";
 import LocalTypography from "./LocalTypography";
 

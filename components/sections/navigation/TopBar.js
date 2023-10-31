@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { RichText } from "prismic-reactjs";
 import { usePathname } from "next/navigation";
-
-// Components
 import Button from "../../common/Button";
 
 const TopBar = ({ navigationItems }) => {

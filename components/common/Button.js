@@ -11,9 +11,7 @@ const Button = ({
   borderVariant = "neon",
   backgroundVariant = "dark",
   fullWidth,
-  gitHub,
-  minWidth,
-  minHeight = "38px"
+  gitHub
 }) => {
   const commonStyle = `h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer`;
   const widthStyle = fullWidth ? `w-full largeTablet:w-fit` : `w-fit`;

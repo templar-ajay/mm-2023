@@ -1,6 +1,3 @@
-import React from "react";
-
-// Components
 import SectionWrapper from "../../common/layout/SectionWrapper";
 import TopBar from "./TopBar";
 import DropdownMenu from "./DropdownMenu";

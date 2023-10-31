@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// Components
+import { useState } from "react";
 import SectionWrapper from "../../../common/layout/SectionWrapper";
 import { Heading, Typography } from "../../../common/text";
 import Testimonial from "./Testimonial";

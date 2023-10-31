@@ -4,8 +4,8 @@ import { RichText } from "prismic-reactjs";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
-import MobileMenu from "../../../public/mobile_menu.svg";
-import MobileCloseMenu from "../../../public/close_btn.svg";
+import MobileMenu from "../../../public/icons/mobile_menu.svg";
+import MobileCloseMenu from "../../../public/icons/close_btn.svg";
 import { usePathname } from "next/navigation";
 
 const DropdownMenu = ({ menuItems = [] }) => {

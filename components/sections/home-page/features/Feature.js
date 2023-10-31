@@ -10,31 +10,20 @@ import { adjustCurrentDate } from "@/utils/dateTimeUtils";
 
 const Feature = ({ data, className }) => {
   const _delay = 0.5;
-
   const hide = data.primary.small_image ? "hidden" : "";
-
   const [refIcon, iconInView] = useInView();
   const [refImage, imageInView] = useInView();
 
   // text animation
   const initPosY = 5;
   const posY = iconInView ? 0 : initPosY;
-
   const {
-    primary: {
-      small_image: { url: smallImageUrl, alt: smallImageAlt },
-      title,
-      does_it_have_date_
-    }
-  } = data;
-
-  // console.log(feature.primary.title[0].text, feature);
+    small_image: { url: smallImageUrl, alt: smallImageAlt },
+    title,
+    does_it_have_date_,
+    text
+  } = data.primary;
   const images = [];
-  const text = data.primary.text.filter((ele) => {
-    return ele;
-    if (ele.type === "image") images.push(ele);
-    else return ele;
-  });
 
   return (
     <>

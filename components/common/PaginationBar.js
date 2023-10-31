@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import Image from "next/image";
-import leftArrow from "../../public/orange_left_arrow.png";
-import rightArrow from "../../public/orange_right_arrow.png";
+import leftArrow from "../../public/icons/orange_left_arrow.png";
+import rightArrow from "../../public/icons/orange_right_arrow.png";
 
 export default function PaginationBar({ totalPage, activePage }) {
   const [active, setActive] = useState(activePage);
