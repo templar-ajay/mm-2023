@@ -1,22 +1,17 @@
-import React from "react";
-
-// Components
-import SectionWrapper from "../../common/layout/SectionWrapper";
-import { Typography } from "../../common/text";
-import Button from "../../common/Button";
+import SectionWrapper from "../../../common/layout/SectionWrapper";
+import { Typography } from "../../../common/text";
+import Button from "../../../common/Button";
 import { RichText } from "prismic-reactjs";
 
-const CTA = ({
-  data: {
+const CTA = ({ data, pb, pbs }) => {
+  const {
     after_cta,
     main_text,
     secondary_text,
     below_text,
     destination_link_of_cta
-  },
-  pb,
-  pbs
-}) => {
+  } = data;
+
   return (
     <div style={{ marginBottom: "60px" }}>
       <SectionWrapper pb={pb ? pb : 150} pbs={pbs ? pbs : 105}>

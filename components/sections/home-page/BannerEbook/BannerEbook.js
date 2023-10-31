@@ -1,11 +1,9 @@
-import * as React from "react";
 import { BannerEbookStyles } from "./BannerEbookStyles";
 import { Helmet } from "react-helmet";
 import { RichText } from "prismic-reactjs";
 
-const BannerEbook = ({ ebookData: { primary } }) => {
-  // console.log(primary, "ebook");
-  const { lead_magnet_image, title, intro, cta } = primary;
+const BannerEbook = ({ data }) => {
+  const { lead_magnet_image, title, intro, cta } = data.primary;
 
   return (
     <>

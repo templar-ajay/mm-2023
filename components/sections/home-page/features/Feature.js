@@ -8,10 +8,10 @@ import CustomRichText from "@/components/common/CustomRichText/CustomRichText";
 
 import { adjustCurrentDate } from "@/utils/dateTimeUtils";
 
-const Feature = ({ feature, className }) => {
+const Feature = ({ data, className }) => {
   const _delay = 0.5;
 
-  const hide = feature.primary.small_image ? "hidden" : "";
+  const hide = data.primary.small_image ? "hidden" : "";
 
   const [refIcon, iconInView] = useInView();
   const [refImage, imageInView] = useInView();
@@ -26,11 +26,11 @@ const Feature = ({ feature, className }) => {
       title,
       does_it_have_date_
     }
-  } = feature;
+  } = data;
 
   // console.log(feature.primary.title[0].text, feature);
   const images = [];
-  const text = feature.primary.text.filter((ele) => {
+  const text = data.primary.text.filter((ele) => {
     return ele;
     if (ele.type === "image") images.push(ele);
     else return ele;
@@ -81,24 +81,6 @@ const Feature = ({ feature, className }) => {
               </div>
               {(smallImageUrl || title[0]?.text) && (
                 <div className="relative largeTablet:max-w-[500px]">
-                  {/* {smallImageUrl && (
-                  <motion.img
-                    initial={{ opacity: 0, scale: 0.2 }}
-                    animate={{
-                      opacity: iconInView ? 1 : 0,
-                      scale: iconInView ? 1 : 0.5
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 0.1,
-                      ease: "easeInOut"
-                    }}
-                    className="absolute -left-[56px] largeTablet:-left-[77px] -top-[8px] largeTablet:-top-[4px]"
-                    src={smallImageUrl}
-                    alt={smallImageAlt}
-                    style={{ maxWidth: "56px" }}
-                  />
-                )} */}
                   {title[0]?.text && (
                     <motion.div
                       initial={{ opacity: 0, y: initPosY, x: -10 }}

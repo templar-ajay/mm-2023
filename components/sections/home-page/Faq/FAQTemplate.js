@@ -2,8 +2,8 @@ import React from "react";
 import { FAQTemplateStyles } from "./FAQTemplateStyles";
 import FaqPara from "./FaqPara";
 
-const FAQTemplate = ({ faqs }) => {
-  const title = faqs.primary?.title[0]?.text;
+const FAQTemplate = ({ data }) => {
+  const title = data.primary?.title[0]?.text;
 
   return (
     <FAQTemplateStyles className="section section__padding">
@@ -11,7 +11,7 @@ const FAQTemplate = ({ faqs }) => {
         <h2 className="h1 text-textPrimary">{title}</h2>
         <div className="theCopyP">
           <div className="column">
-            {faqs.items.map((item, index) => (
+            {data.items.map((item, index) => (
               <FaqPara
                 key={index}
                 title={item.question_in_h2}

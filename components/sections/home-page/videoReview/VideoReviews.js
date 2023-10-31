@@ -5,7 +5,7 @@ import Button from "../../../common/Button";
 import Modal from "@/components/common/Modal";
 import Video from "@/components/common/Video";
 
-export default function FeatureSlides({ videoReviews }) {
+export default function FeatureSlides({ data }) {
   const [VideoClicked, setVideoClicked] = useState(false);
   const [currentVideoIframe, setCurrentVideoIframe] = useState("");
 
@@ -16,7 +16,7 @@ export default function FeatureSlides({ videoReviews }) {
         <div className="theCopyP"></div>
       </div>
       <div className="container container__tight container__scroll relative">
-        {videoReviews.map(
+        {data.items.map(
           ({
             image_of_review,
             name_of_reviwer,
