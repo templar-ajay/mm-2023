@@ -1,51 +1,107 @@
-import React, { useState } from "react";
 import Button from "./Button";
 import Image from "next/image";
 import leftArrow from "../../public/icons/orange_left_arrow.png";
 import rightArrow from "../../public/icons/orange_right_arrow.png";
+import { usePathname } from "next/navigation";
 
-export default function PaginationBar({ totalPage, activePage }) {
-  const [active, setActive] = useState(activePage);
-
-  const getItemProps = (index) => ({
-    variant: active === index ? "filled" : "text",
-    color: "gray",
-    onClick: () => setActive(index),
-    className: "rounded-full"
-  });
-
-  const next = () => {
-    if (active === totalPage) return;
-    setActive(active + 1);
-  };
-
-  const prev = () => {
-    if (active === 1) return;
-    setActive(active - 1);
-  };
+export default function PaginationBar({ totalPage, activePage, pageSize }) {
+  const path = usePathname();
+  const isFirstPage = activePage === 1;
+  const isLastPage = activePage === totalPage;
+  const isButtonActive = (index) => index == activePage;
 
   return (
     <div className="flex items-center gap-4">
       <Button
-        variant="text"
+        backgroundVariant={isFirstPage ? "orange" : ""}
+        borderVariant={isFirstPage ? "" : "neon"}
         className="flex items-center gap-2 rounded-full"
-        onClick={prev}
-        disabled={active === 1}
+        disabled={isFirstPage}
+        href={`${
+          path.includes("/es/") ? "/es/" : "/"
+        }blog/?blog_count=${pageSize}&page_number=${activePage - 1}`}
       >
         <Image width={40} height={40} src={leftArrow} className="h-4 w-4" />
       </Button>
       <div className="flex items-center gap-2">
-        <Button {...getItemProps(1)}>1</Button>
-        <Button {...getItemProps(2)}>2</Button>
-        <Button {...getItemProps(3)}>3</Button>
-        <Button {...getItemProps(4)}>4</Button>
-        <Button {...getItemProps(5)}>5</Button>
+        <Button
+          backgroundVariant={isButtonActive(1) ? "orange" : ""}
+          borderVariant={isButtonActive(1) ? "" : "neon"}
+          color="gray"
+          className="rounded-full"
+          disabled={isButtonActive(1)}
+          href={`${
+            path.includes("/es/") ? "/es/" : "/"
+          }blog/?blog_count=${pageSize}&page_number=${1}`}
+        >
+          1
+        </Button>
+
+        {totalPage > 2 && !isLastPage ? (
+          <Button
+            backgroundVariant={
+              isButtonActive(isFirstPage ? 2 : activePage) ? "orange" : ""
+            }
+            borderVariant={
+              isButtonActive(isFirstPage ? 2 : activePage) ? "" : "neon"
+            }
+            color="gray"
+            className="rounded-full"
+            disabled={isButtonActive(isFirstPage ? 2 : activePage)}
+            href={`${
+              path.includes("/es/") ? "/es/" : "/"
+            }blog/?blog_count=${pageSize}&page_number=${
+              isFirstPage ? 2 : activePage
+            }`}
+          >
+            {isFirstPage ? 2 : activePage}
+          </Button>
+        ) : (
+          <>
+            {isLastPage ? (
+              <></>
+            ) : (
+              <Button
+                backgroundVariant={isButtonActive(activePage) ? "orange" : ""}
+                borderVariant={isButtonActive(activePage) ? "" : "neon"}
+                color="gray"
+                className="rounded-full"
+                disabled={isButtonActive(activePage)}
+                href={`${
+                  path.includes("/es/") ? "/es/" : "/"
+                }blog/?blog_count=${pageSize}&page_number=${activePage}`}
+              >
+                {activePage}
+              </Button>
+            )}
+          </>
+        )}
+
+        {totalPage <= 2 ? (
+          <></>
+        ) : (
+          <Button
+            backgroundVariant={isButtonActive(totalPage) ? "orange" : ""}
+            borderVariant={isButtonActive(totalPage) ? "" : "neon"}
+            color="gray"
+            className="rounded-full"
+            disabled={isButtonActive(totalPage)}
+            href={`${
+              path.includes("/es/") ? "/es/" : "/"
+            }blog/?blog_count=${pageSize}&page_number=${totalPage}`}
+          >
+            {totalPage}
+          </Button>
+        )}
       </div>
       <Button
-        variant="text"
+        backgroundVariant={isLastPage ? "orange" : ""}
+        borderVariant={isLastPage ? "" : "neon"}
         className="flex items-center gap-2 rounded-full"
-        onClick={next}
-        disabled={active === totalPage}
+        disabled={isLastPage}
+        href={`${
+          path.includes("/es/") ? "/es/" : "/"
+        }blog/?blog_count=${pageSize}&page_number=${activePage + 1}`}
       >
         <Image width={40} height={40} src={rightArrow} className="h-4 w-4" />
       </Button>

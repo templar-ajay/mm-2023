@@ -11,9 +11,9 @@ const FeaturedPost = ({ data }) => {
             <div className="flex-1  h-[496px] relative rounded-[5px] overflow-hidden ">
               <Image
                 src={data.data?.imagen_del_post?.url}
-                width="auto"
+                // width="auto"
                 layout="fill"
-                objectFit="cover"
+                // objectFit="cover"
                 alt="Post cover"
               />
             </div>

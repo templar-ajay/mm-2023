@@ -4,7 +4,14 @@ import BlogListing from "@/components/sections/blog/index";
 import PrismicClient from "@/services/prismic";
 import { validPaginationParams } from "@/utils/queryParamUtils";
 
-const BlogsPage = ({ blogs, totalPageCount, navigation, footer }) => {
+const BlogsPage = ({
+  blogs,
+  totalPageCount,
+  navigation,
+  footer,
+  activePage,
+  pageSize
+}) => {
   console.log({ blogs, totalPageCount, navigation, footer });
   const seo = {
     seo_title: [
@@ -32,7 +39,12 @@ const BlogsPage = ({ blogs, totalPageCount, navigation, footer }) => {
       BackgroundWrapper={Background}
       footer={footer}
     >
-      <BlogListing blogs={blogs} totalPageCount={totalPageCount} />
+      <BlogListing
+        blogs={blogs}
+        totalPageCount={totalPageCount}
+        activePage={activePage}
+        pageSize={pageSize}
+      />
     </PageLayout>
   );
 };
@@ -47,11 +59,12 @@ export async function getServerSideProps({ query, previewData }) {
   const client = PrismicClient({ previewData });
   const singleResponse = await client.getByType("page", { pageSize });
   const totalPageCount = singleResponse.total_pages;
+  const activePage = validPaginationParams(page_number, totalPageCount)
+    ? parseInt(page_number)
+    : 1;
   const blogs = await client.getByType("page", {
     pageSize,
-    page: validPaginationParams(page_number, totalPageCount)
-      ? parseInt(page_number)
-      : 1
+    page: activePage
   });
   const [navigation, footer] = await Promise.all([
     client.getByType("navigation", { lang: "en-us" }),
@@ -63,7 +76,9 @@ export async function getServerSideProps({ query, previewData }) {
       totalPageCount: totalPageCount,
       blogs: blogs.results,
       navigation: navigation.results[0].data,
-      footer: footer.results[0].data
+      footer: footer.results[0].data,
+      activePage,
+      pageSize
     }
   };
 }

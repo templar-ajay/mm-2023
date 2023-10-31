@@ -4,7 +4,12 @@ import { Heading, Typography } from "@/components/common/text";
 import FeaturedPost from "./FeaturedPost";
 import Post from "./components/Post";
 
-export default function BlogListing({ blogs, totalPageCount }) {
+export default function BlogListing({
+  blogs,
+  totalPageCount,
+  activePage,
+  pageSize
+}) {
   return (
     <>
       <SectionWrapper pt={180} pts={60} pb={120} pbs={140}>
@@ -24,7 +29,7 @@ export default function BlogListing({ blogs, totalPageCount }) {
         <FeaturedPost data={blogs[0]} />
         <div className="w-full mt-20">
           <Typography variant="preHeading" alignLarge="left">
-            Recent Posts
+            Trending Posts
           </Typography>
 
           <div className="grid grid-cols-1 gap-y-20 mt-10 largeTablet:grid-cols-2 largeTablet:gap-x-11 ">
@@ -35,7 +40,11 @@ export default function BlogListing({ blogs, totalPageCount }) {
         </div>
       </SectionWrapper>
       <div className="w-100 flex justify-center pb-12">
-        <PaginationBar totalPage={totalPageCount} activePage={1} />
+        <PaginationBar
+          totalPage={totalPageCount}
+          activePage={activePage}
+          pageSize={pageSize}
+        />
       </div>
     </>
   );
