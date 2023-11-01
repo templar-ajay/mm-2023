@@ -23,6 +23,10 @@ export default function Document() {
         />
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
+        <meta name="apple-mobile-web-app-title" content="Medical Marketing Agency" />
+        <meta name="application-name" content="Medical Marketing Agency" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./favicon.ico"></link>
+
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
