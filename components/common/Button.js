@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
 
@@ -11,6 +12,7 @@ const Button = ({
   fullWidth,
   gitHub
 }) => {
+  const path = usePathname();
   const commonStyle = `h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer`;
   const widthStyle = fullWidth ? `w-full largeTablet:w-fit` : `w-fit`;
   const borderVariantStyle =
@@ -37,7 +39,7 @@ const Button = ({
           </a>
         </div>
       ) : (
-        <Link href={href} passHref>
+        <Link href={path.includes("/es") ? "/es/" : "/" + href} passHref>
           <div
             className={`${commonStyle} ${widthStyle} ${borderVariantStyle} transition-all ease-in-out duration-400`}
           >
