@@ -60,10 +60,11 @@ export async function getStaticProps({ params, previewData }) {
     const testimonialsFetch = landingPageData?.data?.body?.find(
       (ele) => ele?.slice_type === "testimonials"
     );
-    let videoTestimonials;
+    let videoTestimonials = null;
     if (!!testimonialsFetch) {
       const testimonialId = testimonialsFetch?.primary?.all_testimonials?.id;
       videoTestimonials = await client.getByID(testimonialId);
+      videoTestimonials && (videoTestimonials = videoTestimonials.data.body[0]);
     }
 
     return {
@@ -71,7 +72,7 @@ export async function getStaticProps({ params, previewData }) {
         landingPageData,
         navigation: navigation.results[0].data,
         footer: footer.results[0].data,
-        videoTestimonials: videoTestimonials?.data.body[0]
+        videoTestimonials
       },
       revalidate: 5
     };

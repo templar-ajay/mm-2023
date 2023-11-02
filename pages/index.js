@@ -4,7 +4,7 @@ import Background from "@/components/sections/home-page/Background";
 import Error from "@/components/sections/Error";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
 
-export default function EnHome({
+export default function Home({
   landingPageData,
   navigation,
   footer,
@@ -45,12 +45,13 @@ export async function getServerSideProps({ previewData }) {
     const testimonialsFetch = landingPageData.data.body?.find(
       (ele) => ele?.slice_type === "testimonials"
     );
-    let videoTestimonials;
+    let videoTestimonials = null;
     if (!!testimonialsFetch) {
       const testimonialId = testimonialsFetch.primary.all_testimonials.id;
       videoTestimonials = await client.getByID(testimonialId, {
         lang: "en-us"
       });
+      videoTestimonials && (videoTestimonials = videoTestimonials.data.body[0]);
     }
 
     return {
@@ -58,7 +59,7 @@ export async function getServerSideProps({ previewData }) {
         landingPageData,
         navigation: navigation.results[0].data,
         footer: footer.results[0].data,
-        videoTestimonials: videoTestimonials.data
+        videoTestimonials
       }
     };
   } catch (error) {
