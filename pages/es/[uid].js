@@ -62,7 +62,7 @@ export async function getStaticProps({ params, previewData }) {
     );
     let videoTestimonials = null;
     if (!!testimonialsFetch) {
-      const testimonialId = testimonialsFetch?.primary?.all_testimonials?.id;
+      const testimonialId = testimonialsFetch.primary.all_testimonials.id;
       videoTestimonials = await client.getByID(testimonialId);
       videoTestimonials && (videoTestimonials = videoTestimonials.data.body[0]);
     }
@@ -70,8 +70,8 @@ export async function getStaticProps({ params, previewData }) {
     return {
       props: {
         landingPageData,
-        navigation: navigation.results[0].data,
-        footer: footer.results[0].data,
+        navigation: navigation.results[0] ? navigation.results[0].data : null,
+        footer: footer.results[0] ? footer.results[0].data : null,
         videoTestimonials
       },
       revalidate: 5

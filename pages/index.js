@@ -11,7 +11,7 @@ export default function Home({
   videoTestimonials
 }) {
   console.log({ landingPageData, navigation, footer, videoTestimonials });
-  if (!landingPageData) return <Error />;
+  // if (!landingPageData) return <Error />;
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
 
@@ -39,7 +39,7 @@ export async function getServerSideProps({ previewData }) {
         { lang: "en-us" }
       ),
       client.getByType("navigation", { lang: "en-us" }),
-      client.getByType("footer")
+      client.getByType("footer", { lang: "es-us" })
     ]);
 
     const testimonialsFetch = landingPageData.data.body?.find(
@@ -57,8 +57,8 @@ export async function getServerSideProps({ previewData }) {
     return {
       props: {
         landingPageData,
-        navigation: navigation.results[0].data,
-        footer: footer.results[0].data,
+        navigation: navigation.results[0] ? navigation.results[0].data : null,
+        footer: footer.results[0] ? footer.results[0].data : null,
         videoTestimonials
       }
     };

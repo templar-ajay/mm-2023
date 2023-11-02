@@ -54,8 +54,8 @@ export async function getServerSideProps({ previewData }) {
     return {
       props: {
         landingPageData,
-        navigation: navigation.results[0].data,
-        footer: footer.results[0].data,
+        navigation: navigation.results[0] ? navigation.results[0].data : null,
+        footer: footer.results[0] ? footer.results[0].data : null,
         videoTestimonials
       }
     };

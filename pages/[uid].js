@@ -53,7 +53,7 @@ export async function getStaticProps({ params, previewData }) {
     const [landingPageData, navigation, footer] = await Promise.all([
       client.getByUID("landing_page", params.uid, { lang: "en-us" }),
       client.getByType("navigation", { lang: "en-us" }),
-      client.getByType("footer")
+      client.getByType("footer", { lang: "en-us" })
     ]);
     if (!landingPageData) return { notFound: true };
 
@@ -72,8 +72,8 @@ export async function getStaticProps({ params, previewData }) {
     return {
       props: {
         landingPageData,
-        navigation: navigation.results[0].data,
-        footer: footer.results[0].data,
+        navigation: navigation.results[0] ? navigation.results[0].data : null,
+        footer: footer.results[0] ? footer.results[0].data : null,
         videoTestimonials
       },
       revalidate: 5
