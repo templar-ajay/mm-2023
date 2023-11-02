@@ -39,7 +39,7 @@ const Button = ({
           </a>
         </div>
       ) : (
-        <Link href={path.includes("/es") ? "/es/" : "/" + href} passHref>
+        <Link href={(path.includes("/es") ? "/es/" : "/") + href}>
           <div
             className={`${commonStyle} ${widthStyle} ${borderVariantStyle} transition-all ease-in-out duration-400`}
           >
