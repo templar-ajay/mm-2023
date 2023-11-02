@@ -4,9 +4,14 @@ import Background from "@/components/sections/home-page/Background";
 import Error from "@/components/sections/Error";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
 
-export default function EnHome({ landingPageData, navigation, footer }) {
-  console.log({ landingPageData, navigation, footer });
-  if (!landingPageData) return <Error />;
+export default function Home({
+  landingPageData,
+  navigation,
+  footer,
+  videoTestimonials
+}) {
+  console.log({ landingPageData, navigation, footer, videoTestimonials });
+  // if (!landingPageData) return <Error />;
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
 
@@ -17,7 +22,9 @@ export default function EnHome({ landingPageData, navigation, footer }) {
       BackgroundWrapper={Background}
       footer={footer}
     >
-      {body.map((x, i) => useComponentResolver({ data: x, index: i }))}
+      {body.map((x, i) =>
+        useComponentResolver({ data: x, index: i, videoTestimonials })
+      )}
     </PageLayout>
   );
 }
@@ -28,16 +35,31 @@ export async function getServerSideProps({ previewData }) {
     const [landingPageData, navigation, footer] = await Promise.all([
       client.getByUID(
         "landing_page",
-        "marketing-medico-para-doctores-y-clinicas."
+        "marketing-medico-para-doctores-y-clinicas.",
+        { lang: "en-us" }
       ),
-      client.getByType("navigation"),
-      client.getByType("footer")
+      client.getByType("navigation", { lang: "en-us" }),
+      client.getByType("footer", { lang: "es-us" })
     ]);
+
+    const testimonialsFetch = landingPageData.data.body?.find(
+      (ele) => ele?.slice_type === "testimonials"
+    );
+    let videoTestimonials = null;
+    if (!!testimonialsFetch) {
+      const testimonialId = testimonialsFetch.primary.all_testimonials.id;
+      videoTestimonials = await client.getByID(testimonialId, {
+        lang: "en-us"
+      });
+      videoTestimonials && (videoTestimonials = videoTestimonials.data.body[0]);
+    }
+
     return {
       props: {
         landingPageData,
-        navigation: navigation.results[0].data,
-        footer: footer.results[0].data
+        navigation: navigation.results[0] ? navigation.results[0].data : null,
+        footer: footer.results[0] ? footer.results[0].data : null,
+        videoTestimonials
       }
     };
   } catch (error) {

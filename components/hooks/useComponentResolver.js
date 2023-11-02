@@ -7,7 +7,11 @@ import CTATemplate from "../sections/home-page/CTA/CTATemplate";
 import Features from "../sections/home-page/features/Features";
 import Team from "../sections/our-team/Team";
 
-export default function useComponentResolver({ data, index }) {
+export default function useComponentResolver({
+  data,
+  index,
+  videoTestimonials
+}) {
   const key = index + data?.slice_type;
   const junk = {
     hero_landing: <Hero data={data} key={key} />,
@@ -16,7 +20,10 @@ export default function useComponentResolver({ data, index }) {
     video_reviews: <VideoReviews data={data} key={key} />,
     faqs: <FaqTemplate data={data} key={key} />,
     lead_magnet_book: <BannerEbook data={data} key={key} />,
-    team: <Team data={data} key={key} />
+    team: <Team data={data} key={key} />,
+    testimonials: (
+      <VideoReviews data={videoTestimonials} key={index + "testimonials"} />
+    )
   };
 
   return junk[data.slice_type] || <></>;
