@@ -6,6 +6,7 @@ import BannerEbook from "../sections/home-page/BannerEbook/BannerEbook";
 import CTATemplate from "../sections/home-page/CTA/CTATemplate";
 import Features from "../sections/home-page/features/Features";
 import Team from "../sections/our-team/Team";
+import IframeButton from "../common/iframeButton";
 
 export default function useComponentResolver({
   data,
@@ -21,6 +22,7 @@ export default function useComponentResolver({
     faqs: <FaqTemplate data={data} key={key} />,
     lead_magnet_book: <BannerEbook data={data} key={key} />,
     team: <Team data={data} key={key} />,
+    "cta_-_iframe": <IframeButton data={data} key={key} />,
     testimonials: (
       <VideoReviews data={videoTestimonials} key={index + "testimonials"} />
     )
