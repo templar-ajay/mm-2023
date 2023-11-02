@@ -39,7 +39,13 @@ const Button = ({
           </a>
         </div>
       ) : (
-        <Link href={(path.includes("/es") ? "/es/" : "/") + href}>
+        <Link
+          href={
+            href != "javascript:void(0)"
+              ? (path.includes("/es") ? "/es/" : "/") + href
+              : href
+          }
+        >
           <div
             className={`${commonStyle} ${widthStyle} ${borderVariantStyle} transition-all ease-in-out duration-400`}
           >
