@@ -5,7 +5,7 @@ import Button from "../../../common/Button";
 import Modal from "@/components/common/Modal";
 import Video from "@/components/common/Video";
 
-export default function FeatureSlides({ data }) {
+export default function VideoReviews({ data }) {
   const [VideoClicked, setVideoClicked] = useState(false);
   const [currentVideoIframe, setCurrentVideoIframe] = useState("");
 
