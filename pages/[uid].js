@@ -4,10 +4,15 @@ import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
 
-export default function RootPages({ landingPageData, navigation, footer }) {
-  console.log({ landingPageData, navigation, footer });
+export default function RootPages({
+  landingPageData,
+  navigation,
+  footer,
+  videoTestimonials
+}) {
+  console.log({ landingPageData, navigation, footer, videoTestimonials });
   const router = useRouter();
-  if (router.isFallback) return <h1>Loading...</h1>;
+  if (router.isFallback) return <>Loading...</>;
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
@@ -19,7 +24,9 @@ export default function RootPages({ landingPageData, navigation, footer }) {
       BackgroundWrapper={Background}
       footer={footer}
     >
-      {body.map((x, i) => useComponentResolver({ data: x, index: i }))}
+      {body.map((x, i) =>
+        useComponentResolver({ data: x, index: i, videoTestimonials })
+      )}
     </PageLayout>
   );
 }
@@ -49,11 +56,24 @@ export async function getStaticProps({ params, previewData }) {
       client.getByType("footer")
     ]);
     if (!landingPageData) return { notFound: true };
+
+    const testimonialsFetch = landingPageData.data.body?.find(
+      (ele) => ele?.slice_type === "testimonials"
+    );
+    let videoTestimonials;
+    if (!!testimonialsFetch) {
+      const testimonialId = testimonialsFetch.primary.all_testimonials.id;
+      videoTestimonials = await client.getByID(testimonialId, {
+        lang: "en-us"
+      });
+    }
+
     return {
       props: {
         landingPageData,
         navigation: navigation.results[0].data,
-        footer: footer.results[0].data
+        footer: footer.results[0].data,
+        videoTestimonials: videoTestimonials?.data.body[0]
       },
       revalidate: 5
     };
