@@ -8,8 +8,11 @@ import Video from "@/components/common/Video";
 export default function VideoReviews({ data }) {
   const [VideoClicked, setVideoClicked] = useState(false);
   const [currentVideoIframe, setCurrentVideoIframe] = useState("");
+  // console.log("videoReviews data", data);
 
   const adjustVideoFrame = (video_popup) => {
+    // const iframe = `<iframe src="https://player.vimeo.com/video/780826530?app_id=122963&amp;autoplay=1" style="position:absolute; top:0;left:0;width:100%;aspect-ratio:16/9;" width="" height="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Dr. David Molina - Medical Marketing"></iframe>`;
+
     let htmlString = video_popup.html;
     // Replace the width attribute
     htmlString = htmlString.replace(/width="(\d+)"/g, 'width=""');
@@ -56,8 +59,12 @@ export default function VideoReviews({ data }) {
                 alt={image_of_review.alt}
               />
               <div className="features__item--content flex flex-col gap-y-6 ">
-                {RichText.render(name_of_reviwer)}
-                <div>{RichText.render(description_of_review)}</div>
+                <div className="text-2xl">
+                  {RichText.render(name_of_reviwer)}
+                </div>
+                <div className="-mt-2">
+                  {RichText.render(description_of_review)}
+                </div>
                 <div className="block">
                   <Button as="span" href="javascript:void(0)" arrow={true}>
                     {RichText.render(cta_to_watch_video)}
