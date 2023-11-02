@@ -2,8 +2,10 @@ import Link from "next/link";
 import { RichText } from "prismic-reactjs";
 import SectionWrapper from "../common/layout/SectionWrapper";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 const Footer = ({ pressPage, footerData }) => {
+  const path = usePathname();
   const footerItems = footerData || {};
   const bgColor = pressPage ? "bg-[#221e1c]" : "bg-footerBG";
 
@@ -34,26 +36,34 @@ const Footer = ({ pressPage, footerData }) => {
                       {RichText.render(title_of_this_block)}
                     </LocalTypography>
                     <div className="w-full flex flex-col">
-                      {items.map(({ link, name_of_this_block }, i) => (
-                        <div
-                          key={i + Math.random().toString()}
-                          className="cursor-pointer"
-                        >
-                          {!name_of_this_block?.length ? (
-                            <></>
-                          ) : (
-                            <Link
-                              key={i + Math.random().toString()}
-                              href={link.url || "/#"}
-                              passHref
-                            >
-                              <LocalTypography variant="item1">
-                                {RichText.render(name_of_this_block)}
-                              </LocalTypography>
-                            </Link>
-                          )}
-                        </div>
-                      ))}
+                      {items.map(
+                        ({ link: { url, uid }, name_of_this_block }, i) => (
+                          <div
+                            key={i + Math.random().toString()}
+                            className="cursor-pointer"
+                          >
+                            {!name_of_this_block?.length ? (
+                              <></>
+                            ) : (
+                              <Link
+                                key={i + Math.random().toString()}
+                                href={
+                                  url ||
+                                  (uid &&
+                                    (path.includes("/es") ? "/es/" : "") +
+                                      uid) ||
+                                  "/#"
+                                }
+                                passHref
+                              >
+                                <LocalTypography variant="item1">
+                                  {RichText.render(name_of_this_block)}
+                                </LocalTypography>
+                              </Link>
+                            )}
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
                 )}

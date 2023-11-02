@@ -11,12 +11,13 @@ const CTA = ({ data, pb, pbs }) => {
     below_text,
     destination_link_of_cta
   } = data;
+  const { url, uid } = destination_link_of_cta;
 
   return (
     <div style={{ marginBottom: "60px" }}>
       <SectionWrapper pb={pb ? pb : 150} pbs={pbs ? pbs : 105}>
         <div className="w-full items-center flex flex-col">
-          <Button href={destination_link_of_cta.uid}>
+          <Button href={url || uid}>
             <div className="flex flex-col mt-2" style={{ minHeight: "70px" }}>
               <Typography
                 fontSize="28px"

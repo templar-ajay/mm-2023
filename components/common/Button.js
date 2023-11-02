@@ -42,7 +42,7 @@ const Button = ({
         <Link
           href={
             href != "javascript:void(0)"
-              ? (path.includes("/es") ? "/es/" : "/") + href
+              ? (path.includes("/es") ? "/es/" : "") + href
               : href
           }
         >
