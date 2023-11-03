@@ -5,17 +5,15 @@ import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
 import { Typography } from "../../../common/text";
 import Button from "../../../common/Button";
 import LocalTypography from "./LocalTypography";
-import { usePathname } from "next/navigation";
 
 const Post = ({ data, featured }) => {
-  const path = usePathname();
   const title = data.data?.h1_de_la_pagina || "";
   const topics = data?.tags || [];
   const content = data.data?.content;
   const slug = data?.uid || "";
   const coverImage = data.data?.imagen_del_post;
   const stringifyContent = content?.map((obj) => obj.text) + "";
-  const href = `${path.includes("/es/") ? "/es/" : "/"}blog/${slug}`;
+  const href = `blog/${slug}`;
 
   return (
     <div className="w-full">
