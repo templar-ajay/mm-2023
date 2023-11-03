@@ -7,6 +7,7 @@ import CTATemplate from "../sections/home-page/CTA/CTATemplate";
 import Features from "../sections/home-page/features/Features";
 import Team from "../sections/our-team/Team";
 import IframeButton from "../common/iframeButton";
+import SessionEstrategica from "../common/SessionEstrategica/SessionEstrategica";
 
 export default function useComponentResolver({
   data,
@@ -25,6 +26,9 @@ export default function useComponentResolver({
     "cta_-_iframe": <IframeButton data={data} key={key} />,
     testimonials: (
       <VideoReviews data={videoTestimonials} key={index + "testimonials"} />
+    ),
+    book_a_session_script: (
+      <SessionEstrategica data={data} key={index + "book_a_session"} />
     )
   };
 

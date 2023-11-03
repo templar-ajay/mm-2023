@@ -10,7 +10,12 @@ export default function EsRootPages({
   footer,
   videoTestimonials
 }) {
-  console.log({ landingPageData, navigation, footer, videoTestimonials });
+  console.log("landing page data", {
+    landingPageData,
+    navigation,
+    footer,
+    videoTestimonials
+  });
   const router = useRouter();
   if (router.isFallback) return <>Loading...</>;
 
@@ -41,8 +46,8 @@ export async function getStaticPaths() {
     "/es/diseno-landing-page-sector-medico-pagina-aterrizaje",
     "/es/sobre-medical-marketing",
     "/es/testimonios",
-    "/es/contacta-con-nosotros"
-    // "/es/consultoria-doctores-clinicas-gratis-30-minutos"
+    "/es/contacta-con-nosotros",
+    "/es/consultoria-doctores-clinicas-gratis-30-minutos"
   ];
   return { paths, fallback: true };
 }
