@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const BannerEbookStyles = styled.section`
-  background: linear-gradient(180deg, var(--grisTercero) 0, var(--fondoGris));
-
+  // background: linear-gradient(180deg, var(--grisTercero) 0, var(--fondoGris));
+  background: var(--darkBG);
   padding-top: 250px !important;
   position: relative;
   padding: 30px var(--borderSpacing);
