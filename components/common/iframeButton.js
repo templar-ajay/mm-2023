@@ -12,8 +12,8 @@ const IframeButton = ({ data }) => {
   const path = usePathname();
   const commonStyle = `h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer`;
   const widthStyle = `w-full largeTablet:w-fit`;
-  const borderVariantStyle = `bg-gradient-to-br from-[#A428BC] via-[#FFF8C9] to-[#A428BC] drop-shadow-[0_0_4px_#ED5432] hover:via-[#FFF8C9] hover:to-[#ED5432] [&_div]:hover:bg-[#610C9F]`;
-  const backgroundVariantStyle = "bg-gray-400";
+  const borderVariantStyle = `bg-gradient-to-br from-[#A428BC] via-[#FFF8C9] to-[#A428BC] drop-shadow-[0_0_4px_#ED5432] hover:via-[#FFF8C9] hover:to-[#ED5432]`;
+  const backgroundVariantStyle = "bg-darkBG";
 
   return (
     <>
