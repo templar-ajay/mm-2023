@@ -1,10 +1,11 @@
 import PageLayout from "@/components/common/layout/PageLayout";
-import Background from "@/components/sections/blog/Background";
+// import Background from "@/components/sections/home/Background";
+import Background from "@/components/sections/home-page/Background";
 import PageContent from "@/components/sections/blog/[slug]/PageContent";
 import PrismicClient from "@/services/prismic";
 import { useRouter } from "next/router";
 
-export default function BlogId({ blogPageData, navigation, footer }) {
+export default function BlogId({ blogPageData, navigation, footer, settings }) {
   console.log(blogPageData, navigation, footer);
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
@@ -14,6 +15,7 @@ export default function BlogId({ blogPageData, navigation, footer }) {
     <PageLayout
       seoData={{ seo_title, seo_description, seo_icon, seo_url }}
       BackgroundWrapper={Background}
+      settings={settings}
       navigation={navigation}
       footer={footer}
     >
@@ -38,17 +40,19 @@ export function getStaticPaths() {
 export async function getStaticProps({ params, previewData }) {
   try {
     const client = PrismicClient({ previewData });
-    const [blogPageData, navigation, footer] = await Promise.all([
+    const [blogPageData, navigation, footer, settings] = await Promise.all([
       client.getByUID("page", params.bid, {}),
-      client.getByType("navigation"),
-      client.getByType("footer")
+      client.getByType("navigation", { lang: "en-us" }),
+      client.getByType("footer", { lang: "en-us" }),
+      client.getByType("settings", { lang: "en-us" })
     ]);
     if (!blogPageData) return { notFound: true };
     return {
       props: {
         blogPageData,
         navigation: navigation.results[0].data,
-        footer: footer.results[0].data
+        footer: footer.results[0].data,
+        settings: settings.results[0] ? settings.results[0].data : null
       },
       revalidate: 5
     };

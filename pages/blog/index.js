@@ -1,5 +1,6 @@
 import PageLayout from "@/components/common/layout/PageLayout";
-import Background from "@/components/sections/blog/Background";
+// import Background from "@/components/sections/blog/Background";
+import Background from "@/components/sections/home-page/Background";
 import BlogListing from "@/components/sections/blog/index";
 import PrismicClient from "@/services/prismic";
 import { validPaginationParams } from "@/utils/queryParamUtils";
@@ -10,7 +11,8 @@ const BlogsPage = ({
   navigation,
   footer,
   activePage,
-  pageSize
+  pageSize,
+  settings
 }) => {
   console.log({ blogs, totalPageCount, navigation, footer });
   const seo = {
@@ -37,6 +39,7 @@ const BlogsPage = ({
       seoData={seo}
       navigation={navigation}
       BackgroundWrapper={Background}
+      settings={settings}
       footer={footer}
     >
       <BlogListing
@@ -66,9 +69,10 @@ export async function getServerSideProps({ query, previewData }) {
     pageSize,
     page: activePage
   });
-  const [navigation, footer] = await Promise.all([
+  const [navigation, footer, settings] = await Promise.all([
     client.getByType("navigation", { lang: "en-us" }),
-    client.getByType("footer")
+    client.getByType("footer", { lang: "en-US" }),
+    client.getByType("settings", { lang: "en-US" })
   ]);
 
   return {
@@ -78,7 +82,8 @@ export async function getServerSideProps({ query, previewData }) {
       navigation: navigation.results[0].data,
       footer: footer.results[0].data,
       activePage,
-      pageSize
+      pageSize,
+      settings: settings.results[0] ? settings.results[0].data : null
     }
   };
 }

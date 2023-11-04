@@ -8,9 +8,16 @@ export default function RootPages({
   landingPageData,
   navigation,
   footer,
-  videoTestimonials
+  videoTestimonials,
+  settings
 }) {
-  console.log({ landingPageData, navigation, footer, videoTestimonials });
+  console.log({
+    landingPageData,
+    navigation,
+    footer,
+    videoTestimonials,
+    settings
+  });
   const router = useRouter();
   if (router.isFallback) return <>Loading...</>;
 
@@ -23,6 +30,7 @@ export default function RootPages({
       navigation={navigation}
       BackgroundWrapper={Background}
       footer={footer}
+      settings={settings}
     >
       {body.map((x, i) =>
         useComponentResolver({ data: x, index: i, videoTestimonials })
@@ -50,10 +58,11 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, previewData }) {
   try {
     const client = PrismicClient({ previewData });
-    const [landingPageData, navigation, footer] = await Promise.all([
+    const [landingPageData, navigation, footer, settings] = await Promise.all([
       client.getByUID("landing_page", params.uid, { lang: "en-us" }),
       client.getByType("navigation", { lang: "en-us" }),
-      client.getByType("footer", { lang: "en-us" })
+      client.getByType("footer", { lang: "en-us" }),
+      client.getByType("settings", { lang: "en-us" })
     ]);
     if (!landingPageData) return { notFound: true };
 
@@ -74,7 +83,8 @@ export async function getStaticProps({ params, previewData }) {
         landingPageData,
         navigation: navigation.results[0] ? navigation.results[0].data : null,
         footer: footer.results[0] ? footer.results[0].data : null,
-        videoTestimonials
+        videoTestimonials,
+        settings: settings.results[0] ? settings.results[0].data : null
       },
       revalidate: 5
     };

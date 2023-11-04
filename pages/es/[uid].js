@@ -8,13 +8,15 @@ export default function EsRootPages({
   landingPageData,
   navigation,
   footer,
-  videoTestimonials
+  videoTestimonials,
+  settings
 }) {
   console.log("landing page data", {
     landingPageData,
     navigation,
     footer,
-    videoTestimonials
+    videoTestimonials,
+    settings
   });
   const router = useRouter();
   if (router.isFallback) return <>Loading...</>;
@@ -27,6 +29,7 @@ export default function EsRootPages({
       seoData={{ seo_title, seo_description, seo_icon, seo_url }}
       navigation={navigation}
       BackgroundWrapper={Background}
+      settings={settings}
       footer={footer}
     >
       {body.map((x, i) =>
@@ -49,16 +52,17 @@ export async function getStaticPaths() {
     "/es/contacta-con-nosotros",
     "/es/consultoria-doctores-clinicas-gratis-30-minutos"
   ];
-  return { paths, fallback: true };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params, previewData }) {
   try {
     const client = PrismicClient({ previewData });
-    let [landingPageData, navigation, footer] = await Promise.all([
+    let [landingPageData, navigation, footer, settings] = await Promise.all([
       client.getByUID("landing_page", params.uid),
       client.getByType("navigation"),
-      client.getByType("footer")
+      client.getByType("footer"),
+      client.getByType("settings")
     ]);
     if (!landingPageData) return { notFound: true };
 
@@ -77,7 +81,8 @@ export async function getStaticProps({ params, previewData }) {
         landingPageData,
         navigation: navigation.results[0] ? navigation.results[0].data : null,
         footer: footer.results[0] ? footer.results[0].data : null,
-        videoTestimonials
+        videoTestimonials,
+        settings: settings.results[0] ? settings.results[0].data : null
       },
       revalidate: 5
     };

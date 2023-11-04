@@ -1,14 +1,14 @@
 import PrismicClient from "@/services/prismic";
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
-import Error from "@/components/sections/Error";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
 
 export default function Home({
   landingPageData,
   navigation,
   footer,
-  videoTestimonials
+  videoTestimonials,
+  settings
 }) {
   console.log({ landingPageData, navigation, footer, videoTestimonials });
   // if (!landingPageData) return <Error />;
@@ -20,6 +20,7 @@ export default function Home({
       seoData={{ seo_title, seo_description, seo_icon, seo_url }}
       navigation={navigation}
       BackgroundWrapper={Background}
+      settings={settings}
       footer={footer}
     >
       {body.map((x, i) =>
@@ -32,14 +33,15 @@ export default function Home({
 export async function getServerSideProps({ previewData }) {
   try {
     const client = PrismicClient({ previewData });
-    const [landingPageData, navigation, footer] = await Promise.all([
+    const [landingPageData, navigation, footer, settings] = await Promise.all([
       client.getByUID(
         "landing_page",
         "marketing-medico-para-doctores-y-clinicas.",
         { lang: "en-us" }
       ),
       client.getByType("navigation", { lang: "en-us" }),
-      client.getByType("footer", { lang: "es-us" })
+      client.getByType("footer", { lang: "es-us" }),
+      client.getByType("settings", { lang: "en-us" })
     ]);
 
     const testimonialsFetch = landingPageData.data.body?.find(
@@ -59,7 +61,8 @@ export async function getServerSideProps({ previewData }) {
         landingPageData,
         navigation: navigation.results[0] ? navigation.results[0].data : null,
         footer: footer.results[0] ? footer.results[0].data : null,
-        videoTestimonials
+        videoTestimonials,
+        settings: settings.results[0] ? settings.results[0].data : null
       }
     };
   } catch (error) {

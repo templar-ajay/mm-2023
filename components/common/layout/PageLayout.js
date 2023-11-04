@@ -8,13 +8,15 @@ const PageLayout = ({
   seoData,
   navigation,
   footer,
+  settings,
   BackgroundWrapper
 }) => {
+  console.log("Settings", settings);
   return (
     <div>
       <SeoBlock {...seoData} />
 
-      <BackgroundWrapper>
+      <BackgroundWrapper backgroundImages={settings.background_images_array}>
         <Header navigationData={navigation || {}} />
         <div>{children}</div>
         <Footer footerData={footer || {}} />
