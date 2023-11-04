@@ -49,6 +49,14 @@ export default function Document() {
           content="Medical Marketing Agency"
         />
         <meta name="application-name" content="Medical Marketing Agency"></meta>
+
+        <link
+          href="./sitemap.xml"
+          rel="sitemap"
+          title="Medical Marketing Sitemap"
+          type="application/xml"
+        />
+
         <meta
           name="facebook-domain-verification"
           content="oj47j8b5zs6sk0nnnmil05csbcry5a"
