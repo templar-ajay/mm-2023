@@ -22,10 +22,10 @@ const Footer = ({ pressPage, footerData }) => {
           </div>
           <div className="w-[140px] tablet:w-auto h-6">
             <Dropdown
-              name="Language Switcher"
+              name="Language"
               menuItems={[
                 { path: "/", title: "English" },
-                { path: "/es", title: "Spanish" }
+                { path: path, title: "Espaniol" }
               ]}
             />
           </div>
