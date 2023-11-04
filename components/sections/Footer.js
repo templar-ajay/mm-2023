@@ -3,6 +3,7 @@ import { RichText } from "prismic-reactjs";
 import SectionWrapper from "../common/layout/SectionWrapper";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import Dropdown from "../common/Dropdown";
 
 const Footer = ({ pressPage, footerData }) => {
   const path = usePathname();
@@ -12,11 +13,20 @@ const Footer = ({ pressPage, footerData }) => {
   return (
     <footer className={`w-full min-h-[200px] ${bgColor} pb-10`}>
       <SectionWrapper pbs={0}>
-        <div className="w-full pt-10 pb-16 largeTablet:pt-12 ">
-          <div className="w-[140px] h-6 relative mx-auto tablet:ml-0">
+        <div className="flex justify-between w-full pt-10 pb-16 largeTablet:pt-12 ">
+          <div className="w-[140px] h-6">
             <img
               alt={"Brand logo"}
               src={"/medicosLogo/medicos-logo-trans-wt.png"}
+            />
+          </div>
+          <div className="w-[140px] tablet:w-auto h-6">
+            <Dropdown
+              name="Language Switcher"
+              menuItems={[
+                { path: "/", title: "English" },
+                { path: "/es", title: "Spanish" }
+              ]}
             />
           </div>
         </div>
