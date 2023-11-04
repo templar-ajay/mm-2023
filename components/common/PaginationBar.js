@@ -2,10 +2,8 @@ import Button from "./Button";
 import Image from "next/image";
 import leftArrow from "../../public/icons/orange_left_arrow.png";
 import rightArrow from "../../public/icons/orange_right_arrow.png";
-import { usePathname } from "next/navigation";
 
 export default function PaginationBar({ totalPage, activePage, pageSize }) {
-  const path = usePathname();
   const isFirstPage = activePage === 1;
   const isLastPage = activePage === totalPage;
   const isButtonActive = (index) => index == activePage;
@@ -17,9 +15,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
         borderVariant={isFirstPage ? "" : "neon"}
         className="flex items-center gap-2 rounded-full"
         disabled={isFirstPage}
-        href={`${
-          path.includes("/es/") ? "/es/" : "/"
-        }blog/?blog_count=${pageSize}&page_number=${activePage - 1}`}
+        href={`blog/?blog_count=${pageSize}&page_number=${activePage - 1}`}
       >
         <Image width={40} height={40} src={leftArrow} className="h-4 w-4" />
       </Button>
@@ -30,9 +26,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
           color="gray"
           className="rounded-full"
           disabled={isButtonActive(1)}
-          href={`${
-            path.includes("/es/") ? "/es/" : "/"
-          }blog/?blog_count=${pageSize}&page_number=${1}`}
+          href={`blog/?blog_count=${pageSize}&page_number=${1}`}
         >
           1
         </Button>
@@ -48,9 +42,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
             color="gray"
             className="rounded-full"
             disabled={isButtonActive(isFirstPage ? 2 : activePage)}
-            href={`${
-              path.includes("/es/") ? "/es/" : "/"
-            }blog/?blog_count=${pageSize}&page_number=${
+            href={`blog/?blog_count=${pageSize}&page_number=${
               isFirstPage ? 2 : activePage
             }`}
           >
@@ -67,9 +59,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
                 color="gray"
                 className="rounded-full"
                 disabled={isButtonActive(activePage)}
-                href={`${
-                  path.includes("/es/") ? "/es/" : "/"
-                }blog/?blog_count=${pageSize}&page_number=${activePage}`}
+                href={`blog/?blog_count=${pageSize}&page_number=${activePage}`}
               >
                 {activePage}
               </Button>
@@ -86,9 +76,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
             color="gray"
             className="rounded-full"
             disabled={isButtonActive(totalPage)}
-            href={`${
-              path.includes("/es/") ? "/es/" : "/"
-            }blog/?blog_count=${pageSize}&page_number=${totalPage}`}
+            href={`blog/?blog_count=${pageSize}&page_number=${totalPage}`}
           >
             {totalPage}
           </Button>
@@ -99,9 +87,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
         borderVariant={isLastPage ? "" : "neon"}
         className="flex items-center gap-2 rounded-full"
         disabled={isLastPage}
-        href={`${
-          path.includes("/es/") ? "/es/" : "/"
-        }blog/?blog_count=${pageSize}&page_number=${activePage + 1}`}
+        href={`blog/?blog_count=${pageSize}&page_number=${activePage + 1}`}
       >
         <Image width={40} height={40} src={rightArrow} className="h-4 w-4" />
       </Button>
