@@ -56,6 +56,12 @@ export default function Document() {
           title="Medical Marketing Sitemap"
           type="application/xml"
         />
+        <link
+          href="/blog-sitemap.xml"
+          rel="sitemap"
+          title="Medical Marketing Sitemap"
+          type="application/xml"
+        ></link>
 
         <meta
           name="facebook-domain-verification"
