@@ -16,7 +16,7 @@ const SeoBlock = ({ seo_title, seo_description, seo_icon, seo_url }) => {
           "La Agencia de Marketing Médico Que Garantiza Pacientes y Resultados【Te lo explicamos ▷ Entra Aquí】⭐ [Médicos•Clínicas•Hospitales]"
         }
       />
-      <link rel="icon" href={seo_icon || "./favicon.ico"} />
+      <link target="_blank" rel="icon" href={seo_icon || "./favicon.ico"} />
 
       {/* <!-- Open Graph / Facebook --> */}
       <meta property="og:type" content="website" />
@@ -35,7 +35,7 @@ const SeoBlock = ({ seo_title, seo_description, seo_icon, seo_url }) => {
           "La Agencia de Marketing Médico Que Garantiza Pacientes y Resultados【Te lo explicamos ▷ Entra Aquí】⭐ [Médicos•Clínicas•Hospitales]"
         }
       />
-      <meta property="og:image" content={seo_icon || "./favicon.ico"} />
+      <meta property="og:image" content={seo_icon || "./ogImage.png"} />
     </Head>
   );
 };

@@ -48,7 +48,8 @@ const Typography = ({
     <span
       style={{
         fontSize: fontSize,
-        textAlign: isLargeTablet ? alignLarge : alignSmall,
+        // textAlign: isLargeTablet ? alignLarge : alignSmall,
+        textAlign: alignSmall,
         display: "block"
       }}
       className={`${commonStyle} ${appliedStyle} ${featuredClassName}`}

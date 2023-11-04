@@ -41,6 +41,8 @@ const DropdownMenu = ({ menuItems = [] }) => {
                 {menuItems.map(({ label, small_label, the_link }, i) => (
                   <Menu.Item key={label[0]?.text + i}>
                     <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
                       href={arrangeLinks(the_link.url, currentPath)}
                       className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
                       passHref

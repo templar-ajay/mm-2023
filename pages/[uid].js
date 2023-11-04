@@ -3,6 +3,7 @@ import PrismicClient from "@/services/prismic";
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
+import Head from "next/head";
 
 export default function RootPages({
   landingPageData,
@@ -19,30 +20,41 @@ export default function RootPages({
     settings
   });
   const router = useRouter();
+  const { asPath } = router;
   if (router.isFallback) return <>Loading...</>;
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
 
   return (
-    <PageLayout
-      seoData={{ seo_title, seo_description, seo_icon, seo_url }}
-      navigation={navigation}
-      BackgroundWrapper={Background}
-      footer={footer}
-      settings={settings}
-    >
-      {body.map((x, i) =>
-        useComponentResolver({ data: x, index: i, videoTestimonials })
-      )}
-    </PageLayout>
+    <>
+      <Head>
+        <Link
+          target="_blank"
+          href={`https://medicalmarketing.digital/${asPath}`}
+          hreflang="en-us"
+          rel="alternate"
+        />
+      </Head>
+      <PageLayout
+        seoData={{ seo_title, seo_description, seo_icon, seo_url }}
+        navigation={navigation}
+        BackgroundWrapper={Background}
+        footer={footer}
+        settings={settings}
+      >
+        {body.map((x, i) =>
+          useComponentResolver({ data: x, index: i, videoTestimonials })
+        )}
+      </PageLayout>
+    </>
   );
 }
 
 export async function getStaticPaths() {
   return {
     paths: [
-      "/medical-seo"
+      // "/medical-seo"
       // ,"/google-ads-ppc-medicos",
       // "/marketing-anuncios-redes-sociales",
       // "/diseno-landing-page-sector-medico-pagina-aterrizaje",

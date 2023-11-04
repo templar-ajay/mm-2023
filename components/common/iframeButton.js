@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { Typography } from "./text";
@@ -22,7 +21,6 @@ const IframeButton = ({ data }) => {
         <div style={{ marginBottom: "60px", height: "1200px" }}>
           <SectionWrapper pb={150} pbs={105}>
             <div className="w-full h-full items-center flex flex-col">
-              {/* <Link href={path.includes("/es") ? "/es/" : "/" + href} passHref> */}
               <div
                 className={`${commonStyle} ${widthStyle} ${borderVariantStyle} h-full transition-all ease-in-out duration-400`}
               >
@@ -48,7 +46,6 @@ const IframeButton = ({ data }) => {
                   </span>
                 </div>
               </div>
-              {/* </Link> */}
             </div>
           </SectionWrapper>
           <div>

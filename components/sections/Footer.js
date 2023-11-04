@@ -56,6 +56,8 @@ const Footer = ({ pressPage, footerData }) => {
                               <></>
                             ) : (
                               <Link
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 key={i + Math.random().toString()}
                                 href={
                                   url ||

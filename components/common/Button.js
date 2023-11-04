@@ -40,6 +40,7 @@ const Button = ({
         </div>
       ) : (
         <Link
+          target="_blank"
           href={
             href != "javascript:void(0)"
               ? (path.includes("/es") ? "/es/" : "") + href

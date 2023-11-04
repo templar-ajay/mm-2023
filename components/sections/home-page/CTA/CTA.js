@@ -16,7 +16,7 @@ const CTA = ({ data, pb, pbs }) => {
   return (
     <>
       {(main_text[0] || secondary_text[0] || below_text[0] || after_cta[0]) && (
-        <div style={{ marginBottom: "60px" }}>
+        <div style={{ marginBottom: "60px", width: "100%" }}>
           {/* {"after_CTA" + JSON.stringify(after_cta)}
           {"main_text" + JSON.stringify(main_text)}
           {"secondary_text" + JSON.stringify(secondary_text)}
@@ -61,7 +61,7 @@ const CTA = ({ data, pb, pbs }) => {
           </SectionWrapper>
           <div>
             {after_cta[0]?.text && (
-              <Typography alignSmall="center" variant="body1">
+              <Typography variant="body1">
                 {RichText.render(after_cta)}
               </Typography>
             )}

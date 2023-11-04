@@ -3,6 +3,7 @@ import PrismicClient from "@/services/prismic";
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
+import Head from "next/head";
 
 export default function EsRootPages({
   landingPageData,
@@ -19,23 +20,45 @@ export default function EsRootPages({
     settings
   });
   const router = useRouter();
+  const { asPath } = router;
   if (router.isFallback) return <>Loading...</>;
 
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
 
   return (
-    <PageLayout
-      seoData={{ seo_title, seo_description, seo_icon, seo_url }}
-      navigation={navigation}
-      BackgroundWrapper={Background}
-      settings={settings}
-      footer={footer}
-    >
-      {body.map((x, i) =>
-        useComponentResolver({ data: x, index: i, videoTestimonials })
-      )}
-    </PageLayout>
+    <>
+      <Head>
+        <link
+          target="_blank"
+          href={`https://medicalmarketing.digital${asPath.replace("/es", "")}`}
+          hreflang="en-us"
+          rel="alternate"
+        />
+        <link
+          target="_blank"
+          href={`https://medicalmarketing.digital${asPath}`}
+          hreflang="es-es"
+          rel="alternate"
+        />
+        <link
+          target="_blank"
+          rel="canonical"
+          href={`https://medicalmarketing.digital/${asPath}`}
+        ></link>
+      </Head>
+      <PageLayout
+        seoData={{ seo_title, seo_description, seo_icon, seo_url }}
+        navigation={navigation}
+        BackgroundWrapper={Background}
+        settings={settings}
+        footer={footer}
+      >
+        {body.map((x, i) =>
+          useComponentResolver({ data: x, index: i, videoTestimonials })
+        )}
+      </PageLayout>
+    </>
   );
 }
 
