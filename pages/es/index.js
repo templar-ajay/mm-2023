@@ -3,6 +3,7 @@ import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
 import Error from "@/components/sections/Error";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
+import Head from "next/head";
 
 export default function EsHome({
   landingPageData,
@@ -23,17 +24,25 @@ export default function EsHome({
     landingPageData.data;
 
   return (
-    <PageLayout
-      seoData={{ seo_title, seo_description, seo_icon, seo_url }}
-      navigation={navigation}
-      BackgroundWrapper={Background}
-      settings={settings}
-      footer={footer}
-    >
-      {body.map((x, i) =>
-        useComponentResolver({ data: x, index: i, videoTestimonials })
-      )}
-    </PageLayout>
+    <>
+      <Head>
+        <link
+          rel="canonical"
+          href={`https://medicalmarketing.digital/es`}
+        ></link>
+      </Head>
+      <PageLayout
+        seoData={{ seo_title, seo_description, seo_icon, seo_url }}
+        navigation={navigation}
+        BackgroundWrapper={Background}
+        settings={settings}
+        footer={footer}
+      >
+        {body.map((x, i) =>
+          useComponentResolver({ data: x, index: i, videoTestimonials })
+        )}
+      </PageLayout>
+    </>
   );
 }
 

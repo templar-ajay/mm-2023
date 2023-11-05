@@ -30,19 +30,16 @@ export default function EsRootPages({
     <>
       <Head>
         <link
-          target="_blank"
           href={`https://medicalmarketing.digital${asPath.replace("/es", "")}`}
           hreflang="en-us"
           rel="alternate"
         />
         <link
-          target="_blank"
           href={`https://medicalmarketing.digital${asPath}`}
           hreflang="es-es"
           rel="alternate"
         />
         <link
-          target="_blank"
           rel="canonical"
           href={`https://medicalmarketing.digital/${asPath}`}
         ></link>

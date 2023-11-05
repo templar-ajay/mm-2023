@@ -30,11 +30,14 @@ export default function RootPages({
     <>
       <Head>
         <Link
-          target="_blank"
           href={`https://medicalmarketing.digital/${asPath}`}
           hreflang="en-us"
           rel="alternate"
         />
+        <link
+          rel="canonical"
+          href={`https://medicalmarketing.digital/${asPath}`}
+        ></link>
       </Head>
       <PageLayout
         seoData={{ seo_title, seo_description, seo_icon, seo_url }}
