@@ -24,8 +24,14 @@ const Footer = ({ pressPage, footerData }) => {
             <Dropdown
               name="Language"
               menuItems={[
-                { path: "/", title: "English" },
-                { path: path, title: "Espaniol" }
+                {
+                  path: path.startsWith("/es") ? path.replace("/es", "") : path,
+                  title: "English"
+                },
+                {
+                  path: path.startsWith("/es") ? path : "/es".concat(path),
+                  title: "Espaniol"
+                }
               ]}
             />
           </div>
