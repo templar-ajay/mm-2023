@@ -5,6 +5,7 @@ import { AiFillGithub } from "react-icons/ai";
 
 const Button = ({
   contactNumber,
+  navigationButton = false,
   children,
   href = "#",
   borderVariant = "neon",
@@ -13,7 +14,9 @@ const Button = ({
   gitHub
 }) => {
   const path = usePathname();
-  const commonStyle = `h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer`;
+  const commonStyle = `h-fit min-h-[38px] ${
+    !navigationButton && "min-w-[110px]"
+  } rounded-md p-[1px] cursor-pointer`;
   const widthStyle = fullWidth ? `w-full largeTablet:w-fit` : `w-fit`;
   const borderVariantStyle =
     borderVariant === "neon"

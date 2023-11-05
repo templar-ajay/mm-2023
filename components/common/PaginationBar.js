@@ -11,6 +11,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
   return (
     <div className="flex items-center gap-4">
       <Button
+        navigationButton={true}
         backgroundVariant={isFirstPage ? "orange" : ""}
         borderVariant={isFirstPage ? "" : "neon"}
         className="flex items-center gap-2 rounded-full"
@@ -21,6 +22,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
       </Button>
       <div className="flex items-center gap-2">
         <Button
+          navigationButton={true}
           backgroundVariant={isButtonActive(1) ? "orange" : ""}
           borderVariant={isButtonActive(1) ? "" : "neon"}
           color="gray"
@@ -33,6 +35,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
 
         {totalPage > 2 && !isLastPage ? (
           <Button
+            navigationButton={true}
             backgroundVariant={
               isButtonActive(isFirstPage ? 2 : activePage) ? "orange" : ""
             }
@@ -54,6 +57,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
               <></>
             ) : (
               <Button
+                navigationButton={true}
                 backgroundVariant={isButtonActive(activePage) ? "orange" : ""}
                 borderVariant={isButtonActive(activePage) ? "" : "neon"}
                 color="gray"
@@ -71,6 +75,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
           <></>
         ) : (
           <Button
+            navigationButton={true}
             backgroundVariant={isButtonActive(totalPage) ? "orange" : ""}
             borderVariant={isButtonActive(totalPage) ? "" : "neon"}
             color="gray"
@@ -83,6 +88,7 @@ export default function PaginationBar({ totalPage, activePage, pageSize }) {
         )}
       </div>
       <Button
+        navigationButton={true}
         backgroundVariant={isLastPage ? "orange" : ""}
         borderVariant={isLastPage ? "" : "neon"}
         className="flex items-center gap-2 rounded-full"
