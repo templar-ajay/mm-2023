@@ -40,7 +40,7 @@ const PageContent = ({ data }) => {
         </LocalTypography>
       </div>
       <GradientBorderWrapper style={{ width: "100%", borderRadius: "8px" }}>
-        <div className="w-full h-[304px] relative rounded-[5px] overflow-hidden largeTablet:h-[496px]  ">
+        <div className="w-full h-fit relative rounded-[5px] overflow-hidden largeTablet:h-[496px]  ">
           <Image width={1206} height={496} src={image.url} alt="Cover" />
         </div>
       </GradientBorderWrapper>

@@ -28,15 +28,23 @@ const Post = ({ data, featured }) => {
           </GradientBorderWrapper>
         </div>
       )}
-      <div className={`${featured && "largeTablet:hidden"}`}>
-        <GradientBorderWrapper style={{ width: "100%", borderRadius: "5px" }}>
-          <div className="w-full h-[304px] relative rounded-[5px] overflow-hidden ">
-            <Image width="580" height={304} src={coverImage?.url} alt="Cover" />
-          </div>
-        </GradientBorderWrapper>
-      </div>
+      {coverImage?.url && (
+        <div className={`${featured && "largeTablet:hidden"}`}>
+          <GradientBorderWrapper style={{ width: "100%", borderRadius: "5px" }}>
+            <div className="w-fit h-fit relative rounded-[5px] overflow-hidden">
+              <Image
+                width={820}
+                height={400}
+                src={coverImage?.url}
+                className="object-cover"
+                alt="Cover"
+              />
+            </div>
+          </GradientBorderWrapper>
+        </div>
+      )}
 
-      <div className="flex justify-start pt-6 pb-2 largeTablet:pt-10">
+      <div className="flex flex-wrap justify-start pt-6 pb-2 largeTablet:pt-10">
         {topics?.map((item, i) => (
           <div key={item + i} className="mr-5">
             <Typography
@@ -46,17 +54,21 @@ const Post = ({ data, featured }) => {
           </div>
         ))}
       </div>
-      <div className=" min-h-[55px] largeTablet:min-h-[90px]">
+      <div className=" min-h-[40px] largeTablet:min-h-[60px] mb-3">
         <LocalTypography featured={featured} variant="title">
           {RichText.render(title)}
         </LocalTypography>
       </div>
-      <div className="flex items-center pb-6 largeTablet:pb-10 ">
+      <div className="flex items-center pb-1 largeTablet:pb-1 ">
+        <LocalTypography>{stringifyContent.slice(0, 200)}...</LocalTypography>
+      </div>
+
+      <div className="flex items-center pb-1 largeTablet:pb-2 ">
         <LocalTypography>{`${getReadTime(stringifyContent || "")} ${
           getReadTime(stringifyContent || "") === 1 ? "min" : "mins"
         } read`}</LocalTypography>
       </div>
-      <div className="pt-10">
+      <div className="pt-1">
         <Button href={href}>Read More</Button>
       </div>
     </div>
