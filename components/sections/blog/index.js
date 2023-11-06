@@ -13,7 +13,7 @@ export default function BlogListing({
   return (
     <>
       <SectionWrapper pt={180} pts={60} pb={120} pbs={140}>
-        <Typography variant="preHeading">Blog</Typography>
+        {/* <Typography variant="preHeading">Blog</Typography> */}
         <div className="w-full max-w-[750px]">
           <Heading>
             $yellow-to-orangeArticles and updates$yellow-to-orange from
