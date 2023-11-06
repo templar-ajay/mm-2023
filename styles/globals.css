@@ -111,7 +111,8 @@ a {
   margin: 15px 0;
 }
 
-.featuredText p>strong {
+.featuredText p>strong,
+ul>li>strong {
   --tw-gradient-text: #ffe580, #ffc400;
   background-image: linear-gradient(to right, var(--tw-gradient-text));
   -webkit-background-clip: text;

@@ -66,7 +66,7 @@ const Hero = ({ data }) => {
                   )}
                 </div>
 
-                {sub_header?.length && sub_header.text?.length ? (
+                {sub_header[0].text?.length ? (
                   <div className="py-10">
                     <Typography
                       alignLarge="left"
