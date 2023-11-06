@@ -30,7 +30,7 @@ const Footer = ({ pressPage, footerData }) => {
                 },
                 {
                   path: path.startsWith("/es") ? path : "/es".concat(path),
-                  title: "Espaniol"
+                  title: "Español"
                 }
               ]}
             />
