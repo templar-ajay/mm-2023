@@ -17,19 +17,7 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true
   },
-  swcMinify: true,
-  sitemaps: [
-    {
-      url: "./sitemap.xml",
-      generate: ({ pages }) => {
-        return pages.map((page) => ({
-          url: page.route,
-          changefreq: "weekly",
-          priority: 0.5
-        }));
-      }
-    }
-  ]
+  swcMinify: true
 };
 
 module.exports = nextConfig;

@@ -45,6 +45,8 @@ const Feature = ({ data, className }) => {
               src={smallImageUrl}
               alt={smallImageAlt}
               style={{ maxWidth: "56px" }}
+              defer="true"
+              loading="lazy"
             />
           )
         }
@@ -91,7 +93,7 @@ const Feature = ({ data, className }) => {
                   )}
                 </div>
               )}
-              <div className="largeTablet:max-w-[500px]">
+              <div className="largeTablet:max-w-[500px] feature-body">
                 <motion.div
                   initial={{ opacity: 0, y: initPosY, x: 10 }}
                   animate={{
@@ -129,7 +131,7 @@ const Feature = ({ data, className }) => {
                 ease: "easeInOut"
               }}
             >
-              {!!images.length && (
+              {/* {!!images.length && (
                 <div
                   className={`relative largeTablet:flex justify-center largeTablet:min-h-[350px] ${hide}`}
                 >
@@ -149,7 +151,7 @@ const Feature = ({ data, className }) => {
                     alt={images[0].alt}
                   />
                 </div>
-              )}
+              )} */}
             </motion.div>
           </div>
         </div>

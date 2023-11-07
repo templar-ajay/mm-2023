@@ -27,13 +27,18 @@ const BannerEbook = ({ data }) => {
             <div className="subHeader">{RichText.render(cta)}</div>
 
             <iframe
+              loading="lazy"
               src="https://msgsndr.com/widget/form/SOWZvPFIueOfyo3C5dkG"
               title="Descargar ebook gratuito"
               style={{ height: "400px", marginBottom: "-100px" }}
             />
 
             <Helmet>
-              <script src="https://api.leadconnectorhq.com/js/form_embed.js"></script>
+              <script
+                loading="lazy"
+                defer="true"
+                src="https://api.leadconnectorhq.com/js/form_embed.js"
+              ></script>
             </Helmet>
           </div>
         </div>

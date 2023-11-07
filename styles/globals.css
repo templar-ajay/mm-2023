@@ -90,6 +90,12 @@ a {
   text-decoration: none;
 }
 
+.feature-body a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #ffe580;
+}
+
 * {
   box-sizing: border-box;
 }

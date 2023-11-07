@@ -19,6 +19,7 @@ export default function Video({
           <div dangerouslySetInnerHTML={{ __html: given_iframe }} />
         ) : (
           <iframe
+            loading="lazy"
             className={className}
             src={getEmbedUrl(link) + "?autoplay=1"}
             allow="autoplay; fullscreen; picture-in-picture"

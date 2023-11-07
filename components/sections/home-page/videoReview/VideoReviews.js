@@ -4,6 +4,7 @@ import { VideoReviewsStyles, VideoReviewStyles } from "./VideoReviewsStyles";
 import Button from "../../../common/Button";
 import Modal from "@/components/common/Modal";
 import Video from "@/components/common/Video";
+import Image from "next/image";
 
 export default function VideoReviews({ data }) {
   const title = data.primary.intro_to_reviews;
@@ -22,7 +23,7 @@ export default function VideoReviews({ data }) {
     // Add &autoplay=1 to the src attribute
     htmlString = htmlString.replace(
       /src="(https:\/\/player\.vimeo\.com\/video\/\d+\?app_id=\d+)"/g,
-      'src="$1&autoplay=1" style="position:absolute; top:0;left:0;width:100%;aspect-ratio:16/9;"'
+      'src="$1&autoplay=1" style="position:absolute; top:0;left:0;width:100%;aspect-ratio:16/9; loading="lazy"'
     );
 
     return htmlString;
@@ -55,10 +56,12 @@ export default function VideoReviews({ data }) {
                 setCurrentVideoIframe(() => adjustVideoFrame(video_popup));
               }}
             >
-              <img
+              <Image
                 className="features__item--img"
                 src={image_of_review.url}
                 alt={image_of_review.alt}
+                width={image_of_review.dimensions.width}
+                height={image_of_review.dimensions.height}
               />
               <div className="features__item--content flex flex-col gap-y-6 ">
                 <div className="text-2xl">

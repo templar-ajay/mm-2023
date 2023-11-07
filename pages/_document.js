@@ -8,18 +8,18 @@ export default function Document() {
       <Head>
         <link
           href="https://medicalmarketing.digital/"
-          hreflang="x-default"
+          hrefLang="x-default"
           rel="alternate"
         />
         <link
           href="https://medicalmarketing.digital/"
-          hreflang="en-us"
+          hrefLang="en-us"
           rel="alternate"
         />
         <link
           target="_blank"
           href={`https://medicalmarketing.digital/es/`}
-          hreflang="es-es"
+          hrefLang="es-es"
           rel="alternate"
         />
         <meta name="robots" content="index,follow" />
