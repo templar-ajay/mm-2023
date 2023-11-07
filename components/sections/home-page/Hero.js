@@ -27,7 +27,7 @@ const Hero = ({ data }) => {
         <ContainerWithLine>
           <div style={{ position: "relative" }}>
             <Image
-              className="absolute -top-[20px] -left-[45px] first-line-icon"
+              className="absolute -top-[20px] -left-[32px] tablet:-left-[32px] largeTablet:-left-[52px] first-line-icon"
               src={left_side_icon?.url}
               alt={left_side_icon?.alt}
               width={left_side_icon?.dimensions?.width}
