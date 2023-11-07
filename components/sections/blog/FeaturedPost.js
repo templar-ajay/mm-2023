@@ -15,13 +15,15 @@ const FeaturedPost = ({ data }) => {
         )}
       >
         {data.data?.imagen_del_post?.url && (
-          <div className="hidden largeTablet:flex">
+          <div className="hidden largeTablet:flex largeTablet:items-center">
             <GradientBorderWrapper style={{ width: "100%" }}>
-              <div className="flex-1  h-[496px] relative rounded-[5px] overflow-hidden ">
+              <div className="flex-1  h-fit relative rounded-[5px] overflow-hidden ">
                 <Image
                   src={data.data?.imagen_del_post?.url}
                   // width="auto"
-                  layout="fill"
+                  width={data.data?.imagen_del_post.dimensions.width}
+                  height={data.data?.imagen_del_post.dimensions.height}
+                  // layout="fill"
                   // objectFit="cover"
                   alt="Post cover"
                 />

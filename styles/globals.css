@@ -61,7 +61,7 @@ li::before {
 /* used in bannerEbook */
 .subHeader {
   font-size: 25px;
-  color: var(--subHeaderColor);
+  /* color: #FFF9ED; */
   text-align: center;
 }
 
