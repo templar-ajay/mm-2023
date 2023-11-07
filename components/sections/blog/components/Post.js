@@ -14,6 +14,8 @@ const Post = ({ data, featured }) => {
   const coverImage = data.data?.imagen_del_post;
   const stringifyContent = content?.map((obj) => obj.text) + "";
   const href = `blog/${slug}`;
+  const buttonText = "Leer Más";
+  const FeaturedPostText = "Artículo destacado";
 
   return (
     <div className="w-full">
@@ -23,7 +25,7 @@ const Post = ({ data, featured }) => {
             style={{ borderRadius: "24px", padding: "4px 16px 6px" }}
           >
             <span className="font-bold text-xs uppercase tracking-[0.2em] text-[#11181C]">
-              Featured Post
+              {FeaturedPostText}
             </span>
           </GradientBorderWrapper>
         </div>
@@ -65,11 +67,11 @@ const Post = ({ data, featured }) => {
 
       <div className="flex items-center pb-1 largeTablet:pb-2 ">
         <LocalTypography>{`${getReadTime(stringifyContent || "")} ${
-          getReadTime(stringifyContent || "") === 1 ? "min" : "mins"
-        } read`}</LocalTypography>
+          getReadTime(stringifyContent || "") === 1 ? "minuto" : "minutos"
+        } de lectura`}</LocalTypography>
       </div>
       <div className="pt-1">
-        <Button href={href}>Read More</Button>
+        <Button href={href}>{buttonText}</Button>
       </div>
     </div>
   );
