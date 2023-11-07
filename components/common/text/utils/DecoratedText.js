@@ -53,6 +53,26 @@ const DecoratedText = ({ content }) => {
     } else {
       return <>{content}</>;
     }
+  } else if (content && typeof content === "heading1") {
+    const { key, style } = getStyle(content);
+    if (key) {
+      return (
+        <>
+          {content.split(key).map((text, i) => {
+            if (i % 2 === 0) {
+              return text;
+            }
+            return (
+              <span key={text + i} className={style}>
+                {text}
+              </span>
+            );
+          })}
+        </>
+      );
+    } else {
+      return <>{content}</>;
+    }
   }
   return <></>;
 };

@@ -3,33 +3,39 @@ import SectionWrapper from "@/components/common/layout/SectionWrapper";
 import { Heading, Typography } from "@/components/common/text";
 import FeaturedPost from "./FeaturedPost";
 import Post from "./components/Post";
+// import { PrismicRichText } from "@prismicio/react";
+import { RichText } from "prismic-reactjs";
+import CustomRichText from "@/components/common/CustomRichText/CustomRichText";
 
 export default function BlogListing({
+  blogListingHeader,
+  data,
   blogs,
   totalPageCount,
   activePage,
   pageSize
 }) {
+  console.log("blog listing data", data);
+  const heading = data.data.heading;
+  const subHeading = data.data.sub_heading;
   return (
     <>
       <SectionWrapper pt={180} pts={60} pb={120} pbs={140}>
         {/* <Typography variant="preHeading">Blog</Typography> */}
-        <div className="w-full max-w-[750px]">
+        <div className="w-full max-w-[750px] blog-heading">
           <Heading>
-            $yellow-to-orangeArticles and updates$yellow-to-orange from
-            Medical-Marketing
+            <CustomRichText render={heading} />
           </Heading>
         </div>
         <div className="w-full max-w-[750px] pt-4 pb-16 largeTablet:pt-10 largeTablet:pb-32 ">
           <Typography variant="subheading">
-            A collection of the latest Medical-Marketing thoughts, insights,
-            updates and announcements.
+            {RichText.render(subHeading)}
           </Typography>
         </div>
         <FeaturedPost data={blogs[0]} />
         <div className="w-full mt-20">
           <Typography variant="preHeading" alignLarge="left">
-            Trending Posts
+            {blogListingHeader}
           </Typography>
 
           <div className="grid grid-cols-1 gap-y-20 mt-10 largeTablet:grid-cols-2 largeTablet:gap-x-11 ">

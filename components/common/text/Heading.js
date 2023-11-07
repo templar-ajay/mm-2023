@@ -43,7 +43,8 @@ const Heading = ({
       <div
         style={{ textAlign: isLargeTablet ? alignLarge : alignSmall }}
         className={`featuredHeading ${commonStyle} largeTablet:
-        largeTablet:text-4xl`}
+        largeTablet:text-4xl 
+        `}
       >
         {children}
       </div>
@@ -61,15 +62,15 @@ const Heading = ({
     );
   }
   return (
-    <h1
+    <div
       style={{
         textAlign: isLargeTablet ? alignLarge : alignSmall
       }}
       className={`${commonStyle}
       largeTablet:text-6xl largeTablet:tracking-[-0.03em]`}
     >
-      <DecoratedText content={children} />
-    </h1>
+      {children}
+    </div>
   );
 };
 

@@ -65,6 +65,15 @@ li::before {
   text-align: center;
 }
 
+.blog-heading strong {
+  --tw-gradient-text: #ffe580, #ffc400;
+  background-image: linear-gradient(to right, var(--tw-gradient-text));
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .container html,
 body {
   padding: 0;
