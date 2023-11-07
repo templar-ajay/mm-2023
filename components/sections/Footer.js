@@ -4,6 +4,7 @@ import SectionWrapper from "../common/layout/SectionWrapper";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Dropdown from "../common/Dropdown";
+import Image from "next/image";
 
 const Footer = ({ pressPage, footerData }) => {
   const path = usePathname();
@@ -15,9 +16,11 @@ const Footer = ({ pressPage, footerData }) => {
       <SectionWrapper pbs={0}>
         <div className="flex justify-between w-full pt-10 pb-16 largeTablet:pt-12 ">
           <div className="w-[140px] h-6">
-            <img
+            <Image
               alt={"Brand logo"}
               src={"/medicosLogo/medicos-logo-trans-wt.png"}
+              width={140}
+              height={53.23}
             />
           </div>
           <div className="w-[140px] tablet:w-auto h-6">

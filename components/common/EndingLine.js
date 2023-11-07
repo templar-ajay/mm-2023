@@ -13,6 +13,8 @@ const EndingLine = ({ ImageData }) => {
         className="relative flex-1 bg-gradient-to-b border-b-0 border-l-0 border-r-[#A428BC] border-t-[#A428BC] border h-[200px] w-full to-gray-800"
       >
         <motion.img
+          loading="lazy"
+          defer
           initial={{ opacity: 0, scale: 0.2 }}
           animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.5 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { RichText } from "prismic-reactjs";
 import { usePathname } from "next/navigation";
 import Button from "../../common/Button";
+import Image from "next/image";
 
 const TopBar = ({ navigationItems }) => {
   const currentPath = usePathname();
@@ -21,10 +22,12 @@ const TopBar = ({ navigationItems }) => {
           }
           passHref
         >
-          <img
+          <Image
             className="mm-logo-img"
             src={navigationItems.logo_header?.url}
             alt={navigationItems.logo_header?.alt}
+            width={navigationItems.logo_header.dimensions.width}
+            height={navigationItems.logo_header.dimensions.height}
           />
         </Link>
       </div>

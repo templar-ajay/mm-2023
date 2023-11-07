@@ -1,4 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Link from "next/link";
+import Script from "next/script";
 
 export default function Document() {
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-P3D87XN";
@@ -68,12 +70,15 @@ export default function Document() {
           content="oj47j8b5zs6sk0nnnmil05csbcry5a"
         ></meta>
 
-        <script
+        <Script
           async
+          defer
           src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
         />
 
-        <script
+        <Script
+          async
+          defer
           dangerouslySetInnerHTML={{
             __html: `
   (function(w,d,s,l,i){w[l]=w[l]||[];
@@ -93,7 +98,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ></iframe>
         </noscript>
 
-        <link
+        <Link
+          defer
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />

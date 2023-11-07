@@ -12,6 +12,7 @@ const Background = ({ children, backgroundImages }) => {
             height={500}
             style={{ marginTop: 550 }}
             src={bgImages[0]}
+            loading="eager"
           />
         </div>
       )}
@@ -20,7 +21,13 @@ const Background = ({ children, backgroundImages }) => {
         <div
           className={`background-stroke-left absolute right-[-15rem] tablet:-right-[8rem] largeTablet:laptop:-right-[6rem] laptop:-right-[4rem] desktop:-right-[3rem] top-[30rem] largeTablet:top-[10rem]`}
         >
-          <Image alt="Doodles" width={500} height={500} src={bgImages[1]} />
+          <Image
+            alt="Doodles"
+            width={500}
+            height={500}
+            src={bgImages[1]}
+            loading="eager"
+          />
         </div>
       )}
 
