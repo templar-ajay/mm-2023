@@ -70,13 +70,13 @@ export default function Document() {
           content="oj47j8b5zs6sk0nnnmil05csbcry5a"
         ></meta>
 
-        <Script
+        <script
           async
           defer
           src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
-        />
+        ></script>
 
-        <Script
+        <script
           async
           defer
           dangerouslySetInnerHTML={{
@@ -87,7 +87,7 @@ export default function Document() {
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','${GTM_ID}');`
           }}
-        />
+        ></script>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
