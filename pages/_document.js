@@ -88,14 +88,6 @@ export default function Document() {
             })(window,document,'script','dataLayer','${GTM_ID}');`
           }}
         ></script>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
 
         <Link
           defer
@@ -105,6 +97,14 @@ export default function Document() {
       </Head>
 
       <body className="selection:bg-mm_primary selection:text-bgWhite">
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
         <Main />
         <NextScript />
       </body>
