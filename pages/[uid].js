@@ -12,7 +12,7 @@ export default function RootPages({
   videoTestimonials,
   settings
 }) {
-  console.log({
+  console.log("landingPageData", {
     landingPageData,
     navigation,
     footer,
@@ -23,13 +23,20 @@ export default function RootPages({
   const { asPath } = router;
   if (router.isFallback) return <>Loading...</>;
 
-  const { body, seo_title, seo_description, seo_icon, seo_url } =
-    landingPageData.data;
+  const {
+    body,
+    seo_title,
+    seo_description,
+    seo_icon,
+    seo_url,
+    html_code,
+    html_rich_text
+  } = landingPageData.data;
 
   return (
     <>
       <Head>
-        <Link
+        <link
           href={`https://medicalmarketing.digital/${asPath}`}
           hreflang="en-us"
           rel="alternate"
@@ -40,7 +47,14 @@ export default function RootPages({
         ></link>
       </Head>
       <PageLayout
-        seoData={{ seo_title, seo_description, seo_icon, seo_url }}
+        seoData={{
+          seo_title,
+          seo_description,
+          seo_icon,
+          seo_url,
+          html_code,
+          html_rich_text
+        }}
         navigation={navigation}
         BackgroundWrapper={Background}
         footer={footer}
