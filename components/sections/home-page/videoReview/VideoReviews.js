@@ -71,7 +71,12 @@ export default function VideoReviews({ data }) {
                   {RichText.render(description_of_review)}
                 </div>
                 <div className="block">
-                  <Button as="span" href="javascript:void(0)" arrow={true}>
+                  <Button
+                    targetBlank={false}
+                    as="span"
+                    href="javascript:void(0)"
+                    arrow={true}
+                  >
                     {RichText.render(cta_to_watch_video)}
                   </Button>
                 </div>
