@@ -5,11 +5,32 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Dropdown from "../common/Dropdown";
 import Image from "next/image";
+import { getLanguageName, getURLPrefix } from "@/utils/stringUtils";
+import { linkFromDocument } from "@/utils/LinkUtils";
 
-const Footer = ({ pressPage, footerData }) => {
+const Footer = (props) => {
+  const { currentLang, alternateLang, footer: footerData } = props.footerData;
+  const menuItems = [];
+
+  if (currentLang && alternateLang) {
+    const allLanguages = [currentLang];
+    if (alternateLang) {
+      alternateLang?.forEach((x) => allLanguages.push(x));
+    }
+    allLanguages.forEach(({ lang, uid }) => {
+      menuItems.push({
+        path: linkFromDocument(lang, uid),
+        title: getLanguageName(lang)
+      });
+    });
+    console.log("menuItems", menuItems);
+    console.log("currentLang", currentLang);
+    console.log("alternateLang", alternateLang);
+  }
+
   const path = usePathname();
   const footerItems = footerData || {};
-  const bgColor = pressPage ? "bg-[#221e1c]" : "bg-footerBG";
+  const bgColor = "bg-footerBG";
 
   return (
     <footer className={`w-full min-h-[200px] ${bgColor} pb-10`}>
@@ -24,19 +45,7 @@ const Footer = ({ pressPage, footerData }) => {
             />
           </div>
           <div className="w-[140px] tablet:w-auto h-6">
-            <Dropdown
-              name="Language"
-              menuItems={[
-                {
-                  path: path.startsWith("/es") ? path.replace("/es", "") : path,
-                  title: "English"
-                },
-                {
-                  path: path.startsWith("/es") ? path : "/es".concat(path),
-                  title: "Español"
-                }
-              ]}
-            />
+            <Dropdown name="Language" menuItems={menuItems} />
           </div>
         </div>
         <div className="w-full flex flex-wrap items-center tablet:items-start flex-col tablet:flex-row tablet:text-left text-center">

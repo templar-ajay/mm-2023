@@ -1,5 +1,4 @@
 import PageLayout from "@/components/common/layout/PageLayout";
-// import Background from "@/components/sections/home/Background";
 import Background from "@/components/sections/home-page/Background";
 import PageContent from "@/components/sections/blog/[slug]/PageContent";
 import PrismicClient from "@/services/prismic";

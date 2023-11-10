@@ -1,11 +1,11 @@
 import PageLayout from "@/components/common/layout/PageLayout";
-// import Background from "@/components/sections/blog/Background";
 import Background from "@/components/sections/home-page/Background";
 import BlogListing from "@/components/sections/blog/index";
 import PrismicClient from "@/services/prismic";
 import { validPaginationParams } from "@/utils/queryParamUtils";
 
 const BlogsPage = ({
+  blogListingPage,
   blogs,
   totalPageCount,
   navigation,
@@ -16,20 +16,8 @@ const BlogsPage = ({
 }) => {
   console.log({ blogs, totalPageCount, navigation, footer });
   const seo = {
-    seo_title: [
-      {
-        type: "heading1",
-        text: "▷ SEO Médico ⭐  SEO para Doctores y Clínicas",
-        spans: []
-      }
-    ],
-    seo_description: [
-      {
-        type: "heading1",
-        text: "Agencia de SEO Médico - Alcanza la cima en Google y atrae a miles de pacientes con nuestro SEO médico 【Multiplica tus pacientes ▷ Entra Aquí】- Medical Marketing",
-        spans: []
-      }
-    ],
+    seo_title: blogListingPage.data.seo_title,
+    seo_description: blogListingPage.data.seo_description,
     seo_icon: undefined,
     seo_url: undefined
   };
@@ -43,6 +31,8 @@ const BlogsPage = ({
       footer={footer}
     >
       <BlogListing
+        blogListingHeader={"TRENDING POSTS"}
+        data={blogListingPage}
         blogs={blogs}
         totalPageCount={totalPageCount}
         activePage={activePage}
@@ -69,10 +59,11 @@ export async function getServerSideProps({ query, previewData }) {
     pageSize,
     page: activePage
   });
-  const [navigation, footer, settings] = await Promise.all([
+  const [navigation, footer, settings, blogListingPage] = await Promise.all([
     client.getByType("navigation", { lang: "en-us" }),
     client.getByType("footer", { lang: "en-US" }),
-    client.getByType("settings", { lang: "en-US" })
+    client.getByType("settings", { lang: "en-us" }),
+    client.getByType("blog_listing", { lang: "en-us" })
   ]);
 
   return {
@@ -81,9 +72,10 @@ export async function getServerSideProps({ query, previewData }) {
       blogs: blogs.results,
       navigation: navigation.results[0].data,
       footer: footer.results[0].data,
+      settings: settings.results[0] ? settings.results[0].data : null,
+      blogListingPage: blogListingPage ? blogListingPage.results[0] : null,
       activePage,
-      pageSize,
-      settings: settings.results[0] ? settings.results[0].data : null
+      pageSize
     }
   };
 }

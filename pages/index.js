@@ -15,6 +15,11 @@ export default function Home({
   // if (!landingPageData) return <Error />;
   const { body, seo_title, seo_description, seo_icon, seo_url, html_code } =
     landingPageData.data;
+  const currentLang = { lang: landingPageData.lang, uid: landingPageData.uid };
+  const alternateLang = landingPageData.alternate_languages;
+  // console.log("footer", footer);
+  // console.log("currentLang", currentLang);
+  // console.log("alternateLang", alternateLang);
 
   return (
     <>
@@ -26,7 +31,7 @@ export default function Home({
         navigation={navigation}
         BackgroundWrapper={Background}
         settings={settings}
-        footer={footer}
+        footer={{ footer, currentLang, alternateLang }}
       >
         {body.map((x, i) =>
           useComponentResolver({ data: x, index: i, videoTestimonials })
@@ -46,7 +51,7 @@ export async function getServerSideProps({ previewData }) {
         { lang: "en-us" }
       ),
       client.getByType("navigation", { lang: "en-us" }),
-      client.getByType("footer", { lang: "es-us" }),
+      client.getByType("footer", { lang: "en-us" }),
       client.getByType("settings", { lang: "en-us" })
     ]);
 

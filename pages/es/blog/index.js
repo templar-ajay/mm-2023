@@ -1,6 +1,5 @@
 import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
-
 import BlogListing from "@/components/sections/blog/index";
 import PrismicClient from "@/services/prismic";
 import { validPaginationParams } from "@/utils/queryParamUtils";

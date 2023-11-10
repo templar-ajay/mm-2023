@@ -26,6 +26,9 @@ export default function EsRootPages({
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
 
+  const currentLang = { lang: landingPageData.lang, uid: landingPageData.uid };
+  const alternateLang = landingPageData.alternate_languages;
+
   return (
     <>
       <Head>
@@ -49,7 +52,7 @@ export default function EsRootPages({
         navigation={navigation}
         BackgroundWrapper={Background}
         settings={settings}
-        footer={footer}
+        footer={{ footer, currentLang, alternateLang }}
       >
         {body.map((x, i) =>
           useComponentResolver({ data: x, index: i, videoTestimonials })

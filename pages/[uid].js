@@ -19,6 +19,13 @@ export default function RootPages({
     videoTestimonials,
     settings
   });
+
+  const currentLang = {
+    lang: landingPageData.lang,
+    uid: landingPageData.uid
+  };
+  const alternateLang = landingPageData.alternate_languages;
+
   const router = useRouter();
   const { asPath } = router;
   if (router.isFallback) return <>Loading...</>;
@@ -57,7 +64,7 @@ export default function RootPages({
         }}
         navigation={navigation}
         BackgroundWrapper={Background}
-        footer={footer}
+        footer={{ footer, currentLang, alternateLang }}
         settings={settings}
       >
         {body.map((x, i) =>
@@ -70,16 +77,7 @@ export default function RootPages({
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      // "/medical-seo"
-      // ,"/google-ads-ppc-medicos",
-      // "/marketing-anuncios-redes-sociales",
-      // "/diseno-landing-page-sector-medico-pagina-aterrizaje",
-      // "/sobre-medical-marketing",
-      // "/testimonios",
-      // "/contacta-con-nosotros",
-      // "/consultoria-doctores-clinicas-gratis-30-minutos"
-    ],
+    paths: ["/medical-healthcare-seo-for-medical-practice"],
     fallback: true
   };
 }
