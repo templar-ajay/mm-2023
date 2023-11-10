@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { RichText } from "prismic-reactjs";
 import { ImageStyles } from "./CustomRichTextStyles";
 import { PrismicRichText } from "@prismicio/react";
+import { PrismicNextLink } from "@prismicio/next";
+import { linkFromDocument } from "@/utils/LinkUtils";
 
 const components = {
   image: (props) => {
@@ -17,6 +18,34 @@ const components = {
         />
       </ImageStyles>
     );
+  },
+  hyperlink: (props) => {
+    // console.log("hyperlink", props);
+    const {
+      node: {
+        data: { link_type: linkType, lang, uid, url }
+      },
+      text,
+      key
+    } = props;
+
+    if (linkType === "Document") {
+      return (
+        <PrismicNextLink
+          key={key}
+          href={linkFromDocument(lang, uid)}
+          target="_blank"
+        >
+          {text}
+        </PrismicNextLink>
+      );
+    } else if (linkType === "Web") {
+      return (
+        <PrismicNextLink key={key} href={url} target="_blank">
+          {text}
+        </PrismicNextLink>
+      );
+    }
   }
 };
 
@@ -57,7 +86,7 @@ const CustomRichText = ({ render }) => {
   return (
     <>{render && <PrismicRichText field={render} components={components} />}</>
   );
-  // return <div>{render ? RichText.render(render, null, customLink) : null}</div>;
+  // return <div>{render && RichText.render(render, null, customLink)}</div>;
 };
 
 export default CustomRichText;
