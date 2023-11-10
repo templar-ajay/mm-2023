@@ -13,7 +13,7 @@ export default function Home({
 }) {
   console.log({ landingPageData, navigation, footer, videoTestimonials });
   // if (!landingPageData) return <Error />;
-  const { body, seo_title, seo_description, seo_icon, seo_url } =
+  const { body, seo_title, seo_description, seo_icon, seo_url, html_code } =
     landingPageData.data;
 
   return (
@@ -22,7 +22,7 @@ export default function Home({
         <link rel="canonical" href={`https://medicalmarketing.digital`}></link>
       </Head>
       <PageLayout
-        seoData={{ seo_title, seo_description, seo_icon, seo_url }}
+        seoData={{ seo_title, seo_description, seo_icon, seo_url, html_code }}
         navigation={navigation}
         BackgroundWrapper={Background}
         settings={settings}

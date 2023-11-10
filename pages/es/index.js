@@ -26,10 +26,7 @@ export default function EsHome({
   return (
     <>
       <Head>
-        <link
-          rel="canonical"
-          href={`https://medicalmarketing.digital/es`}
-        ></link>
+        <link rel="canonical" href={`https://medicalmarketing.digital/es`} />
       </Head>
       <PageLayout
         seoData={{ seo_title, seo_description, seo_icon, seo_url }}

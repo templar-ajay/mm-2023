@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { arrangeLinks } from "@/utils/queryParamUtils";
+import { linkFromDocument } from "@/utils/LinkUtils";
 import { RichText } from "prismic-reactjs";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
@@ -10,6 +11,7 @@ import { usePathname } from "next/navigation";
 
 const DropdownMenu = ({ menuItems = [] }) => {
   const currentPath = usePathname();
+  console.log("menu items", menuItems);
 
   return (
     <Menu as="div" className="inline-block text-left">
@@ -38,24 +40,30 @@ const DropdownMenu = ({ menuItems = [] }) => {
                 MENU
               </p>
               <div className="flex flex-col gap-y-2 pb-14 ">
-                {menuItems.map(({ label, small_label, the_link }, i) => (
-                  <Menu.Item key={label[0]?.text + i}>
-                    <Link
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={the_link.url}
-                      className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
-                      passHref
-                    >
-                      <span className="font-bold text-2xl tablet:text-3xl ">
-                        {RichText.render(label)}
-                      </span>
-                      <span className="text-sm tablet:text-md">
-                        {RichText.render(small_label)}
-                      </span>
-                    </Link>
-                  </Menu.Item>
-                ))}
+                {menuItems
+                  // .filter(({ the_link }) => the_link.link_type == "Web")
+                  .map(({ label, small_label, the_link }, i) => (
+                    <Menu.Item key={label[0]?.text + i}>
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={
+                          the_link.url
+                            ? the_link.url
+                            : linkFromDocument(the_link.lang, the_link.uid)
+                        }
+                        className="text-textPrimary hover:text-mm_primary transition-colors duration-200 ease-in-out"
+                        passHref
+                      >
+                        <span className="font-bold text-2xl tablet:text-3xl ">
+                          {RichText.render(label)}
+                        </span>
+                        <span className="text-sm tablet:text-md">
+                          {RichText.render(small_label)}
+                        </span>
+                      </Link>
+                    </Menu.Item>
+                  ))}
               </div>
             </Menu.Items>
           </Transition>

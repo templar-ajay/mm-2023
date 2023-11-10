@@ -4,6 +4,7 @@ import React from "react";
 import { AiFillGithub } from "react-icons/ai";
 
 const Button = ({
+  targetBlank = true,
   contactNumber,
   navigationButton = false,
   children,
@@ -43,7 +44,7 @@ const Button = ({
         </div>
       ) : (
         <Link
-          target="_blank"
+          target={targetBlank ? "_blank" : ""}
           href={
             href != "javascript:void(0)"
               ? (path.includes("/es") ? "/es/" : "") + href

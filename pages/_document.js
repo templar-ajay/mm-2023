@@ -1,6 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import Link from "next/link";
-import Script from "next/script";
 
 export default function Document() {
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-WRL5GCRR";
@@ -8,6 +7,10 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
         <link
           href="https://medicalmarketing.digital/"
           hrefLang="x-default"
