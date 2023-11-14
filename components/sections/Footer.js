@@ -45,7 +45,9 @@ const Footer = (props) => {
             />
           </div>
           <div className="w-[140px] tablet:w-auto h-6">
-            <Dropdown name="Language" menuItems={menuItems} />
+            {menuItems.length && (
+              <Dropdown name="Language" menuItems={menuItems} />
+            )}
           </div>
         </div>
         <div className="w-full flex flex-wrap items-center tablet:items-start flex-col tablet:flex-row tablet:text-left text-center">
