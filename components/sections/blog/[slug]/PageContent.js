@@ -8,7 +8,7 @@ import Image from "next/image";
 import LocalTypography from "../components/LocalTypography";
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
 
-const PageContent = ({ data }) => {
+const PageContent = ({ data, language }) => {
   const { first_publication_date, tags: topics, slug } = data;
   const { h1_de_la_pagina: title, imagen_del_post, content } = data.data;
   const stringifyContent = content?.map((obj) => obj.text) + "";
@@ -28,15 +28,17 @@ const PageContent = ({ data }) => {
       </div>
       <div className="w-full pt-8 flex justify-start pb-6 largeTablet:pb-4 largeTablet:justify-between">
         <LocalTypography>
-          Published on:
+          {language == "es-es" ? "Publicado: " : "Published on: "}
           {`${new Date(first_publication_date).getDate()}/${new Date(
             first_publication_date
           ).getMonth()}/${new Date(first_publication_date).getFullYear()}`}
         </LocalTypography>
         <LocalTypography>
-          {`${getReadTime(stringifyContent || "")} ${
-            getReadTime(stringifyContent || "") === 1 ? "min" : "mins"
-          } read`}
+          {`${language == "es-es" ? "Lectura de" : ""} ${getReadTime(
+            stringifyContent || ""
+          )} ${getReadTime(stringifyContent || "") === 1 ? "min" : "mins"} ${
+            language == "es-es" ? "" : "read"
+          }`}
         </LocalTypography>
       </div>
       <GradientBorderWrapper style={{ width: "100%", borderRadius: "8px" }}>

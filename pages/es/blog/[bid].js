@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 export default function BlogId({ blogPageData, navigation, footer, settings }) {
   console.log(blogPageData, navigation, footer);
+  console.log("blogpage data", blogPageData?.lang);
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
   const { seo_title, seo_description, seo_icon, seo_url } = blogPageData.data;
@@ -18,7 +19,7 @@ export default function BlogId({ blogPageData, navigation, footer, settings }) {
       navigation={navigation}
       footer={footer}
     >
-      <PageContent data={blogPageData} />
+      <PageContent data={blogPageData} language={blogPageData?.lang} />
     </PageLayout>
   );
 }
