@@ -78,7 +78,7 @@ export default function RootPages({
 export async function getStaticPaths() {
   return {
     paths: ["/medical-healthcare-seo-for-medical-practice"],
-    fallback: true
+    fallback: "blocking"
   };
 }
 
