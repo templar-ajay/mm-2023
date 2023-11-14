@@ -45,7 +45,7 @@ const Footer = (props) => {
             />
           </div>
           <div className="w-[140px] tablet:w-auto h-6">
-            {menuItems.length && (
+            {Boolean(menuItems.length) && (
               <Dropdown name="Language" menuItems={menuItems} />
             )}
           </div>
