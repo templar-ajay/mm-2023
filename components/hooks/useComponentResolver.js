@@ -12,12 +12,15 @@ import SessionEstrategica from "../common/SessionEstrategica/SessionEstrategica"
 export default function useComponentResolver({
   data,
   index,
-  videoTestimonials
+  videoTestimonials,
+  currentLang
 }) {
   const key = index + data?.slice_type;
   const junk = {
     hero_landing: <Hero data={data} key={key} />,
-    content_with_image: <Features data={data} key={key} />,
+    content_with_image: (
+      <Features data={data} key={key} currentLang={currentLang} />
+    ),
     call_to_action: <CTATemplate data={data} key={key} />,
     video_reviews: <VideoReviews data={data} key={key} />,
     faqs: <FaqTemplate data={data} key={key} />,

@@ -39,7 +39,12 @@ export default function EsHome({
         footer={{ footer, currentLang, alternateLang }}
       >
         {body.map((x, i) =>
-          useComponentResolver({ data: x, index: i, videoTestimonials })
+          useComponentResolver({
+            data: x,
+            index: i,
+            videoTestimonials,
+            currentLang
+          })
         )}
       </PageLayout>
     </>

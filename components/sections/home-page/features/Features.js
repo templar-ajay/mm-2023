@@ -6,10 +6,10 @@ const classNames = {
   sm: ""
 };
 
-const Features = ({ data }) => {
+const Features = ({ data, currentLang }) => {
   return (
     <SectionWrapper pbs={0}>
-      <Feature data={data} className={classNames} />
+      <Feature data={data} currentLang={currentLang} className={classNames} />
     </SectionWrapper>
   );
 };

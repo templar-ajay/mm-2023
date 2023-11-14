@@ -23,9 +23,9 @@ const Footer = (props) => {
         title: getLanguageName(lang)
       });
     });
-    console.log("menuItems", menuItems);
-    console.log("currentLang", currentLang);
-    console.log("alternateLang", alternateLang);
+    // console.log("menuItems", menuItems);
+    // console.log("currentLang", currentLang);
+    // console.log("alternateLang", alternateLang);
   }
 
   const path = usePathname();

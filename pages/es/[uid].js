@@ -55,7 +55,12 @@ export default function EsRootPages({
         footer={{ footer, currentLang, alternateLang }}
       >
         {body.map((x, i) =>
-          useComponentResolver({ data: x, index: i, videoTestimonials })
+          useComponentResolver({
+            data: x,
+            index: i,
+            videoTestimonials,
+            currentLang
+          })
         )}
       </PageLayout>
     </>

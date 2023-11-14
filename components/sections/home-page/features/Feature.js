@@ -8,7 +8,7 @@ import CustomRichText from "@/components/common/CustomRichText/CustomRichText";
 
 import { adjustCurrentDate } from "@/utils/dateTimeUtils";
 
-const Feature = ({ data, className }) => {
+const Feature = ({ data, currentLang, className }) => {
   const _delay = 0.5;
   const hide = data.primary.small_image ? "hidden" : "";
   const [refIcon, iconInView] = useInView();
@@ -59,14 +59,19 @@ const Feature = ({ data, className }) => {
                 style={{ fontSize: "14px", opacity: 0.7, marginBottom: "8px" }}
               >
                 {does_it_have_date_ &&
-                  "Actualizado: " +
+                  (currentLang?.lang == "en-us"
+                    ? "Updated: "
+                    : "Actualizado: ") +
                     new Date(
                       adjustCurrentDate(-7).toDateString()
-                    ).toLocaleString("es-ES", {
-                      // year: "numeric",
-                      month: "long",
-                      day: "numeric"
-                    }) +
+                    ).toLocaleString(
+                      currentLang?.lang == "en-us" ? "en-US" : "es-ES",
+                      {
+                        // year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                      }
+                    ) +
                     ", " +
                     new Date(adjustCurrentDate(-7)).getFullYear()}
               </div>
