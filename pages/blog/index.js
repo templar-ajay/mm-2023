@@ -23,8 +23,14 @@ const BlogsPage = ({
   };
 
   const footer = footerData.results[0].data;
-  const currentLang = { lang: footerData.lang, uid: footerData.uid };
-  const alternateLang = footerData.alternate_languages;
+  const currentLang = {
+    lang: blogListingPage.lang,
+    uid: "blog"
+  };
+  const alternateLang = blogListingPage.alternate_languages.map((x) => {
+    const y = { ...x, uid: "blog" };
+    return y;
+  });
 
   return (
     <PageLayout

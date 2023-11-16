@@ -5,7 +5,7 @@ import PrismicClient from "@/services/prismic";
 import { validPaginationParams } from "@/utils/queryParamUtils";
 
 const BlogsPage = ({
-  blogListingPage,
+  blogListingPage: blogListingPageData,
   blogs,
   totalPageCount,
   navigation,
@@ -14,6 +14,7 @@ const BlogsPage = ({
   pageSize,
   settings
 }) => {
+  const blogListingPage = blogListingPageData.results[0];
   console.log({ blogs, totalPageCount, navigation, footerData });
   const seo = {
     seo_title: blogListingPage.data.seo_title,
@@ -23,8 +24,11 @@ const BlogsPage = ({
   };
 
   const footer = footerData.results[0].data;
-  const currentLang = { lang: footerData.lang, uid: footerData.uid };
-  const alternateLang = footerData.alternate_languages;
+  const currentLang = { lang: blogListingPage.lang, uid: "blog" };
+  const alternateLang = blogListingPage.alternate_languages.map((x) => {
+    const y = { ...x, uid: "blog" };
+    return y;
+  });
 
   return (
     <PageLayout
@@ -78,7 +82,7 @@ export async function getServerSideProps({ query, previewData }) {
       navigation: navigation.results[0].data,
       footer: footer,
       settings: settings.results[0] ? settings.results[0].data : null,
-      blogListingPage: blogListingPage ? blogListingPage.results[0] : null,
+      blogListingPage: blogListingPage,
       activePage,
       pageSize
     }

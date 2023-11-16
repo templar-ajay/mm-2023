@@ -10,14 +10,27 @@ export default function BlogId({
   footer: footerData,
   settings
 }) {
-  console.log(blogPageData, navigation, footerData);
+  console.log(
+    "blogPageData",
+    blogPageData,
+    "navigation",
+    navigation,
+    "footerData",
+    footerData
+  );
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
   const { seo_title, seo_description, seo_icon, seo_url } = blogPageData.data;
 
   const footer = footerData.results[0].data;
-  const currentLang = { lang: footerData.lang, uid: footerData.uid };
-  const alternateLang = footerData.alternate_languages;
+  const currentLang = {
+    lang: blogPageData.lang,
+    uid: "blog/" + blogPageData.uid
+  };
+  const alternateLang = blogPageData.alternate_languages.map((x) => {
+    const y = { ...x, uid: "blog/" + x.uid };
+    return y;
+  });
 
   return (
     <PageLayout
