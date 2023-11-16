@@ -7,7 +7,7 @@ import OrangeAuthor from "../../../../public/icons/close_btn.svg";
 import Image from "next/image";
 import LocalTypography from "../components/LocalTypography";
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
-import CustomRichText from "@/components/common/CustomRichText/CustomRichText";
+import CustomRichTextBlog from "@/components/common/CustomRichText/CustomRichTextBlog";
 
 const PageContent = ({ data, language }) => {
   const { first_publication_date, tags: topics, slug } = data;
@@ -48,7 +48,8 @@ const PageContent = ({ data, language }) => {
         </div>
       </GradientBorderWrapper>
       <div className="w-full max-w-[780px] mt-6 largeTablet:mt-24 text-textPrimary contentWrapper text-lg ">
-        <CustomRichText render={content} />
+        {/* <CustomRichText render={content} /> */}
+        <CustomRichTextBlog render={content} />
       </div>
     </SectionWrapper>
   );

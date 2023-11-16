@@ -1,13 +1,14 @@
 import Image from "next/image";
-import { ImageEnlargedStyles } from "./CustomRichTextStyles";
+import { ImageStyles } from "./CustomRichTextStyles";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import { linkFromDocument } from "@/utils/LinkUtils";
 
 const components = {
   image: (props) => {
+    // console.log("all", props);
     return (
-      <ImageEnlargedStyles>
+      <ImageStyles>
         <Image
           key={props.key}
           src={props.node.url}
@@ -15,7 +16,7 @@ const components = {
           width={props.node.dimensions.width}
           height={props.node.dimensions.height}
         />
-      </ImageEnlargedStyles>
+      </ImageStyles>
     );
   },
   hyperlink: (props) => {
