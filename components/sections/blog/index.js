@@ -13,7 +13,8 @@ export default function BlogListing({
   blogs,
   totalPageCount,
   activePage,
-  pageSize
+  pageSize,
+  language
 }) {
   console.log("blog listing data", data);
   const heading = data.data.heading;
@@ -32,15 +33,21 @@ export default function BlogListing({
             {RichText.render(subHeading)}
           </Typography>
         </div>
-        <FeaturedPost data={blogs[0]} />
+        <FeaturedPost
+          featuredPostText={
+            language == "en-us" ? "Featured Post" : "Artículo destacado"
+          }
+          data={blogs[0]}
+          language={language}
+        />
         <div className="w-full mt-20">
           <Typography variant="preHeading" alignLarge="left">
-            {blogListingHeader}
+            {Boolean(blogs.slice(1).length) && blogListingHeader}
           </Typography>
 
           <div className="grid grid-cols-1 gap-y-20 mt-10 largeTablet:grid-cols-2 largeTablet:gap-x-11 ">
             {blogs?.slice(1).map((item) => (
-              <Post key={item.id} data={item} />
+              <Post key={item.id} data={item} language={language} />
             ))}
           </div>
         </div>

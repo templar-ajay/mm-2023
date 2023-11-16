@@ -6,7 +6,7 @@ import { Typography } from "../../../common/text";
 import Button from "../../../common/Button";
 import LocalTypography from "./LocalTypography";
 
-const Post = ({ data, featured }) => {
+const Post = ({ data, featured, language = "es-es", featuredPostText }) => {
   const title = data.data?.h1_de_la_pagina || "";
   const topics = data?.tags || [];
   const content = data.data?.content;
@@ -14,8 +14,7 @@ const Post = ({ data, featured }) => {
   const coverImage = data.data?.imagen_del_post;
   const stringifyContent = content?.map((obj) => obj.text) + "";
   const href = `blog/${slug}`;
-  const buttonText = "Leer Más";
-  const FeaturedPostText = "Artículo destacado";
+  const buttonText = language == "es-es" ? "Leer Más" : "Read More";
 
   return (
     <div className="w-full">
@@ -25,7 +24,7 @@ const Post = ({ data, featured }) => {
             style={{ borderRadius: "24px", padding: "4px 16px 6px" }}
           >
             <span className="font-bold text-xs uppercase tracking-[0.2em] text-[#11181C]">
-              {FeaturedPostText}
+              {featuredPostText}
             </span>
           </GradientBorderWrapper>
         </div>
@@ -67,8 +66,14 @@ const Post = ({ data, featured }) => {
 
       <div className="flex items-center pb-1 largeTablet:pb-2 ">
         <LocalTypography>{`${getReadTime(stringifyContent || "")} ${
-          getReadTime(stringifyContent || "") === 1 ? "minuto" : "minutos"
-        } de lectura`}</LocalTypography>
+          getReadTime(stringifyContent || "") === 1
+            ? language == "es-es"
+              ? "minuto"
+              : "minute"
+            : language == "es-es"
+            ? "minutos"
+            : "minutes"
+        } ${language == "es-es" ? "de lectura" : "read"}`}</LocalTypography>
       </div>
       <div className="pt-1">
         <Button href={href}>{buttonText}</Button>

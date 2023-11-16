@@ -9,12 +9,12 @@ const BlogsPage = ({
   blogs,
   totalPageCount,
   navigation,
-  footer,
+  footer: footerData,
   activePage,
   pageSize,
   settings
 }) => {
-  console.log({ blogs, totalPageCount, navigation, footer });
+  console.log({ blogs, totalPageCount, navigation, footerData });
   const seo = {
     seo_title: blogListingPage.data.seo_title,
     seo_description: blogListingPage.data.seo_description,
@@ -22,13 +22,17 @@ const BlogsPage = ({
     seo_url: undefined
   };
 
+  const footer = footerData.results[0].data;
+  const currentLang = { lang: footerData.lang, uid: footerData.uid };
+  const alternateLang = footerData.alternate_languages;
+
   return (
     <PageLayout
       seoData={seo}
       navigation={navigation}
       BackgroundWrapper={Background}
       settings={settings}
-      footer={footer}
+      footer={{ footer, currentLang, alternateLang }}
     >
       <BlogListing
         blogListingHeader={"PUBLICACIONES DE TENDENCIA"}
@@ -37,6 +41,7 @@ const BlogsPage = ({
         totalPageCount={totalPageCount}
         activePage={activePage}
         pageSize={pageSize}
+        language="es-es"
       />
     </PageLayout>
   );
@@ -71,7 +76,7 @@ export async function getServerSideProps({ query, previewData }) {
       totalPageCount: totalPageCount,
       blogs: blogs.results,
       navigation: navigation.results[0].data,
-      footer: footer.results[0].data,
+      footer: footer,
       settings: settings.results[0] ? settings.results[0].data : null,
       blogListingPage: blogListingPage ? blogListingPage.results[0] : null,
       activePage,

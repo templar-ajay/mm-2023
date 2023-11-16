@@ -9,12 +9,12 @@ const BlogsPage = ({
   blogs,
   totalPageCount,
   navigation,
-  footer,
+  footer: footerData,
   activePage,
   pageSize,
   settings
 }) => {
-  console.log({ blogs, totalPageCount, navigation, footer });
+  console.log({ blogs, totalPageCount, navigation, footerData });
   const seo = {
     seo_title: blogListingPage.data.seo_title,
     seo_description: blogListingPage.data.seo_description,
@@ -22,13 +22,17 @@ const BlogsPage = ({
     seo_url: undefined
   };
 
+  const footer = footerData.results[0].data;
+  const currentLang = { lang: footerData.lang, uid: footerData.uid };
+  const alternateLang = footerData.alternate_languages;
+
   return (
     <PageLayout
       seoData={seo}
       navigation={navigation}
       BackgroundWrapper={Background}
       settings={settings}
-      footer={footer}
+      footer={{ footer, currentLang, alternateLang }}
     >
       <BlogListing
         blogListingHeader={"TRENDING POSTS"}
@@ -37,6 +41,7 @@ const BlogsPage = ({
         totalPageCount={totalPageCount}
         activePage={activePage}
         pageSize={pageSize}
+        language="en-us"
       />
     </PageLayout>
   );
@@ -57,21 +62,23 @@ export async function getServerSideProps({ query, previewData }) {
     : 1;
   const blogs = await client.getByType("page", {
     pageSize,
-    page: activePage
+    page: activePage,
+    lang: "en-us"
   });
   const [navigation, footer, settings, blogListingPage] = await Promise.all([
     client.getByType("navigation", { lang: "en-us" }),
-    client.getByType("footer", { lang: "en-US" }),
+    client.getByType("footer", { lang: "en-us" }),
     client.getByType("settings", { lang: "en-us" }),
     client.getByType("blog_listing", { lang: "en-us" })
   ]);
+  console.log("found footer", footer);
 
   return {
     props: {
       totalPageCount: totalPageCount,
       blogs: blogs.results,
       navigation: navigation.results[0].data,
-      footer: footer.results[0].data,
+      footer: footer,
       settings: settings.results[0] ? settings.results[0].data : null,
       blogListingPage: blogListingPage ? blogListingPage.results[0] : null,
       activePage,

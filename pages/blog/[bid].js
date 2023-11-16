@@ -4,11 +4,20 @@ import PageContent from "@/components/sections/blog/[slug]/PageContent";
 import PrismicClient from "@/services/prismic";
 import { useRouter } from "next/router";
 
-export default function BlogId({ blogPageData, navigation, footer, settings }) {
-  console.log(blogPageData, navigation, footer);
+export default function BlogId({
+  blogPageData,
+  navigation,
+  footer: footerData,
+  settings
+}) {
+  console.log(blogPageData, navigation, footerData);
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
   const { seo_title, seo_description, seo_icon, seo_url } = blogPageData.data;
+
+  const footer = footerData.results[0].data;
+  const currentLang = { lang: footerData.lang, uid: footerData.uid };
+  const alternateLang = footerData.alternate_languages;
 
   return (
     <PageLayout
@@ -16,7 +25,7 @@ export default function BlogId({ blogPageData, navigation, footer, settings }) {
       BackgroundWrapper={Background}
       settings={settings}
       navigation={navigation}
-      footer={footer}
+      footer={{ footer, currentLang, alternateLang }}
     >
       <PageContent data={blogPageData} />
     </PageLayout>
@@ -40,7 +49,7 @@ export async function getStaticProps({ params, previewData }) {
   try {
     const client = PrismicClient({ previewData });
     const [blogPageData, navigation, footer, settings] = await Promise.all([
-      client.getByUID("page", params.bid, {}),
+      client.getByUID("page", params.bid, { lang: "en-us" }),
       client.getByType("navigation", { lang: "en-us" }),
       client.getByType("footer", { lang: "en-us" }),
       client.getByType("settings", { lang: "en-us" })
@@ -50,7 +59,7 @@ export async function getStaticProps({ params, previewData }) {
       props: {
         blogPageData,
         navigation: navigation.results[0].data,
-        footer: footer.results[0].data,
+        footer: footer,
         settings: settings.results[0] ? settings.results[0].data : null
       },
       revalidate: 5

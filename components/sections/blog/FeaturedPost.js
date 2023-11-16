@@ -3,7 +3,7 @@ import GradientBorderWrapper from "../../common/GradientBorderWrapper";
 import Post from "./components/Post";
 import clsx from "clsx";
 
-const FeaturedPost = ({ data }) => {
+const FeaturedPost = ({ data, featuredPostText, language }) => {
   return (
     <div className="w-full">
       <div
@@ -33,7 +33,12 @@ const FeaturedPost = ({ data }) => {
         )}
 
         <div className="flex-1 overflow-hidden largeTablet:flex largeTablet:items-center largeTablet:pl-8">
-          <Post featured data={data} />
+          <Post
+            featuredPostText={featuredPostText}
+            language={language}
+            featured
+            data={data}
+          />
         </div>
       </div>
     </div>
