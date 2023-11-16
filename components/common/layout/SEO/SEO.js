@@ -9,30 +9,24 @@ const SeoBlock = ({
   html_code,
   html_rich_text
 }) => {
+  const seoTitle =
+    typeof seo_title == "string" ? seo_title : seo_title && seo_title[0]?.text;
+  const seoDescription =
+    typeof seo_description == "string"
+      ? seo_description
+      : seo_description && seo_description[0]?.text;
+
   console.log("html code", html_code);
   console.log("html rich text", html_rich_text);
   return (
     <Head>
-      <title>
-        {(seo_title && seo_title[0]?.text) || typeof seo_title == "string"
-          ? seo_title
-          : "Medical Marketing"}
-      </title>
-      <meta
-        name="title"
-        content={
-          (seo_title && seo_title[0]?.text) || typeof seo_title == "string"
-            ? seo_title
-            : "Medical Marketing"
-        }
-      ></meta>
+      <title>{seoTitle || "Medical Marketing"}</title>
+      <meta name="title" content={seoTitle || "Medical Marketing"}></meta>
       <meta
         name="description"
         content={
-          (seo_description && seo_description[0]?.text) ||
-          typeof seo_description == "string"
-            ? seo_description
-            : "La Agencia de Marketing Médico Que Garantiza Pacientes y Resultados【Te lo explicamos ▷ Entra Aquí】⭐ [Médicos•Clínicas•Hospitales]"
+          seoDescription ||
+          "La Agencia de Marketing Médico Que Garantiza Pacientes y Resultados【Te lo explicamos ▷ Entra Aquí】⭐ [Médicos•Clínicas•Hospitales]"
         }
       />
       <link target="_blank" rel="icon" href={seo_icon || "./favicon.ico"} />
@@ -42,21 +36,12 @@ const SeoBlock = ({
         property="og:url"
         content={seo_url || "https://medicalmarketing.es/"}
       />
-      <meta
-        property="og:title"
-        content={
-          (seo_title && seo_title[0]?.text) || typeof seo_title == "string"
-            ? seo_title
-            : "Medical-Marketing"
-        }
-      />
+      <meta property="og:title" content={seoTitle || "Medical-Marketing"} />
       <meta
         property="og:description"
         content={
-          (seo_description && seo_description[0]?.text) ||
-          typeof seo_description == "string"
-            ? seo_description
-            : "La Agencia de Marketing Médico Que Garantiza Pacientes y Resultados【Te lo explicamos ▷ Entra Aquí】⭐ [Médicos•Clínicas•Hospitales]"
+          seoDescription ||
+          "La Agencia de Marketing Médico Que Garantiza Pacientes y Resultados【Te lo explicamos ▷ Entra Aquí】⭐ [Médicos•Clínicas•Hospitales]"
         }
       />
       <meta property="og:image" content={seo_icon || "./ogImage.png"} />
