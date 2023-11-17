@@ -1,6 +1,7 @@
 import { BannerEbookStyles } from "./BannerEbookStyles";
 import { Helmet } from "react-helmet";
 import { RichText } from "prismic-reactjs";
+import { PrismicRichText } from "@prismicio/react";
 
 const BannerEbook = ({ data }) => {
   const { lead_magnet_image, title, intro, cta } = data.primary;
@@ -11,11 +12,22 @@ const BannerEbook = ({ data }) => {
         <div className="container">
           <div className="banner__content">
             <div className="titularRevela">
-              <div className="h1">
-                <span className="blink"></span>
-                {RichText.render(intro)}
+              <div className="h1 text-xl largeTablet:text-2xl ">
+                <PrismicRichText
+                  field={intro}
+                  components={{
+                    paragraph: (props) => (
+                      <p>
+                        <span className="blink block"></span>
+                        {props.node.text}
+                      </p>
+                    )
+                  }}
+                />
               </div>
-              <div style={{ fontSize: "20px" }}>{RichText.render(title)}</div>
+              <div className="text-2xl largeTablet:text-3xl">
+                {RichText.render(title)}
+              </div>
             </div>
 
             <img

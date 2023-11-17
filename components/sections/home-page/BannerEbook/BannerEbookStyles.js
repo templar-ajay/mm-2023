@@ -8,7 +8,7 @@ export const BannerEbookStyles = styled.section`
   padding: 30px var(--borderSpacing);
 
   .h1 {
-    font-size: 16px;
+    // font-size: 16px;
     text-align: center;
   }
 
@@ -154,7 +154,7 @@ export const BannerEbookStyles = styled.section`
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-right: 10px;
     top: -1px;
     position: relative;
     vertical-align: middle;
@@ -167,8 +167,8 @@ export const BannerEbookStyles = styled.section`
     position: absolute;
     width: 16px;
     height: 16px;
-    top: 26px;
-    left: -200px;
+    top: 0;
+    left: 0;
     border-radius: 50%;
     background: var(--secondary);
     -webkit-box-sizing: border-box;
