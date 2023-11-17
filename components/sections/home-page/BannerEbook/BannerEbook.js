@@ -12,7 +12,7 @@ const BannerEbook = ({ data }) => {
         <div className="container">
           <div className="banner__content">
             <div className="titularRevela">
-              <div className="h1 text-xl largeTablet:text-2xl ">
+              <div className="h1 text-lg tablet:text-2xl largeTablet:text-3xl ">
                 <PrismicRichText
                   field={intro}
                   components={{
@@ -25,7 +25,7 @@ const BannerEbook = ({ data }) => {
                   }}
                 />
               </div>
-              <div className="text-2xl largeTablet:text-3xl">
+              <div className="text-2xl tablet:text-3xl largeTablet:text-4xl pt-10">
                 {RichText.render(title)}
               </div>
             </div>
