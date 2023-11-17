@@ -11,9 +11,11 @@ const BannerEbook = ({ data }) => {
         <div className="container">
           <div className="banner__content">
             <div className="titularRevela">
-              <span className="blink"></span>
-              <div className="h1">{RichText.render(intro)}</div>
-              {RichText.render(title)}
+              <div className="h1">
+                <span className="blink"></span>
+                {RichText.render(intro)}
+              </div>
+              <div style={{ fontSize: "20px" }}>{RichText.render(title)}</div>
             </div>
 
             <img

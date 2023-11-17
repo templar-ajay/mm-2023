@@ -7,6 +7,17 @@ export const BannerEbookStyles = styled.section`
   position: relative;
   padding: 30px var(--borderSpacing);
 
+  .h1 {
+    font-size: 16px;
+  }
+  strong {
+    --tw-gradient-text: #ffe580, #ffc400;
+    background-image: linear-gradient(to right, var(--tw-gradient-text));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   padding-left: 0px !important;
   padding-right: 0px !important;
 
@@ -154,8 +165,8 @@ export const BannerEbookStyles = styled.section`
     position: absolute;
     width: 16px;
     height: 16px;
-    top: 0;
-    left: 0;
+    top: 26px;
+    left: -26px;
     border-radius: 50%;
     background: var(--secondary);
     -webkit-box-sizing: border-box;
