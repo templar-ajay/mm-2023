@@ -10,6 +10,7 @@ export const BannerEbookStyles = styled.section`
   .h1 {
     font-size: 16px;
   }
+
   strong {
     --tw-gradient-text: #ffe580, #ffc400;
     background-image: linear-gradient(to right, var(--tw-gradient-text));
