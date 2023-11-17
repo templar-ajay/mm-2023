@@ -12,10 +12,9 @@ const BannerEbook = ({ data }) => {
           <div className="banner__content">
             <div className="titularRevela">
               <span className="blink"></span>
+              <div className="h1">{RichText.render(intro)}</div>
               {RichText.render(title)}
             </div>
-
-            <div className="h1">{RichText.render(intro)}</div>
 
             <img
               src={lead_magnet_image.url}
