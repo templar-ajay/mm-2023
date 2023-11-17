@@ -1,4 +1,4 @@
 User-agent: *
 
-Sitemap: https://medicalmarketing.digital/es/sitemap.xml
-Sitemap: https://medicalmarketing.digital/es/blog-sitemap.xml
+Sitemap: https://medicalmarketing.digital/sitemap.xml
+Sitemap: https://medicalmarketing.digital/blog-sitemap.xml
