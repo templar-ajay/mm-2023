@@ -60,9 +60,15 @@ li::before {
 
 /* used in bannerEbook */
 .subHeader {
-  font-size: 25px;
-  /* color: #FFF9ED; */
-  text-align: center;
+  font-size: 20px;
+  color: #FFF9ED;
+  text-align: left;
+  margin-top: 40px;
+
+}
+
+.subHeader p {
+  padding: 15px 0;
 }
 
 .blog-heading strong {
