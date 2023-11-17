@@ -1,8 +1,18 @@
 import styled from "styled-components";
 
 export const FaqStyles = styled.section`
+  // strong {
+  //   font-weight: inherit !important;
+  // }
   strong {
-    font-weight: inherit !important;
+    --tw-gradient-text: #ffe580, #ffc400;
+    background-image: linear-gradient(to right, var(--tw-gradient-text));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  p {
+    padding: 15px 0;
   }
 
   .question {
@@ -56,7 +66,7 @@ export const FaqStyles = styled.section`
     padding: calc(var(--gap) / 2);
     font-size: var(--p);
     color: #fff;
-    opacity: 0.7 !important;
+    opacity: 0.75 !important;
   }
   margin-bottom: calc(var(--gap) / 2);
 
