@@ -40,6 +40,8 @@ export default function RootPages({
     html_rich_text
   } = landingPageData.data;
 
+  const alternateUID = landingPageData?.alternate_languages?.[0]?.uid;
+
   return (
     <>
       <Head>
@@ -48,6 +50,13 @@ export default function RootPages({
           hreflang="en-us"
           rel="alternate"
         />
+        {Boolean(alternateUID?.length) && (
+          <link
+            href={`https://medicalmarketing.digital/es/${alternateUID}`}
+            hreflang="es-es"
+            rel="alternate"
+          />
+        )}
         <link
           rel="canonical"
           href={`https://medicalmarketing.digital${asPath}`}

@@ -29,14 +29,18 @@ export default function EsRootPages({
   const currentLang = { lang: landingPageData.lang, uid: landingPageData.uid };
   const alternateLang = landingPageData.alternate_languages;
 
+  const alternateUID = landingPageData?.alternate_languages?.[0]?.uid;
+
   return (
     <>
       <Head>
-        <link
-          href={`https://medicalmarketing.digital${asPath.replace("/es", "")}`}
-          hreflang="en-us"
-          rel="alternate"
-        />
+        {Boolean(alternateUID?.length) && (
+          <link
+            href={`https://medicalmarketing.digital/${alternateUID}`}
+            hreflang="en-us"
+            rel="alternate"
+          />
+        )}
         <link
           href={`https://medicalmarketing.digital${asPath}`}
           hreflang="es-es"

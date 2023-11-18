@@ -16,16 +16,6 @@ export default function Document() {
           hrefLang="x-default"
           rel="alternate"
         />
-        <link
-          href="https://medicalmarketing.digital/"
-          hrefLang="en-us"
-          rel="alternate"
-        />
-        <link
-          href={`https://medicalmarketing.digital/es/`}
-          hrefLang="es-es"
-          rel="alternate"
-        />
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
 

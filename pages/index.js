@@ -25,6 +25,16 @@ export default function Home({
     <>
       <Head>
         <link rel="canonical" href={`https://medicalmarketing.digital`}></link>
+        <link
+          href={`https://medicalmarketing.digital`}
+          hreflang="en-us"
+          rel="alternate"
+        />
+        <link
+          href={`https://medicalmarketing.digital/es`}
+          hreflang="es-es"
+          rel="alternate"
+        />
       </Head>
       <PageLayout
         seoData={{ seo_title, seo_description, seo_icon, seo_url, html_code }}
