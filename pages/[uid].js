@@ -44,13 +44,13 @@ export default function RootPages({
     <>
       <Head>
         <link
-          href={`https://medicalmarketing.digital/${asPath}`}
+          href={`https://medicalmarketing.digital${asPath}`}
           hreflang="en-us"
           rel="alternate"
         />
         <link
           rel="canonical"
-          href={`https://medicalmarketing.digital/${asPath}`}
+          href={`https://medicalmarketing.digital${asPath}`}
         ></link>
       </Head>
       <PageLayout

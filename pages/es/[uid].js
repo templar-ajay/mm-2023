@@ -44,7 +44,7 @@ export default function EsRootPages({
         />
         <link
           rel="canonical"
-          href={`https://medicalmarketing.digital/${asPath}`}
+          href={`https://medicalmarketing.digital${asPath}`}
         ></link>
       </Head>
       <PageLayout
