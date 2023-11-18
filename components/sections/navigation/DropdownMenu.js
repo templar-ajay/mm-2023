@@ -45,7 +45,6 @@ const DropdownMenu = ({ menuItems = [] }) => {
                   .map(({ label, small_label, the_link }, i) => (
                     <Menu.Item key={label[0]?.text + i}>
                       <Link
-                        target="_blank"
                         rel="noopener noreferrer"
                         href={
                           the_link.url

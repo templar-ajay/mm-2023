@@ -29,7 +29,7 @@ const SeoBlock = ({
           "La Agencia de Marketing Médico Que Garantiza Pacientes y Resultados【Te lo explicamos ▷ Entra Aquí】⭐ [Médicos•Clínicas•Hospitales]"
         }
       />
-      <link target="_blank" rel="icon" href={seo_icon || "./favicon.ico"} />
+      <link rel="icon" href={seo_icon || "./favicon.ico"} />
       {/* <!-- Open Graph / Facebook --> */}
       <meta property="og:type" content="website" />
       <meta

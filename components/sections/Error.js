@@ -10,7 +10,7 @@ const Error = ({ statusCode, errorMessage, goto }) => {
         {errorMessage || "Internal Server Error"}
       </p>
       {goto && (
-        <Link target="_blank" rel="noopener noreferrer" href={goto}>
+        <Link rel="noopener noreferrer" href={goto}>
           <div className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
             Go Home
           </div>

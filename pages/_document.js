@@ -22,7 +22,6 @@ export default function Document() {
           rel="alternate"
         />
         <link
-          target="_blank"
           href={`https://medicalmarketing.digital/es/`}
           hrefLang="es-es"
           rel="alternate"

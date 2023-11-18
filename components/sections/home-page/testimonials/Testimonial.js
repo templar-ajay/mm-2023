@@ -24,7 +24,6 @@ const Testimonial = ({
             key={index + Math.random().toString()}
             className="text-brandOrange"
             href={"https://twitter.com/" + saveTwitterUsername.substring(1)}
-            target="_blank"
             rel="noonpener noreferrer"
           >
             {saveTwitterUsername}

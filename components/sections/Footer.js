@@ -76,7 +76,6 @@ const Footer = (props) => {
                               <></>
                             ) : (
                               <Link
-                                target="_blank"
                                 rel="noopener noreferrer"
                                 key={i + Math.random().toString()}
                                 href={
@@ -113,7 +112,7 @@ const Footer = (props) => {
           <div className="flex mb-5 largeTablet:mb-0 ">
             {footerItems.legal?.map(({ link, text_for_legal_link }, i) => (
               <div key={i + Math.random().toString()} className="flex">
-                <a href={link.url} target="_blank" rel="noreferrer">
+                <a href={link.url} rel="noreferrer">
                   <LocalTypography variant="item2">
                     {RichText.render(text_for_legal_link)}
                   </LocalTypography>

@@ -35,8 +35,6 @@ export default function Dropdown({ name, menuItems }) {
               <Menu.Item>
                 {({ active }) => (
                   <Link
-                    // target="_blank"
-                    // rel="noopener noreferrer"
                     href={item.path}
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",

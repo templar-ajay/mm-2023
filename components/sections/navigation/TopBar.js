@@ -14,7 +14,6 @@ const TopBar = ({ navigationItems }) => {
     >
       <div className="block mm-logo-div cursor-pointer">
         <Link
-          target="_blank"
           href={
             currentPath.startsWith("/es/") || currentPath === "/es"
               ? "/es"
