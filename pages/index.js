@@ -3,6 +3,7 @@ import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
 import Head from "next/head";
+import Script4Html from "@/utils/Script4Html";
 
 export default function Home({
   landingPageData,
@@ -25,6 +26,11 @@ export default function Home({
     <>
       <Head>
         <link rel="canonical" href={`https://medicalmarketing.digital`}></link>
+        <link
+          href="https://medicalmarketing.digital"
+          hrefLang="x-default"
+          rel="alternate"
+        />
         <link
           href={`https://medicalmarketing.digital`}
           hreflang="en-us"
@@ -52,6 +58,7 @@ export default function Home({
           })
         )}
       </PageLayout>
+      <Script4Html lang="en" />
     </>
   );
 }

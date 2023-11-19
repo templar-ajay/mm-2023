@@ -1,20 +1,14 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import Link from "next/link";
 
 export default function Document() {
   const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-WRL5GCRR";
 
   return (
-    <Html lang="en">
+    <Html>
       <Head>
         <meta
           name="format-detection"
           content="telephone=no, date=no, email=no, address=no"
-        />
-        <link
-          href="https://medicalmarketing.digital/"
-          hrefLang="x-default"
-          rel="alternate"
         />
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
@@ -53,7 +47,7 @@ export default function Document() {
         <link
           href="/blog-sitemap.xml"
           rel="sitemap"
-          title="Medical Marketing Sitemap"
+          title="Medical Marketing Blog Sitemap"
           type="application/xml"
         ></link>
 
@@ -81,8 +75,8 @@ export default function Document() {
           }}
         ></script>
 
-        <Link
-          defer
+        <link
+          defer="true"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />

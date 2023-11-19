@@ -4,6 +4,7 @@ import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
 import Head from "next/head";
+import Script4Html from "@/utils/Script4Html";
 
 export default function EsRootPages({
   landingPageData,
@@ -34,6 +35,15 @@ export default function EsRootPages({
   return (
     <>
       <Head>
+        <link
+          rel="canonical"
+          href={`https://medicalmarketing.digital${asPath}`}
+        ></link>
+        <link
+          href={`https://medicalmarketing.digital${asPath}`}
+          hrefLang="x-default"
+          rel="alternate"
+        />
         {Boolean(alternateUID?.length) && (
           <link
             href={`https://medicalmarketing.digital/${alternateUID}`}
@@ -46,10 +56,6 @@ export default function EsRootPages({
           hreflang="es-es"
           rel="alternate"
         />
-        <link
-          rel="canonical"
-          href={`https://medicalmarketing.digital${asPath}`}
-        ></link>
       </Head>
       <PageLayout
         seoData={{ seo_title, seo_description, seo_icon, seo_url }}
@@ -67,6 +73,7 @@ export default function EsRootPages({
           })
         )}
       </PageLayout>
+      <Script4Html lang="es" />
     </>
   );
 }

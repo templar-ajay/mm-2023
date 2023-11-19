@@ -4,6 +4,7 @@ import Background from "@/components/sections/home-page/Background";
 import Error from "@/components/sections/Error";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
 import Head from "next/head";
+import Script4Html from "@/utils/Script4Html";
 
 export default function EsHome({
   landingPageData,
@@ -31,6 +32,11 @@ export default function EsHome({
       <Head>
         <link rel="canonical" href={`https://medicalmarketing.digital/es`} />
         <link
+          href="https://medicalmarketing.digital/es"
+          hrefLang="x-default"
+          rel="alternate"
+        />
+        <link
           href={`https://medicalmarketing.digital`}
           hreflang="en-us"
           rel="alternate"
@@ -57,6 +63,7 @@ export default function EsHome({
           })
         )}
       </PageLayout>
+      <Script4Html lang="es" />
     </>
   );
 }

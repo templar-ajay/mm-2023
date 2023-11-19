@@ -46,6 +46,15 @@ export default function RootPages({
     <>
       <Head>
         <link
+          rel="canonical"
+          href={`https://medicalmarketing.digital${asPath}`}
+        ></link>
+        <link
+          href={`https://medicalmarketing.digital${asPath}`}
+          hrefLang="x-default"
+          rel="alternate"
+        />
+        <link
           href={`https://medicalmarketing.digital${asPath}`}
           hreflang="en-us"
           rel="alternate"
@@ -57,10 +66,6 @@ export default function RootPages({
             rel="alternate"
           />
         )}
-        <link
-          rel="canonical"
-          href={`https://medicalmarketing.digital${asPath}`}
-        ></link>
       </Head>
       <PageLayout
         seoData={{
@@ -85,6 +90,7 @@ export default function RootPages({
           })
         )}
       </PageLayout>
+      <Script4Html lang="en" />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import { useRouter } from "next/router";
 
 const SeoBlock = ({
   seo_title,
@@ -9,6 +10,8 @@ const SeoBlock = ({
   html_code,
   html_rich_text
 }) => {
+  const router = useRouter();
+  const { asPath } = router;
   const seoTitle =
     typeof seo_title == "string" ? seo_title : seo_title && seo_title[0]?.text;
   const seoDescription =
@@ -34,7 +37,7 @@ const SeoBlock = ({
       <meta property="og:type" content="website" />
       <meta
         property="og:url"
-        content={seo_url || "https://medicalmarketing.es/"}
+        content={seo_url || `https://medicalmarketing.digital${asPath}`}
       />
       <meta property="og:title" content={seoTitle || "Medical-Marketing"} />
       <meta
