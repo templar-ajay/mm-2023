@@ -4,6 +4,7 @@ import PageLayout from "@/components/common/layout/PageLayout";
 import Background from "@/components/sections/home-page/Background";
 import useComponentResolver from "@/components/hooks/useComponentResolver";
 import Head from "next/head";
+import Script4Html from "@/utils/Script4Html";
 
 export default function RootPages({
   landingPageData,
