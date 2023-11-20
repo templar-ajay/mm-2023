@@ -71,7 +71,8 @@ li::before {
   padding: 15px 0;
 }
 
-.blog-heading strong {
+.blog-heading strong,
+strong {
   --tw-gradient-text: #ffe580, #ffc400;
   background-image: linear-gradient(to right, var(--tw-gradient-text));
 
