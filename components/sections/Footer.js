@@ -9,6 +9,8 @@ import { getLanguageName, getURLPrefix } from "@/utils/stringUtils";
 import { linkFromDocument } from "@/utils/LinkUtils";
 
 const Footer = (props) => {
+  // const origin = window?.location?.origin ? window.location.origin + "/" : "";
+  const origin = "https://medicalmarketing.digital/";
   const { currentLang, alternateLang, footer: footerData } = props.footerData;
   const menuItems = [];
 
@@ -79,11 +81,12 @@ const Footer = (props) => {
                                 rel="noopener noreferrer"
                                 key={i + Math.random().toString()}
                                 href={
-                                  url ||
-                                  (uid &&
-                                    (path.includes("/es") ? "/es/" : "") +
-                                      uid) ||
-                                  "/#"
+                                  origin +
+                                  (url ||
+                                    (uid &&
+                                      (path.includes("/es") ? "/es/" : "") +
+                                        uid) ||
+                                    "/#")
                                 }
                                 passHref
                               >
