@@ -27,7 +27,7 @@ const PageContent = ({ data, language }) => {
           </div>
         ))}
       </div>
-      <div className="w-full pt-8 flex justify-start pb-6 largeTablet:pb-4 largeTablet:justify-between">
+      <div className="w-full pt-8 flex pb-6 largeTablet:pb-4 justify-between">
         <LocalTypography>
           {language == "es-es" ? "Publicado: " : "Published on: "}
           {`${new Date(first_publication_date).getDate()}/${new Date(
