@@ -5,6 +5,7 @@ import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
 import { Typography } from "../../../common/text";
 import Button from "../../../common/Button";
 import LocalTypography from "./LocalTypography";
+import { PrismicRichText } from "@prismicio/react";
 
 const Post = ({ data, featured, language = "es-es", featuredPostText }) => {
   const title = data.data?.h1_de_la_pagina || "";
@@ -57,7 +58,11 @@ const Post = ({ data, featured, language = "es-es", featuredPostText }) => {
       </div>
       <div className=" min-h-[40px] largeTablet:min-h-[60px] mb-3">
         <LocalTypography featured={featured} variant="title">
-          {RichText.render(title)}
+          {/* {RichText.render(title)} */}
+          <PrismicRichText
+            field={title}
+            components={{ heading1: ({ children }) => <h3>{children}</h3> }}
+          />
         </LocalTypography>
       </div>
       <div className="flex items-center pb-1 largeTablet:pb-1 ">
