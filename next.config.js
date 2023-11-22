@@ -17,7 +17,21 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true
   },
-  swcMinify: true
+  swcMinify: true,
+  async redirects() {
+    return [
+      {
+        source: "/home",
+        destination: "/",
+        permanent: true
+      },
+      {
+        source: "/es/home",
+        destination: "/es/",
+        permanent: true
+      }
+    ];
+  }
 };
 
 module.exports = nextConfig;
