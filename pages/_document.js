@@ -39,6 +39,18 @@ export default function Document() {
         <meta name="application-name" content="Medical Marketing Agency"></meta>
 
         <link
+          href="./sitemap-english.xml"
+          rel="sitemap"
+          title="Medical Marketing English Sitemap"
+          type="application/xml"
+        />
+        <link
+          href="/blog-sitemap-english.xml"
+          rel="sitemap"
+          title="Medical Marketing English Blog Sitemap"
+          type="application/xml"
+        ></link>
+        <link
           href="./sitemap.xml"
           rel="sitemap"
           title="Medical Marketing Sitemap"
