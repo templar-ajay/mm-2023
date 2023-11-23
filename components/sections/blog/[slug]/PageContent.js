@@ -2,8 +2,6 @@ import { getReadTime } from "@/utils/dateTimeUtils";
 import { RichText } from "prismic-reactjs";
 import SectionWrapper from "../../../common/layout/SectionWrapper";
 import { Heading, Typography } from "../../../common/text";
-import OrangeClock from "../../../../public/icons/mobile_menu.svg";
-import OrangeAuthor from "../../../../public/icons/close_btn.svg";
 import Image from "next/image";
 import LocalTypography from "../components/LocalTypography";
 import GradientBorderWrapper from "../../../common/GradientBorderWrapper";
