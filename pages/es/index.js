@@ -32,7 +32,7 @@ export default function EsHome({
       <Head>
         <link rel="canonical" href={`https://medicalmarketing.digital/es`} />
         <link
-          href="https://medicalmarketing.digital/es"
+          href="https://medicalmarketing.digital"
           hrefLang="x-default"
           rel="alternate"
         />

@@ -40,7 +40,7 @@ export default function EsRootPages({
           href={`https://medicalmarketing.digital${asPath}`}
         ></link>
         <link
-          href={`https://medicalmarketing.digital${asPath}`}
+          href={`https://medicalmarketing.digital/${alternateUID}`}
           hrefLang="x-default"
           rel="alternate"
         />
