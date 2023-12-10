@@ -5,7 +5,8 @@ export const SessionEstrategicaStyles = styled.section`
   background: var(--darkBG);
   height: 700px;
   padding: 1px;
-  width: 100%;
+  width: 120%;
+  margin-left: 12px;
   padding-top: 80px;
 
   @media (min-width: 768px) {
