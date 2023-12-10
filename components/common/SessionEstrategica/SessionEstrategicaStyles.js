@@ -7,11 +7,11 @@ export const SessionEstrategicaStyles = styled.section`
   padding: 1px;
   width: 120%;
   margin-left: 12px;
-  padding-top: 80px;
+  // padding-top: 20px;
 
   @media (min-width: 768px) {
     padding: 30px;
-    padding-top: 50px;
+    // padding-top: 10px;
   }
 
   > .container {

@@ -7,7 +7,7 @@ const Header = ({ navigationData }) => {
 
   return (
     <SectionWrapper direction="row" pbs={0}>
-      <header className="flex flex-grow py-9 font-inter justify-between items-center">
+      <header className="flex flex-grow py-5 mobile_480:py-9 font-inter justify-between items-center">
         <TopBar navigationItems={navigationItems} />
         {/* menu template */}
         <div className="flex w-auto">
