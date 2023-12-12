@@ -31,7 +31,11 @@ export default function useComponentResolver({
       <VideoReviews data={videoTestimonials} key={index + "testimonials"} />
     ),
     book_a_session_script: (
-      <SessionEstrategica data={data} key={index + "book_a_session"} />
+      <SessionEstrategica
+        data={data}
+        key={index + "book_a_session"}
+        lang={currentLang}
+      />
     )
   };
 
