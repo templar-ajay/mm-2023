@@ -13,7 +13,7 @@ const Typography = ({
   const commonStyle = `w-full text-textPrimary`;
   const featuredClassName = isFeatured ? "featuredText" : "";
 
-  const preHeadingStyle = `font-bold text-xs tracking-[0.2em] opacity-70 uppercase mb-4`;
+  const preHeadingStyle = `font-bold text-[10px] mobile_480:text-xs tracking-[0.2em] opacity-70 uppercase mb-2 mobile_480:mb-4`;
   const subheadingStyle =
     "font-normal opacity-70 text-base largeTablet:text-2xl";
   const title1Style = "font-bold text-3xl largeTablet:text-4xl";

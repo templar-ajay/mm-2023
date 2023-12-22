@@ -42,8 +42,7 @@ const Heading = ({
     return (
       <div
         style={{ textAlign: isLargeTablet ? alignLarge : alignSmall }}
-        className={`featuredHeading ${commonStyle} largeTablet:
-        largeTablet:text-4xl 
+        className={`featuredHeading ${commonStyle} text-[26px] leading-tight mobile_480:leading-snug mobile_480:text-3xl largeTablet:text-4xl largeTablet:leading-normal 
         `}
       >
         {children}

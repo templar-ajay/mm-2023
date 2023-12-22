@@ -23,7 +23,7 @@ const Hero = ({ data }) => {
 
   return (
     <>
-      <SectionWrapper pt={115} pts={60} pbs={0} pb={0}>
+      <SectionWrapper pt={115} pts={40} pbs={0} pb={0}>
         <ContainerWithLine>
           <div style={{ position: "relative" }}>
             <img
@@ -36,7 +36,7 @@ const Hero = ({ data }) => {
           </div>
 
           <main id={data.id}>
-            <div className="flex largeTablet:items-center h-full flex-col gap-x-6 gap-y-10 largeTablet:flex-row mx-6 pb-[80px]">
+            <div className="flex largeTablet:items-center h-full flex-col gap-x-6 gap-y-10 largeTablet:flex-row mx-6 pb-[40px] mobile_480:pb-[80px]">
               <div className="flex-1 ">
                 {h1?.length ? (
                   <Typography
@@ -66,7 +66,7 @@ const Hero = ({ data }) => {
                 </div>
 
                 {sub_header[0].text?.length ? (
-                  <div className="py-10">
+                  <div className="py-0 mobile_480:py-10">
                     <Typography
                       alignLarge="left"
                       alignSmall="left"
