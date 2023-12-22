@@ -1,6 +1,3 @@
-import React from "react";
-import useMediaQuery from "../../hooks/useMediaQuery";
-
 const Typography = ({
   variant = "title1",
   children,
@@ -9,7 +6,6 @@ const Typography = ({
   isFeatured,
   fontSize
 }) => {
-  const isLargeTablet = useMediaQuery();
   const commonStyle = `w-full text-textPrimary`;
   const featuredClassName = isFeatured ? "featuredText" : "";
 
@@ -22,7 +18,7 @@ const Typography = ({
   const title3Style = "font-bold text-2xl largeTablet:text-4xl";
   const body1Style = "text-lg text-opacity-70 largeTablet:text-xl";
   const body2Style = "text-base opacity-70 largeTablet:text-lg";
-  const body3Style = "text-sm opacity-70 largeTablet:text-base";
+  const body3Style = "text-lg opacity-70 largeTablet:text-base";
   const body4Style = "text-sm opacity-70";
   const appliedStyle =
     variant === "title1"
