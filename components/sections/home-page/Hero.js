@@ -26,7 +26,7 @@ const Hero = ({ data }) => {
       <SectionWrapper pt={115} pts={60} pbs={0} pb={0}>
         <ContainerWithLine>
           <div style={{ position: "relative" }}>
-            <Image
+            <img
               className="absolute -top-[20px] -left-[32px] tablet:-left-[32px] largeTablet:-left-[52px] first-line-icon"
               src={left_side_icon?.url}
               alt={left_side_icon?.alt}
