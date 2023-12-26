@@ -32,11 +32,20 @@ em {
   display: inline-block;
 }
 
+li {
+  margin-left: 1rem;
+}
+
 li::before {
-  content: "•";
+  /* content: "•"; */
+  content: "";
+  background: url(/icons/Iconos\ MM-2.png);
+  background-size: cover;
   display: inline-block;
   width: 1rem;
-  margin-left: -1rem;
+  height: 1rem;
+  margin-left: -2.5rem;
+  margin-right: 0.5rem;
 }
 
 /* remove padding inside iframe - not working */
