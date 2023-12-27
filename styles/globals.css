@@ -33,7 +33,7 @@ em {
 }
 
 li {
-  margin-left: 1rem;
+  margin-left: 1.5rem;
 }
 
 li::before {
@@ -44,8 +44,9 @@ li::before {
   display: inline-block;
   width: 1rem;
   height: 1rem;
-  margin-left: -2.5rem;
+  margin-left: -1.5rem;
   margin-right: 0.5rem;
+
 }
 
 /* remove padding inside iframe - not working */
