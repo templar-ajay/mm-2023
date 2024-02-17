@@ -7,6 +7,7 @@ import Dropdown from "../common/Dropdown";
 import Image from "next/image";
 import { getLanguageName, getURLPrefix } from "@/utils/stringUtils";
 import { linkFromDocument } from "@/utils/LinkUtils";
+import { PersistQueryParamsLink } from "../CustomLink/PersistQueryParams";
 
 const Footer = (props) => {
   // const origin = window?.location?.origin ? window.location.origin + "/" : "";
@@ -77,7 +78,7 @@ const Footer = (props) => {
                             {!name_of_this_block?.length ? (
                               <></>
                             ) : (
-                              <Link
+                              <PersistQueryParamsLink
                                 rel="noopener noreferrer"
                                 key={i + Math.random().toString()}
                                 href={
@@ -92,7 +93,7 @@ const Footer = (props) => {
                                 <LocalTypography variant="item1">
                                   {RichText.render(name_of_this_block)}
                                 </LocalTypography>
-                              </Link>
+                              </PersistQueryParamsLink>
                             )}
                           </div>
                         )

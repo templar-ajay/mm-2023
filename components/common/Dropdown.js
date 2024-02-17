@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { MdExpandMore as ChevronDownIcon } from "react-icons/md";
 import Link from "next/link";
+import { PersistQueryParamsLink } from "../CustomLink/PersistQueryParams";
 
 export default function Dropdown({ name, menuItems }) {
   function classNames(...classes) {
@@ -34,7 +35,7 @@ export default function Dropdown({ name, menuItems }) {
             {menuItems.map((item) => (
               <Menu.Item>
                 {({ active }) => (
-                  <Link
+                  <PersistQueryParamsLink
                     href={item.path}
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
@@ -42,7 +43,7 @@ export default function Dropdown({ name, menuItems }) {
                     )}
                   >
                     {item.title}
-                  </Link>
+                  </PersistQueryParamsLink>
                 )}
               </Menu.Item>
             ))}

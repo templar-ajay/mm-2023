@@ -4,6 +4,8 @@ import { linkFromDocument } from "@/utils/LinkUtils";
 import { RichText } from "prismic-reactjs";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
+// import Link from "next/link";
+import { PersistQueryParamsLink } from "@/components/CustomLink/PersistQueryParams";
 import Link from "next/link";
 import MobileMenu from "../../../public/icons/mobile_menu.svg";
 import MobileCloseMenu from "../../../public/icons/close_btn.svg";
@@ -44,7 +46,7 @@ const DropdownMenu = ({ menuItems = [] }) => {
                   // .filter(({ the_link }) => the_link.link_type == "Web")
                   .map(({ label, small_label, the_link }, i) => (
                     <Menu.Item key={label[0]?.text + i}>
-                      <Link
+                      <PersistQueryParamsLink
                         rel="noopener noreferrer"
                         href={
                           the_link.url
@@ -60,7 +62,7 @@ const DropdownMenu = ({ menuItems = [] }) => {
                         <span className="text-sm tablet:text-md">
                           {RichText.render(small_label)}
                         </span>
-                      </Link>
+                      </PersistQueryParamsLink>
                     </Menu.Item>
                   ))}
               </div>

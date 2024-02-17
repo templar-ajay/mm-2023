@@ -3,6 +3,10 @@ import * as prismicNext from "@prismicio/next";
 
 const repositoryName = process.env.PRISMIC_REPOSITORY_NAME;
 const accessToken = process.env.PRISMIC_ACCESS_TOKEN;
+if (!repositoryName)
+  throw Error("environment variable missing: PRISMIC_REPOSITORY_NAME");
+if (!accessToken)
+  throw Error("environment variable missing: PRISMIC_ACCESS_TOKEN");
 export const apiEndpoint = `https://${repositoryName}.cdn.prismic.io/api/v2`;
 
 const PrismicClient = (config = {}) => {

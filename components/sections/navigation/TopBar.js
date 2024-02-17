@@ -3,6 +3,7 @@ import { RichText } from "prismic-reactjs";
 import { usePathname } from "next/navigation";
 import Button from "../../common/Button";
 import Image from "next/image";
+import { PersistQueryParamsLink } from "@/components/CustomLink/PersistQueryParams";
 
 const TopBar = ({ navigationItems }) => {
   const currentPath = usePathname();
@@ -13,7 +14,7 @@ const TopBar = ({ navigationItems }) => {
       className="items-center w-full justify-between flex mr-1 mb-0 "
     >
       <div className="block mm-logo-div cursor-pointer">
-        <Link
+        <PersistQueryParamsLink
           href={
             currentPath.startsWith("/es/") || currentPath === "/es"
               ? "/es"
@@ -28,7 +29,7 @@ const TopBar = ({ navigationItems }) => {
             width={navigationItems.logo_header.dimensions.width}
             height={navigationItems.logo_header.dimensions.height}
           />
-        </Link>
+        </PersistQueryParamsLink>
       </div>
 
       <Button
