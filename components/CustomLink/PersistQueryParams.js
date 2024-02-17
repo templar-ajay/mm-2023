@@ -2,22 +2,20 @@
 
 import Link from "next/link";
 import { useRouter } from "next/router";
-const PersistQueryParamsLink = ({ href, ...params }) => {
+const PersistQueryParamsLink = ({ href, ...props }) => {
   const router = useRouter();
+  const { pathname, query } = router;
 
-  const queryParams = router.query;
-  console.log("route query params", queryParams);
-  console.log("hello world");
+  // Merge the current query parameters with any additional parameters
+  const mergedQuery = { ...query, ...props.query };
 
-  let queryParamsString = "";
-  let i = 0;
-  for (const [key, value] of Object.entries(queryParams)) {
-    queryParamsString += (i ? "&" : "?") + key + "=" + value;
-    i++;
-  }
+  // Construct the final href with merged query parameters
+  const finalHref = {
+    pathname: href,
+    query: mergedQuery
+  };
 
-  console.log("route query params string", queryParamsString);
-  return <Link href={href + queryParamsString} {...params} />;
+  return <Link href={finalHref} {...props} />;
 };
 
 export { PersistQueryParamsLink };
