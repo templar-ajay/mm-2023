@@ -2,6 +2,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
+import { PersistQueryParamsLink } from "../CustomLink/PersistQueryParams";
 
 const Button = ({
   targetBlank = true,
@@ -43,7 +44,7 @@ const Button = ({
           </a>
         </div>
       ) : (
-        <Link
+        <PersistQueryParamsLink
           target={targetBlank ? "_blank" : ""}
           href={
             href != "javascript:void(0)"
@@ -67,7 +68,7 @@ const Button = ({
               </span>
             </div>
           </div>
-        </Link>
+        </PersistQueryParamsLink>
       )}
     </>
   );

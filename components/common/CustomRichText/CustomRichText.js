@@ -3,6 +3,7 @@ import { ImageEnlargedStyles } from "./CustomRichTextStyles";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import { linkFromDocument } from "@/utils/LinkUtils";
+import { PersistQueryParamsPrismicNextLink } from "@/components/CustomLink/PersistQueryParams";
 
 const components = {
   image: (props) => {
@@ -30,19 +31,19 @@ const components = {
 
     if (linkType === "Document") {
       return (
-        <PrismicNextLink
+        <PersistQueryParamsPrismicNextLink
           key={key}
           href={linkFromDocument(lang, uid)}
           target="_blank"
         >
           {text}
-        </PrismicNextLink>
+        </PersistQueryParamsPrismicNextLink>
       );
     } else if (linkType === "Web") {
       return (
-        <PrismicNextLink key={key} href={url} target="_blank">
+        <PersistQueryParamsPrismicNextLink key={key} href={url} target="_blank">
           {text}
-        </PrismicNextLink>
+        </PersistQueryParamsPrismicNextLink>
       );
     }
   }
