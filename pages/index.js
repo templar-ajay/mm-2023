@@ -67,11 +67,7 @@ export async function getServerSideProps({ previewData }) {
   try {
     const client = PrismicClient({ previewData });
     const [landingPageData, navigation, footer, settings] = await Promise.all([
-      client.getByUID(
-        "landing_page",
-        "marketing-medico-para-doctores-y-clinicas.",
-        { lang: "en-us" }
-      ),
+      client.getByUID("landing_page", "home", { lang: "en-us" }),
       client.getByType("navigation", { lang: "en-us" }),
       client.getByType("footer", { lang: "en-us" }),
       client.getByType("settings", { lang: "en-us" })
