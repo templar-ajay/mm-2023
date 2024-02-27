@@ -13,6 +13,7 @@ export default function SessionEstrategica({ data, lang }) {
               <iframe
                 src="https://api.leadconnectorhq.com/widget/survey/zz0n1CnJ3qifljz6v19G"
                 // style="border:none;width:100%;"
+                loading="eager"
                 scrolling="no"
                 id="zz0n1CnJ3qifljz6v19G"
                 title="Muhammad - This is the One to Modify"
@@ -22,6 +23,7 @@ export default function SessionEstrategica({ data, lang }) {
               <iframe
                 src="https://api.leadconnectorhq.com/widget/survey/3Mi570kyp3ORRidHHPMl"
                 // style="border:none;width:100%;"
+                loading="eager"
                 scrolling="no"
                 id="3Mi570kyp3ORRidHHPMl"
                 title="Strategy Session - English"
