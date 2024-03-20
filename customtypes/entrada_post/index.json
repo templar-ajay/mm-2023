@@ -1,0 +1,73 @@
+{
+  "id": "entrada_post",
+  "label": "Entrada Post",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "URL",
+          "placeholder": "La URL"
+        }
+      },
+      "page_tittle": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading6",
+          "label": "Título Página",
+          "placeholder": "Tittle"
+        }
+      },
+      "h1_de_la_pagina": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "H1 de la página",
+          "placeholder": "H1 de la página"
+        }
+      },
+      "content": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true,
+          "label": "Content"
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {},
+          "choices": {
+            "text": {
+              "type": "Slice",
+              "fieldset": "Text",
+              "description": "A rich text section",
+              "icon": "text_fields",
+              "non-repeat": {},
+              "repeat": {}
+            }
+          }
+        }
+      }
+    },
+    "SEO": {
+      "seo_titulo": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Titulo"
+        }
+      },
+      "seo_descripcion": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Descripción"
+        }
+      }
+    }
+  },
+  "status": false,
+  "format": "custom"
+}

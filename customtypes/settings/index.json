@@ -1,0 +1,43 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "favicon": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Favicon"
+        }
+      },
+      "background_images_array": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Image"
+              }
+            }
+          },
+          "label": "Background Images Array"
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {},
+          "choices": {}
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

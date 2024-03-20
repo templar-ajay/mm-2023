@@ -11,7 +11,7 @@ const PageLayout = ({
   settings,
   BackgroundWrapper
 }) => {
-  console.log("Settings", settings);
+  // console.log("Settings", settings);
   return (
     <div>
       <SeoBlock {...seoData} />

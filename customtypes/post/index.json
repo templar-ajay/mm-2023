@@ -1,0 +1,180 @@
+{
+  "id": "post",
+  "label": "Post",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "Title",
+          "placeholder": "Blog post title..."
+        }
+      },
+      "release_date": {
+        "type": "Date",
+        "config": {
+          "label": "Release Date"
+        }
+      },
+      "author": {
+        "type": "Link",
+        "config": {
+          "select": "document",
+          "label": "Author",
+          "placeholder": "Link to an author document"
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {},
+          "choices": {
+            "text": {
+              "type": "Slice",
+              "fieldset": "Text",
+              "description": "A rich text section",
+              "icon": "text_fields",
+              "non-repeat": {
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item",
+                    "allowTargetBlank": true,
+                    "label": "Text",
+                    "placeholder": "Enter your text..."
+                  }
+                }
+              },
+              "repeat": {}
+            },
+            "quote": {
+              "type": "Slice",
+              "fieldset": "Quote",
+              "description": "A featured quote",
+              "icon": "format_quote",
+              "non-repeat": {
+                "quote": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph,strong,em",
+                    "label": "quote",
+                    "placeholder": "Enter quote..."
+                  }
+                }
+              },
+              "repeat": {}
+            },
+            "image": {
+              "type": "Slice",
+              "fieldset": "Image",
+              "description": "An image with optional caption",
+              "icon": "image",
+              "non-repeat": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {},
+                    "thumbnails": [],
+                    "label": "Image"
+                  }
+                },
+                "caption": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph,strong,em,hyperlink",
+                    "allowTargetBlank": true,
+                    "label": "Caption",
+                    "placeholder": "Optional image caption..."
+                  }
+                }
+              },
+              "repeat": {}
+            },
+            "pricing_table": {
+              "type": "Slice",
+              "fieldset": "Pricing Table",
+              "description": "Display a list of pricing plans",
+              "icon": "attach_money",
+              "display": "grid",
+              "non-repeat": {
+                "eyebrow_headline": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Eyebrow Headline",
+                    "placeholder": "Pricing plans"
+                  }
+                },
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading2",
+                    "label": "Title",
+                    "placeholder": "Choose the plan"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph,strong,em,hyperlink",
+                    "allowTargetBlank": true,
+                    "label": "Description",
+                    "placeholder": "Choose the version that works for you ..."
+                  }
+                }
+              },
+              "repeat": {
+                "plan_title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading3",
+                    "label": "Plan title",
+                    "placeholder": "Simple, Gold, Premium..."
+                  }
+                },
+                "price_option": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "heading4",
+                    "label": "Price Option",
+                    "placeholder": "Free, $19, Contact us..."
+                  }
+                },
+                "features": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "list-item",
+                    "label": "Features",
+                    "placeholder": "A list of features using bullet list"
+                  }
+                },
+                "call_to_action": {
+                  "type": "Link",
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Call To Action",
+                    "placeholder": "Link to Signup / More info...",
+                    "select": null
+                  }
+                },
+                "call_to_action_text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph",
+                    "label": "Call To Action Text",
+                    "placeholder": "Start your free trial"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "status": false,
+  "format": "custom"
+}

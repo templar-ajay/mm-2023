@@ -12,7 +12,7 @@ export default function Home({
   videoTestimonials,
   settings
 }) {
-  console.log({ landingPageData, navigation, footer, videoTestimonials });
+  // console.log({ landingPageData, navigation, footer, videoTestimonials });
   // if (!landingPageData) return <Error />;
   const { body, seo_title, seo_description, seo_icon, seo_url, html_code } =
     landingPageData.data;

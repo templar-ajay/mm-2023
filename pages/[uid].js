@@ -13,13 +13,13 @@ export default function RootPages({
   videoTestimonials,
   settings
 }) {
-  console.log("landingPageData", {
-    landingPageData,
-    navigation,
-    footer,
-    videoTestimonials,
-    settings
-  });
+  // console.log("landingPageData", {
+  //   landingPageData,
+  //   navigation,
+  //   footer,
+  //   videoTestimonials,
+  //   settings
+  // });
 
   const currentLang = {
     lang: landingPageData.lang,

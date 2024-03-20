@@ -14,7 +14,7 @@ const BlogsPage = ({
   pageSize,
   settings
 }) => {
-  console.log({ blogs, totalPageCount, navigation, footerData });
+  // console.log({ blogs, totalPageCount, navigation, footerData });
   const seo = {
     seo_title: blogListingPage.data.seo_title,
     seo_description: blogListingPage.data.seo_description,
@@ -77,7 +77,7 @@ export async function getServerSideProps({ query, previewData }) {
     client.getByType("settings", { lang: "en-us" }),
     client.getByType("blog_listing", { lang: "en-us" })
   ]);
-  console.log("found footer", footer);
+  // console.log("found footer", footer);
 
   return {
     props: {

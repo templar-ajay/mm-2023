@@ -68,11 +68,6 @@ export default function Document() {
           content="oj47j8b5zs6sk0nnnmil05csbcry5a"
         ></meta>
 
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-
         <script
           async
           defer

@@ -1,0 +1,105 @@
+{
+  "id": "page",
+  "label": "Post",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "fecha": {
+        "type": "Date",
+        "config": {
+          "label": "Fecha",
+          "placeholder": "date"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "URL",
+          "placeholder": "Slug"
+        }
+      },
+      "h1_de_la_pagina": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "H1 de la página"
+        }
+      },
+      "imagen_del_post": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Imagen del Post"
+        }
+      },
+      "url_-_video": {
+        "type": "Link",
+        "config": {
+          "allowTargetBlank": true,
+          "label": "URL - Video",
+          "placeholder": "Si esta página tiene video, poner aquí la URL",
+          "select": null
+        }
+      },
+      "summary": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true,
+          "label": "summary",
+          "placeholder": "Resumen del artículo (obligatorio)"
+        }
+      },
+      "table_of_content": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading6",
+          "label": "Table of Content",
+          "placeholder": "Tabla de Contenidos"
+        }
+      },
+      "content": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true,
+          "label": "Content"
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": {},
+          "choices": {
+            "text": {
+              "type": "Slice",
+              "fieldset": "Text",
+              "description": "A rich text section",
+              "icon": "text_fields",
+              "non-repeat": {},
+              "repeat": {}
+            }
+          }
+        }
+      }
+    },
+    "SEO": {
+      "seo_title": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Título"
+        }
+      },
+      "seo_description": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Descripción"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

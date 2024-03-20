@@ -1,0 +1,41 @@
+{
+  "id": "blog_listing",
+  "label": "Blog Listing",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em",
+          "label": "Heading"
+        }
+      },
+      "sub_heading": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,strong,em,hyperlink",
+          "label": "sub heading"
+        }
+      }
+    },
+    "SEO": {
+      "seo_title": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em",
+          "label": "SEO Title"
+        }
+      },
+      "seo_description": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em",
+          "label": "SEO Description"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

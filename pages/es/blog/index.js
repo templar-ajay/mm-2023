@@ -15,7 +15,7 @@ const BlogsPage = ({
   settings
 }) => {
   const blogListingPage = blogListingPageData.results[0];
-  console.log({ blogs, totalPageCount, navigation, footerData });
+  // console.log({ blogs, totalPageCount, navigation, footerData });
   const seo = {
     seo_title: blogListingPage.data.seo_title,
     seo_description: blogListingPage.data.seo_description,

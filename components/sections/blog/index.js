@@ -16,7 +16,7 @@ export default function BlogListing({
   pageSize,
   language
 }) {
-  console.log("blog listing data", data);
+  // console.log("blog listing data", data);
   const heading = data.data.heading;
   const subHeading = data.data.sub_heading;
   return (

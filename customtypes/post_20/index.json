@@ -1,0 +1,110 @@
+{
+  "id": "post_20",
+  "label": "Post 2.0 (Sin Uso Al Final Mejor Usar el primero)",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "URL",
+          "placeholder": "Slug (aquí va la url)"
+        }
+      },
+      "h1_de_la_pagina": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "H1 de la página"
+        }
+      },
+      "imagen_del_post": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Imagen del Post"
+        }
+      },
+      "url_-_video": {
+        "type": "Link",
+        "config": {
+          "allowTargetBlank": true,
+          "label": "URL - Video",
+          "placeholder": "Si esta página tiene video, poner aquí la URL",
+          "select": null
+        }
+      },
+      "summary": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true,
+          "label": "Summary",
+          "placeholder": "Resumen del artículo (obligatorio)"
+        }
+      },
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice zone",
+        "config": {
+          "labels": null,
+          "choices": {
+            "contenido": {
+              "type": "Slice",
+              "fieldset": "Contenido",
+              "description": "Contenido Introducción",
+              "icon": "content_paste",
+              "display": "list",
+              "non-repeat": {},
+              "repeat": {
+                "contenido": {
+                  "type": "StructuredText",
+                  "config": {
+                    "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                    "allowTargetBlank": true,
+                    "label": "Contenido"
+                  }
+                }
+              }
+            },
+            "imagen": {
+              "type": "Slice",
+              "fieldset": "Imagen",
+              "description": "Imagen",
+              "icon": "image",
+              "display": "list",
+              "non-repeat": {},
+              "repeat": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {},
+                    "thumbnails": [],
+                    "label": "Image"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SEO": {
+      "seo_titulo": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Título"
+        }
+      },
+      "seo_descripcion": {
+        "type": "Text",
+        "config": {
+          "label": "SEO Descripción"
+        }
+      }
+    }
+  },
+  "status": false,
+  "format": "custom"
+}

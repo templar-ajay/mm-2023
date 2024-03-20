@@ -8,6 +8,7 @@ import Features from "../sections/home-page/features/Features";
 import Team from "../sections/our-team/Team";
 import IframeButton from "../common/iframeButton";
 import SessionEstrategica from "../common/SessionEstrategica/SessionEstrategica";
+import Iframe from "../common/iFrame/Iframe";
 
 export default function useComponentResolver({
   data,
@@ -16,6 +17,9 @@ export default function useComponentResolver({
   currentLang
 }) {
   const key = index + data?.slice_type;
+  if (data?.slice_type == "iframe") {
+    console.log("data of iframe", data);
+  }
   const junk = {
     hero_landing: <Hero data={data} key={key} />,
     content_with_image: (
@@ -36,7 +40,8 @@ export default function useComponentResolver({
         key={index + "book_a_session"}
         lang={currentLang}
       />
-    )
+    ),
+    iframe: <Iframe data={data} key={key} />
   };
 
   return junk[data.slice_type] || <></>;

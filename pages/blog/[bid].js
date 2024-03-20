@@ -10,14 +10,14 @@ export default function BlogId({
   footer: footerData,
   settings
 }) {
-  console.log(
-    "blogPageData",
-    blogPageData,
-    "navigation",
-    navigation,
-    "footerData",
-    footerData
-  );
+  // console.log(
+  //   "blogPageData",
+  //   blogPageData,
+  //   "navigation",
+  //   navigation,
+  //   "footerData",
+  //   footerData
+  // );
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
   const { seo_title, seo_description, seo_icon, seo_url } = blogPageData.data;

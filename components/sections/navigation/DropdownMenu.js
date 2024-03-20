@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 
 const DropdownMenu = ({ menuItems = [] }) => {
   const currentPath = usePathname();
-  console.log("menu items", menuItems);
+  // console.log("menu items", menuItems);
 
   return (
     <Menu as="div" className="inline-block text-left">

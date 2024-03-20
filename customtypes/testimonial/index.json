@@ -1,0 +1,46 @@
+{
+  "id": "testimonial",
+  "label": "Testimonial",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "image_of_review": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Image of Review"
+        }
+      },
+      "name_of_reviewer": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "heading3",
+          "label": "Name of Reviewer"
+        }
+      },
+      "description_of_review": {
+        "type": "StructuredText",
+        "config": {
+          "single": "paragraph,strong,em",
+          "label": "Description of review"
+        }
+      },
+      "cta_to_watch_video": {
+        "type": "Text",
+        "config": {
+          "label": "CTA to watch video"
+        }
+      },
+      "video_popup": {
+        "type": "Link",
+        "config": {
+          "label": "Video Popup",
+          "select": null
+        }
+      }
+    }
+  },
+  "status": false,
+  "format": "custom"
+}

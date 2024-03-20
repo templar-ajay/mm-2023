@@ -1,0 +1,10 @@
+{
+  "id": "video_reviews",
+  "label": "Video Reviews",
+  "repeatable": true,
+  "json": {
+    "Main": {}
+  },
+  "status": false,
+  "format": "custom"
+}

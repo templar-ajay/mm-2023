@@ -13,13 +13,13 @@ export default function EsRootPages({
   videoTestimonials,
   settings
 }) {
-  console.log("landing page data", {
-    landingPageData,
-    navigation,
-    footer,
-    videoTestimonials,
-    settings
-  });
+  // console.log("landing page data", {
+  //   landingPageData,
+  //   navigation,
+  //   footer,
+  //   videoTestimonials,
+  //   settings
+  // });
   const router = useRouter();
   const { asPath } = router;
   if (router.isFallback) return <>Loading...</>;

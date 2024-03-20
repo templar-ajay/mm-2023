@@ -1,0 +1,85 @@
+{
+  "id": "navigation",
+  "label": "Header",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "logo_header": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Logo Header"
+        }
+      },
+      "call_us_now_text": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "Call Us Now Text"
+        }
+      },
+      "call_us_now_phone": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "Call us now Phone"
+        }
+      },
+      "menu_items": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "label": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label": "Label"
+              }
+            },
+            "small_label": {
+              "type": "StructuredText",
+              "config": {
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                "label": "Small Label"
+              }
+            },
+            "the_link": {
+              "type": "Link",
+              "config": {
+                "label": "The Link",
+                "select": null
+              }
+            }
+          },
+          "label": "Menu items"
+        }
+      },
+      "socials_networks": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "link_to_social": {
+              "type": "Link",
+              "config": {
+                "label": "Link to Social",
+                "select": null
+              }
+            },
+            "icon_social": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Icon Social"
+              }
+            }
+          },
+          "label": "Socials Networks"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

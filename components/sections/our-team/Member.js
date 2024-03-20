@@ -3,7 +3,7 @@ import { RichText } from "prismic-reactjs";
 import Image from "next/image";
 
 const Member = ({ name, image, position }) => {
-  console.log("member", image);
+  // console.log("member", image);
   return (
     <div>
       <div className="text-center text-gray-500 dark:text-gray-400 ">

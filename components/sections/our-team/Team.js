@@ -3,7 +3,7 @@ import Member from "./Member";
 import { RichText } from "prismic-reactjs";
 
 const Team = ({ data }) => {
-  console.log(`team data`, data);
+  // console.log(`team data`, data);
 
   return (
     <div>

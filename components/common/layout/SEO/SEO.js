@@ -19,8 +19,8 @@ const SeoBlock = ({
       ? seo_description
       : seo_description && seo_description[0]?.text;
 
-  console.log("html code", html_code);
-  console.log("html rich text", html_rich_text);
+  // console.log("html code", html_code);
+  // console.log("html rich text", html_rich_text);
   return (
     <Head>
       <title>{seoTitle || "Medical Marketing"}</title>

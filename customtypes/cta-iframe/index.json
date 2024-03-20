@@ -1,0 +1,31 @@
+{
+  "id": "cta-iframe",
+  "label": "CTA-iframe",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "embed_link": {
+        "type": "Embed",
+        "config": {
+          "label": "Embed Link"
+        }
+      },
+      "below_text": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,strong,em",
+          "label": "below text"
+        }
+      },
+      "after_cta": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,strong,em",
+          "label": "After CTA"
+        }
+      }
+    }
+  },
+  "status": false,
+  "format": "custom"
+}

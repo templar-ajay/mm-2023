@@ -1,0 +1,26 @@
+{
+  "id": "testimonials",
+  "label": "Testimonials",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "all_testimonials_content_relationship": {
+        "type": "Link",
+        "config": {
+          "select": "document",
+          "customtypes": ["testimonials_all_of_th"],
+          "label": "All Testimonials Content Relationship"
+        }
+      },
+      "all__testimonials": {
+        "type": "Link",
+        "config": {
+          "label": "All  Testimonials",
+          "select": null
+        }
+      }
+    }
+  },
+  "status": false,
+  "format": "custom"
+}

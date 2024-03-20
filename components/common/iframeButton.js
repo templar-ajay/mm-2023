@@ -7,7 +7,7 @@ import { RichText } from "prismic-reactjs";
 
 const IframeButton = ({ data }) => {
   const { iframe, after_cta, small_image_above_cta } = data.primary;
-  console.log("iframeButton data", data);
+  // console.log("iframeButton data", data);
   const path = usePathname();
   const commonStyle = `h-fit min-h-[38px] min-w-[110px] rounded-md p-[1px] cursor-pointer`;
   const widthStyle = `w-full largeTablet:w-fit`;

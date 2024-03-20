@@ -13,13 +13,13 @@ export default function EsHome({
   videoTestimonials,
   settings
 }) {
-  console.log(
-    "landing page data",
-    landingPageData,
-    navigation,
-    footer,
-    videoTestimonials
-  );
+  // console.log(
+  //   "landing page data",
+  //   landingPageData,
+  //   navigation,
+  //   footer,
+  //   videoTestimonials
+  // );
   if (!landingPageData) return <Error />;
   const { body, seo_title, seo_description, seo_icon, seo_url } =
     landingPageData.data;
