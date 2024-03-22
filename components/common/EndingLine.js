@@ -10,7 +10,7 @@ const EndingLine = ({ ImageData }) => {
     <div className="w-full flex px-1 largeTablet:px-6 mb-0">
       <div
         ref={ref}
-        className="relative flex-1 bg-gradient-to-b border-b-0 border-l-0 border-r-[#A428BC] border-t-[#A428BC] border h-[100px] mobile_480:h-[200px] w-full to-gray-800"
+        className="relative flex-1 bg-gradient-to-b border-b-0 border-l-0 border-r-[#A428BC] border-t-[#A428BC] border h-[80px] mobile_480:h-[160px] w-full to-gray-800"
       >
         <motion.img
           loading="lazy"
