@@ -15,9 +15,13 @@ const Member = ({ name, image, position }) => {
           alt={image.alt}
         />
         <h3 className="mb-1 text-2xl font-bold tracking-tight text-textPrimary">
-          <a href="#">{RichText.render(name)}</a>
+          <a href="#" translate="no">
+            {RichText.render(name)}
+          </a>
         </h3>
-        <div className="text-mm_primary">{RichText.render(position)}</div>
+        <div className="text-mm_primary" translate="no">
+          {RichText.render(position)}
+        </div>
       </div>
     </div>
   );
