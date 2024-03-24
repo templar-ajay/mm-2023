@@ -29,7 +29,7 @@ const IframeButton = ({ data }) => {
                 >
                   <span className="font-bold text-sm leading-[1] text-[#FEF8F4] flex h-full ">
                     <div
-                      className="flex flex-col mt-2 h-full w-[500px]"
+                      className="flex flex-col mt-2 h-full w-full max-w-2xl mobile_480:w-[460px]"
                       style={{ minHeight: "70px" }}
                     >
                       <Typography
